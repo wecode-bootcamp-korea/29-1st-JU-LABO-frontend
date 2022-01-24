@@ -1,0 +1,10 @@
+$bg-dark: #595959;
+$text: #333;
+$bg-light: #f5f8f6;
+$border: #ebebeb;
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
