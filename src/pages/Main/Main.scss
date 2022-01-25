@@ -1,1 +1,239 @@
-@import '../../styles/constant.scss';
+@import '../../styles/constant';
+@import url('https://fonts.googleapis.com/css2?family=Cutive&family=Playfair+Display:ital@0;1&family=Source+Sans+Pro:wght@400;700&display=swap');
+
+// max-width: 1190px
+// padding left right 125px
+
+@mixin max-1190px {
+  max-width: 1190px;
+  margin: 0 auto;
+}
+
+@mixin sectionBox {
+  border: 1px $border solid;
+  width: calc(100% - 250px);
+  max-width: 1190px;
+  margin: 0 125px;
+  padding: 33px;
+
+  h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  h2 {
+    font-family: 'Cutive Mono', monospace;
+    margin-bottom: 46px;
+    line-height: 1.2em;
+  }
+}
+
+.Main {
+  color: $text;
+  background-color: $bg-light;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .MainBanner {
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    width: 100vw;
+    aspect-ratio: 10 / 3;
+    overflow: hidden;
+    background-color: #000;
+
+    .LeftArrow {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      opacity: 0.5;
+      z-index: 100;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .RightArrow {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      opacity: 0.5;
+      z-index: 100;
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .Slide {
+      width: 100%;
+      opacity: 0.7;
+      transition: 800ms ease-in;
+
+      .SliderImage {
+        width: 100%;
+      }
+
+      &.Active {
+        opacity: 1;
+        transition: 800ms ease-in;
+      }
+    }
+  }
+
+  .Seasons {
+    @include sectionBox();
+
+    .SeasonsCardContainer {
+      display: flex;
+      justify-content: space-between;
+
+      .SeasonsCard {
+        width: 23%;
+        overflow: hidden;
+        text-decoration: none;
+        color: $text;
+        transition: 200ms ease-in-out;
+
+        &:hover {
+          transform: scale(103%);
+        }
+
+        .SeasonsCardImage {
+          padding-bottom: 100%;
+          margin-bottom: 14px;
+          background-size: cover;
+          background-position-x: center;
+          background-position-y: center;
+          background-repeat: no-repeat;
+          filter: saturate(70%);
+
+          &.Spring {
+            background-image: url('https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+          }
+          &.Summer {
+            background-image: url('https://images.unsplash.com/photo-1517016006573-2eefaa2f5b63?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
+          }
+          &.Autumn {
+            background-image: url('https://images.unsplash.com/photo-1508264165352-258db2ebd59b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
+          }
+          &.Winter {
+            background-image: url('https://images.unsplash.com/photo-1487424439918-bc6b5bef0380?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2233&q=80');
+          }
+        }
+
+        h3 {
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          margin-bottom: 8px;
+        }
+
+        h4 {
+          font-family: 'Cutive Mono', monospace;
+          font-size: 12px;
+          line-height: 1.2em;
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+
+  .Brewery {
+    @include sectionBox();
+    border-top: none;
+
+    .BreweryContainer {
+      display: flex;
+      justify-content: space-between;
+
+      .BreweryList {
+        width: 50%;
+
+        .BreweryItem {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 15px 20px;
+          border-top: 1px $border solid;
+          opacity: 0.3;
+          transition: 200ms ease-in-out;
+
+          &:last-child {
+            border-bottom: 1px $border solid;
+          }
+
+          .fa-chevron-right {
+            opacity: 0;
+            pointer-events: none;
+          }
+
+          &.Active {
+            opacity: 1;
+
+            & > .fa-chevron-right {
+              opacity: 1;
+              transition: 600ms ease-in-out;
+            }
+          }
+
+          &:hover {
+            opacity: 1;
+          }
+
+          .BreweryTitle {
+            pointer-events: none;
+
+            h3 {
+              font-family: 'Source Sans Pro', sans-serif;
+              font-weight: 700;
+              font-size: 16px;
+              margin-bottom: 4px;
+              pointer-events: none;
+            }
+
+            h4 {
+              font-family: 'Cutive Mono', monospace;
+              font-size: 14px;
+              line-height: 1.2em;
+              pointer-events: none;
+            }
+          }
+        }
+      }
+
+      .BreweryImageWrap {
+        width: 40%;
+        margin-right: 24px;
+        overflow: hidden;
+
+        .BreweryImage {
+          width: 100%;
+          margin-bottom: 22px;
+        }
+
+        .BreweryDescription {
+          font-family: 'Cutive Mono', monospace;
+          font-size: 13px;
+          line-height: 1.2em;
+        }
+      }
+    }
+  }
+}
