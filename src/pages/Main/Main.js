@@ -55,6 +55,8 @@ const Main = () => {
         ))}
       </section>
 
+      <div className="blankDiv" />
+
       <section className="Seasons">
         <h1>THEMES</h1>
         <h2>
@@ -116,15 +118,33 @@ const Main = () => {
             })}
           </ul>
           <div className="BreweryImageWrap">
-            <img
-              className="BreweryImage"
-              src={BREWERY_DATA[brewerySelect].image}
-            />
-            <p className="BreweryDescription">
-              {BREWERY_DATA[brewerySelect].description}
-            </p>
+            {BREWERY_DATA.map((brewery, index) => (
+              <div
+                className={
+                  index === brewerySelect
+                    ? 'BreweryImageBlock Active'
+                    : 'BreweryImageBlock'
+                }
+                key={index}
+              >
+                <img
+                  className="BreweryImage"
+                  src={brewery.image}
+                  alt={brewery.brewery}
+                />
+                <p className="BreweryDescription">
+                  {BREWERY_DATA[brewerySelect].description}
+                </p>
+              </div>
+            ))}
           </div>
         </article>
+      </section>
+
+      <section className="souls">
+        <h1>SOULS</h1>
+        <h2>Lab Technicians at Work</h2>
+        <article className="" />
       </section>
     </main>
   );
