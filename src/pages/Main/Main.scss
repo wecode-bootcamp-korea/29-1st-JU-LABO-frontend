@@ -257,17 +257,16 @@
     .soulsSlider {
       .soulsSliderWrap {
         display: flex;
-        // overflow: hidden;
-        border: 1px hotpink solid;
+        overflow: hidden;
+        // border: 1px hotpink solid;
 
         .soulsSliderImageWrap {
           display: flex;
           align-items: center;
           width: 100%;
           flex-shrink: 0;
-
           filter: grayscale(100%);
-          transition: transform tra 500ms ease-in-out;
+          // transition: transform 500ms ease-in-out;
 
           .soulsSliderImage1-2 {
             display: flex;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { SLIDER_DATA, BREWERY_DATA, SOUL_DATA } from './MAIN_DATA';
 import './Main.scss';
@@ -9,16 +9,17 @@ const Main = () => {
 
   const [brewerySelect, setBrewerySelect] = useState(0);
 
-  const [currCarousel, setCurrCarousel] = useState(0);
+  const [currCarousel, setCurrCarousel] = useState(1);
   const [carouselTransition, setCarouselTransition] = useState(
     'transform 500ms ease-in-out'
   );
 
-  // let soulData = SOUL_DATA;
-  const [soulData, setSoulData] = useState(SOUL_DATA);
-  // const soulsSliderLength = SOUL_DATA.length;
-
-  const [mousePositionX, setMousePositionX] = useState();
+  const soulSliderLength = SOUL_DATA.length;
+  const soulDataStart = SOUL_DATA[0];
+  const soulDataEnd = SOUL_DATA[soulSliderLength - 1];
+  let modifiedSoulData = [soulDataEnd, ...SOUL_DATA, soulDataStart];
+  const [soulData, setSoulData] = useState(modifiedSoulData);
+  const soulSliderRef = useRef(null);
 
   useEffect(() => {
     const mainBannerTime = setTimeout(() => {
@@ -39,11 +40,30 @@ const Main = () => {
   };
 
   const nextSoulsCarousel = () => {
-    setCurrCarousel(currCarousel + 1);
+    const newCurr = currCarousel + 1;
+    setCurrCarousel(newCurr);
+
+    if (newCurr === soulSliderLength + 1) {
+      replaceToN(1);
+    }
+    setCarouselTransition('transform 500ms ease-in-out');
   };
 
   const prevSoulsCarousel = () => {
-    setCurrCarousel(currCarousel - 1);
+    const newCurr = currCarousel - 1;
+    setCurrCarousel(newCurr);
+
+    if (newCurr === 0) {
+      replaceToN(soulSliderLength);
+    }
+    setCarouselTransition('transform 500ms ease-in-out');
+  };
+
+  const replaceToN = n => {
+    setTimeout(() => {
+      setCarouselTransition('');
+      setCurrCarousel(n);
+    }, 500);
   };
 
   return (
@@ -168,8 +188,9 @@ const Main = () => {
                 key={index}
                 style={{
                   transform: `translateX(-${currCarousel * 100}%)`,
-                  transition: carouselTransition,
+                  transition: `${carouselTransition}`,
                 }}
+                ref={soulSliderRef}
               >
                 <img className="soulsSliderImage1" src={data[0]} />
                 <div className="soulsSliderImage1-2">
