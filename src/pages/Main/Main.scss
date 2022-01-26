@@ -6,6 +6,7 @@
 
 @mixin sectionBox {
   border: 1px $border solid;
+  border-top: none;
   width: calc(100% - 250px);
   max-width: 1190px;
   margin: 0 125px;
@@ -35,7 +36,6 @@
 
   .blankDiv {
     @include sectionBox();
-    border-bottom: none;
     height: 80px;
   }
 
@@ -50,42 +50,32 @@
     overflow: hidden;
     background-color: #000;
 
-    .LeftArrow {
+    .mainBannerTitle {
       position: absolute;
       top: 50%;
-      left: 5%;
-      transform: translateY(-50%);
-      font-size: 40px;
-      opacity: 0.5;
-      z-index: 100;
-      cursor: pointer;
-      user-select: none;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      z-index: 1000;
 
-      &:hover {
-        opacity: 1;
+      h1 {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 16px;
       }
-    }
 
-    .RightArrow {
-      position: absolute;
-      top: 50%;
-      right: 5%;
-      transform: translateY(-50%);
-      font-size: 40px;
-      opacity: 0.5;
-      z-index: 100;
-      cursor: pointer;
-      user-select: none;
-
-      &:hover {
-        opacity: 1;
+      h2 {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
       }
     }
 
     .Slide {
       width: 100%;
       opacity: 0.7;
-      transition: 800ms ease-in;
+      transition: opacity 800ms ease-in;
 
       .SliderImage {
         width: 100%;
@@ -93,7 +83,7 @@
 
       &.Active {
         opacity: 1;
-        transition: 800ms ease-in;
+        transition: opacity 800ms ease-in;
       }
     }
   }
@@ -113,7 +103,11 @@
         transition: 200ms ease-in-out;
 
         &:hover {
-          transform: scale(103%);
+          transform: scale(102%);
+
+          & > .SeasonsCardImage {
+            filter: saturate(100%);
+          }
         }
 
         .SeasonsCardImage {
@@ -173,12 +167,14 @@
           align-items: center;
           padding: 15px 20px;
           border-top: 1px $border solid;
+          border-bottom: 1px $border solid;
           opacity: 0.3;
           transition: 200ms ease-in-out;
           cursor: pointer;
+          margin-top: -1px;
 
-          &:last-child {
-            border-bottom: 1px $border solid;
+          &:first-child {
+            margin-top: 0px;
           }
 
           .fa-chevron-right {
@@ -256,18 +252,18 @@
 
     .soulsSlider {
       position: relative;
+      margin-bottom: 40px;
 
       .soulsSliderWrap {
         display: flex;
         overflow: hidden;
-        // border: 1px hotpink solid;
 
         .soulsSliderImageWrap {
           display: flex;
           align-items: center;
           width: 100%;
           flex-shrink: 0;
-          filter: grayscale(100%);
+          filter: saturate(60%);
           // transition: transform 500ms ease-in-out;
 
           .soulsSliderImage1-2 {
@@ -300,10 +296,17 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background-color: rgba($color: #fff, $alpha: 0.3);
-        padding: 10px 12px;
-        font-size: 24px;
+        background-color: rgba($color: #fff, $alpha: 0);
+        padding: 10px 14px 10px 10px;
+        font-size: 18px;
+        color: rgba($color: #000000, $alpha: 0.3);
         cursor: pointer;
+
+        &:hover {
+          color: rgba($color: #000000, $alpha: 0.6);
+          background-color: rgba($color: #fff, $alpha: 0.5);
+          transition: background-color 200ms ease;
+        }
       }
 
       .fa-chevron-right {
@@ -311,10 +314,97 @@
         top: 50%;
         right: 0;
         transform: translateY(-50%);
-        background-color: rgba($color: #fff, $alpha: 0.3);
-        padding: 10px 12px;
-        font-size: 24px;
+        background-color: rgba($color: #fff, $alpha: 0);
+        padding: 10px 10px 10px 14px;
+        font-size: 18px;
+        color: rgba($color: #000000, $alpha: 0.3);
         cursor: pointer;
+
+        &:hover {
+          color: rgba($color: #000000, $alpha: 0.6);
+          background-color: rgba($color: #fff, $alpha: 0.5);
+          transition: background-color 200ms ease;
+        }
+      }
+    }
+  }
+
+  // .collections {
+  //   @include sectionBox();
+  //   border-top: none;
+  //   text-align: center;
+
+  //   .collectionsCardContainer {
+  //     display: flex;
+  //     width: 100%;
+  //     flex-wrap: wrap;
+  //     justify-content: center;
+  //     text-align: start;
+  //     margin-top: 12px;
+
+  //     .collectionsCard {
+  //       width: 33%;
+  //       padding: 0 60px;
+  //       margin-bottom: 18px;
+  //     }
+  //   }
+  // }
+
+  .collections {
+    position: relative;
+    border: 1px $border solid;
+    border-top: none;
+    width: calc(100% - 250px);
+    max-width: 1190px;
+    margin: 0 125px;
+    height: 80vh;
+    // display: flex;
+    // background-image: url('https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80');
+    // background-size: cover;
+    // background-position-x: center;
+    // background-position-y: center;
+
+    .collectionsBg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 200;
+      object-fit: cover;
+    }
+    .collectionsItemsWrap {
+      position: absolute;
+      z-index: 300;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+
+      .collectionsItem {
+        width: 25%;
+        padding: 33px;
+        padding: 50px;
+        color: white;
+        opacity: 0.6;
+        transition: 300ms ease-in-out;
+
+        &.active {
+          opacity: 1;
+          transition: 300ms ease-in-out;
+          padding-bottom: 80px;
+        }
+
+        h1 {
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 20px;
+          font-weight: 700;
+          margin-bottom: 16px;
+          pointer-events: none;
+        }
+
+        p {
+          font-family: 'Cutive Mono', monospace;
+          line-height: 1.2em;
+          pointer-events: none;
+        }
       }
     }
   }

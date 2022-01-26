@@ -75,3 +75,89 @@ export const SOUL_DATA = [
     '/images/Main/IMG_7192.jpg',
   ],
 ];
+
+// export const COLLECTIONS_DATA = [
+//   {
+//     linkTo: '/',
+//     linkClassName: 'collectionsCard',
+//     imgSrc:
+//       'https://images.unsplash.com/photo-1562601579-599dec564e06?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+//     imgClassName: 'wine',
+//     title: 'WINE',
+//     paragraph: 'Beautiful wine bottles with personalized labels.',
+//   },
+//   {
+//     linkTo: '/',
+//     linkClassName: 'collectionsCard',
+//     imgSrc:
+//       'https://images.unsplash.com/photo-1509157774525-cd6d6cbf00a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
+//     imgClassName: 'spirit',
+//     title: 'SPIRITS',
+//     paragraph: 'Perfect for party night shots.',
+//   },
+//   {
+//     linkTo: '/',
+//     linkClassName: 'collectionsCard',
+//     imgSrc:
+//       'https://images.unsplash.com/photo-1535958636474-b021ee887b13?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+//     imgClassName: 'beer',
+//     title: 'BEER',
+//     paragraph:
+//       'Good old bottle of beer after a long day, makes all worries go away.',
+//   },
+//   {
+//     linkTo: '/',
+//     linkClassName: 'collectionsCard',
+//     imgSrc:
+//       'https://images.unsplash.com/photo-1531263539449-56fdf29dfc4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270&q=80',
+//     imgClassName: 'soju',
+//     title: 'SOJU',
+//     paragraph: 'Staple of Korean liquor.',
+//   },
+//   {
+//     linkTo: '/',
+//     linkClassName: 'collectionsCard',
+//     imgSrc:
+//       'https://images.unsplash.com/photo-1541491263892-731bc0c6a2ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+//     imgClassName: 'sake',
+//     title: 'SAKE',
+//     paragraph: 'Imported from the best manufacturers in Japan.',
+//   },
+//   {
+//     linkTo: '/',
+//     linkClassName: 'collectionsCard',
+//     imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/Makgeolli.jpg',
+//     imgClassName: 'makgeolli',
+//     title: 'MAKGEOLLI',
+//     paragraph:
+//       'Connected with old makgeolli breweries all around the peninsula.',
+//   },
+// ];
+
+export const COLLECTIONS_DATA = [
+  {
+    name: 'wine',
+    content: 'Beautiful wine bottles with personalized labels.',
+  },
+  {
+    name: 'beer',
+    content:
+      'Good old bottle of beer after a long day, makes all worries go away.',
+  },
+  {
+    name: 'spirits',
+    content: 'Perfect for party night shots.',
+  },
+  {
+    name: 'sake',
+    content: 'Imported from the best manufacturers in Japan.',
+  },
+];
+
+export const COLLECTIONS_IMG_DATA = {
+  wine: 'https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80',
+  beer: 'https://images.unsplash.com/photo-1612528443702-f6741f70a049?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2080&q=80',
+  spirits:
+    'https://images.unsplash.com/photo-1509157774525-cd6d6cbf00a7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+  sake: 'https://images.unsplash.com/photo-1582204964885-7bc2d62b6917?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
+};

@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { SLIDER_DATA, BREWERY_DATA, SOUL_DATA } from './MAIN_DATA';
+import {
+  SLIDER_DATA,
+  BREWERY_DATA,
+  SOUL_DATA,
+  COLLECTIONS_DATA,
+  COLLECTIONS_IMG_DATA,
+} from './MAIN_DATA';
+import Maincard from './Maincard';
 import './Main.scss';
 
 const Main = () => {
@@ -14,15 +21,8 @@ const Main = () => {
     'transform 500ms ease-in-out'
   );
 
-  const soulSliderLength = SOUL_DATA.length;
-
-  const makeNewDataArray = arr => {
-    const dataStart = arr[0];
-    const dataEnd = arr[arr.length - 1];
-    const modifiedArray = [dataEnd, ...arr, dataStart];
-
-    return modifiedArray;
-  };
+  const [colBgImg, setColBgImg] = useState(COLLECTIONS_IMG_DATA.wine);
+  const [selectedCollection, setSelectedCollection] = useState('wine');
 
   useEffect(() => {
     const mainBannerTime = setTimeout(() => {
@@ -45,8 +45,16 @@ const Main = () => {
   };
 
   // SOULS CAROUSEL
+  const makeNewDataArray = arr => {
+    const dataStart = arr[0];
+    const dataEnd = arr[arr.length - 1];
+    const modifiedArray = [dataEnd, ...arr, dataStart];
+    return modifiedArray;
+  };
 
   const nextSoulsCarousel = () => {
+    const soulSliderLength = SOUL_DATA.length;
+
     const newCurr = currCarousel + 1;
     setCurrCarousel(newCurr);
 
@@ -57,6 +65,8 @@ const Main = () => {
   };
 
   const prevSoulsCarousel = () => {
+    const soulSliderLength = SOUL_DATA.length;
+
     const newCurr = currCarousel - 1;
     setCurrCarousel(newCurr);
 
@@ -73,14 +83,21 @@ const Main = () => {
     }, 500);
   };
 
+  // COLLECTIONS
+
+  const handleCollectionsHover = e => {
+    const name = e.target.getAttribute('name');
+    setColBgImg(COLLECTIONS_IMG_DATA[name]);
+    setSelectedCollection(name);
+  };
+
   return (
     <main className="Main">
       <section className="MainBanner">
-        {/* <i className="fas fa-arrow-circle-left LeftArrow" onClick={prevSlide} />
-        <i
-          className="fas fa-arrow-circle-right RightArrow"
-          onClick={nextSlide}
-        /> */}
+        <div className="mainBannerTitle">
+          <h1>酒 LABO</h1>
+          <h2>YOUR FAVORITE ONLINE LIQUOR STORE</h2>
+        </div>
         {SLIDER_DATA.map((slide, index) => (
           <div
             className={index === currSlide ? 'Slide Active' : 'Slide'}
@@ -210,8 +227,98 @@ const Main = () => {
           <i class="fas fa-chevron-right" onClick={nextSoulsCarousel} />
         </article>
       </section>
+
+      <div className="blankDiv" />
+
+      <section className="collections">
+        <div className="collectionsItemsWrap">
+          {COLLECTIONS_DATA.map((item, index) => (
+            <div
+              key={index}
+              className={
+                selectedCollection === item.name
+                  ? 'collectionsItem active'
+                  : 'collectionsItem'
+              }
+              name={item.name}
+              onMouseEnter={handleCollectionsHover}
+            >
+              <h1>{item.name.toUpperCase()}</h1>
+              <p>{item.content}</p>
+            </div>
+          ))}
+        </div>
+        <img className="collectionsBg" src={colBgImg} />
+      </section>
     </main>
   );
 };
 
 export default Main;
+
+// draggable idea
+// walk state를 따로 만들어서 그걸 translate 값에 더하거나 빼기
+// 특정 수치 이상이면 넘어가게 하여 walk state는 초기화하기
+{
+  /* <div
+            className="collectionsItem"
+            name="wine"
+            onMouseOver={handleCollectionsHover}
+          >
+            <h1>WINE</h1>
+            <p>'Beautiful wine bottles with personalized labels.</p>
+          </div>
+          <div
+            className="collectionsItem"
+            name="beer"
+            onMouseOver={handleCollectionsHover}
+          >
+            <h1>BEER</h1>
+            <p>
+              Good old bottle of beer after a long day, makes all worries go
+              away.
+            </p>
+          </div>
+          <div
+            className="collectionsItem"
+            name="spirits"
+            onMouseOver={handleCollectionsHover}
+          >
+            <h1>SPIRITS</h1>
+            <p>'Perfect for party night shots.'</p>
+          </div>
+          <div
+            className="collectionsItem"
+            name="sake"
+            onMouseOver={handleCollectionsHover}
+          >
+            <h1>SAKE</h1>
+            <p>Imported from the best manufacturers in Japan.</p>
+          </div>
+        </div> */
+}
+
+{
+  /* <section className="collections">
+        <h1>COLLECTIONS</h1>
+        <h2>
+          JU LABO features vast varieties of liquor and aperitivo drinks. Our
+          products are imported from all around the globe by reliable retailers.
+          We ensure all our customers that the products are safely shipped and
+          guaranteed.
+        </h2>
+        <div className="collectionsCardContainer">
+          {COLLECTIONS_DATA.map((card, index) => (
+            <Maincard
+              key={index}
+              linkTo={card.linkTo}
+              linkClassName={card.linkClassName}
+              imgSrc={card.imgSrc}
+              imgClassName={card.imgClassName}
+              title={card.title}
+              paragraph={card.paragraph}
+            />
+          ))}
+        </div>
+      </section> */
+}
