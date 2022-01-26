@@ -26,7 +26,7 @@
   }
 }
 
-.Main {
+.main {
   color: $text;
   background-color: $bg-light;
   font-size: 14px;
@@ -49,7 +49,7 @@
     }
   }
 
-  .MainBanner {
+  .mainBanner {
     position: relative;
     margin: 0;
     width: 100vw;
@@ -79,19 +79,19 @@
       }
     }
 
-    .Slide {
+    .slide {
       display: flex;
       align-content: center;
       width: 100%;
       opacity: 0.7;
       transition: opacity 800ms ease-in;
 
-      .SliderImage {
+      .sliderImage {
         width: 100%;
         object-fit: cover;
       }
 
-      &.Active {
+      &.active {
         height: 100%;
         opacity: 1;
         transition: opacity 800ms ease-in;
@@ -99,14 +99,14 @@
     }
   }
 
-  .Seasons {
+  .seasons {
     @include sectionBox();
 
-    .SeasonsCardContainer {
+    .seasonsCardContainer {
       display: flex;
       justify-content: space-between;
 
-      .SeasonsCard {
+      .seasonsCard {
         width: 23%;
         overflow: hidden;
         text-decoration: none;
@@ -116,12 +116,12 @@
         &:hover {
           transform: scale(102%);
 
-          & > .SeasonsCardImage {
+          & > .seasonsCardImage {
             filter: saturate(100%);
           }
         }
 
-        .SeasonsCardImage {
+        .seasonsCardImage {
           padding-bottom: 100%;
           margin-bottom: 14px;
           background-size: cover;
@@ -130,16 +130,16 @@
           background-repeat: no-repeat;
           filter: saturate(70%);
 
-          &.Spring {
+          &.spring {
             background-image: url('https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
           }
-          &.Summer {
+          &.summer {
             background-image: url('https://images.unsplash.com/photo-1517016006573-2eefaa2f5b63?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
           }
-          &.Autumn {
+          &.autumn {
             background-image: url('https://images.unsplash.com/photo-1508264165352-258db2ebd59b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
           }
-          &.Winter {
+          &.winter {
             background-image: url('https://images.unsplash.com/photo-1487424439918-bc6b5bef0380?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2233&q=80');
           }
         }
@@ -161,18 +161,18 @@
     }
   }
 
-  .Brewery {
+  .brewery {
     @include sectionBox();
     border-top: none;
 
-    .BreweryContainer {
+    .breweryContainer {
       display: flex;
       justify-content: space-between;
 
-      .BreweryList {
+      .breweryList {
         width: 50%;
 
-        .BreweryItem {
+        .breweryItem {
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -193,7 +193,7 @@
             pointer-events: none;
           }
 
-          &.Active {
+          &.active {
             opacity: 1;
 
             & > .fa-chevron-right {
@@ -206,7 +206,7 @@
             opacity: 1;
           }
 
-          .BreweryTitle {
+          .breweryTitle {
             pointer-events: none;
 
             h3 {
@@ -227,28 +227,28 @@
         }
       }
 
-      .BreweryImageWrap {
+      .breweryImageWrap {
         width: 40%;
         margin-right: 24px;
         overflow: hidden;
 
-        .BreweryImageBlock {
+        .breweryImageBlock {
           max-height: 0;
           opacity: 0;
 
-          &.Active {
+          &.active {
             max-height: 1000px;
             opacity: 1;
             transition: opacity 300ms ease-in-out;
           }
         }
 
-        .BreweryImage {
+        .breweryImage {
           width: 100%;
           margin-bottom: 22px;
         }
 
-        .BreweryDescription {
+        .breweryDescription {
           font-family: 'Cutive Mono', monospace;
           font-size: 13px;
           line-height: 1.2em;
@@ -339,27 +339,6 @@
       }
     }
   }
-
-  // .collections {
-  //   @include sectionBox();
-  //   border-top: none;
-  //   text-align: center;
-
-  //   .collectionsCardContainer {
-  //     display: flex;
-  //     width: 100%;
-  //     flex-wrap: wrap;
-  //     justify-content: center;
-  //     text-align: start;
-  //     margin-top: 12px;
-
-  //     .collectionsCard {
-  //       width: 33%;
-  //       padding: 0 60px;
-  //       margin-bottom: 18px;
-  //     }
-  //   }
-  // }
 
   .collections {
     position: relative;

@@ -12,19 +12,17 @@ import './Main.scss';
 
 const Main = () => {
   const [currSlide, setCurrSlide] = useState(0);
-  const mainSliderlength = SLIDER_DATA.length;
   const [brewerySelect, setBrewerySelect] = useState(0);
-
   const [currCarousel, setCurrCarousel] = useState(1);
   const [carouselTransition, setCarouselTransition] = useState(
     'transform 500ms ease-in-out'
   );
-
   const [colBgImg, setColBgImg] = useState(COLLECTIONS_IMG_DATA.wine);
   const [selectedCollection, setSelectedCollection] = useState('wine');
 
   useEffect(() => {
     const mainBannerTime = setTimeout(() => {
+      const mainSliderlength = SLIDER_DATA.length;
       setCurrSlide(currSlide === mainSliderlength - 1 ? 0 : currSlide + 1);
     }, 5000);
 
@@ -32,6 +30,7 @@ const Main = () => {
   });
 
   const nextSlide = () => {
+    const mainSliderlength = SLIDER_DATA.length;
     setCurrSlide(currSlide === mainSliderlength - 1 ? 0 : currSlide + 1);
   };
 
@@ -53,7 +52,6 @@ const Main = () => {
 
   const nextSoulsCarousel = () => {
     const soulSliderLength = SOUL_DATA.length;
-
     const newCurr = currCarousel + 1;
     setCurrCarousel(newCurr);
 
@@ -91,22 +89,22 @@ const Main = () => {
   };
 
   return (
-    <main className="Main">
-      <section className="MainBanner">
+    <main className="main">
+      <section className="mainBanner">
         <div className="mainBannerTitle">
           <h1>酒 LABO</h1>
           <h2>YOUR FAVORITE ONLINE LIQUOR STORE</h2>
         </div>
         {SLIDER_DATA.map((slide, index) => (
           <div
-            className={index === currSlide ? 'Slide Active' : 'Slide'}
+            className={index === currSlide ? 'slide active' : 'slide'}
             key={index}
           >
             {index === currSlide && (
               <img
                 alt="slider"
                 src={slide.image}
-                className="SliderImage"
+                className="sliderImage"
                 onClick={nextSlide}
               />
             )}
@@ -116,36 +114,36 @@ const Main = () => {
 
       <div className="blankDiv" />
 
-      <section className="Seasons">
+      <section className="seasons">
         <h1>THEMES</h1>
         <h2>
           We categorize our choice of beverages in themes of four seasons.
         </h2>
-        <div className="SeasonsCardContainer">
-          <Link to="/main" className="SeasonsCard">
-            <div className="SeasonsCardImage Spring" />
+        <div className="seasonsCardContainer">
+          <Link to="/main" className="seasonsCard">
+            <div className="seasonsCardImage spring" />
             <h3>SPRING</h3>
             <h4>Fresh breeze and floral sweetness, easy to drink.</h4>
           </Link>
-          <Link to="/main" className="SeasonsCard">
-            <div className="SeasonsCardImage Summer" />
+          <Link to="/main" className="seasonsCard">
+            <div className="seasonsCardImage summer" />
             <h3>SUMMER</h3>
             <h4>Scents of summer beach, coconut rum and more</h4>
           </Link>
-          <Link to="/main" className="SeasonsCard">
-            <div className="SeasonsCardImage Autumn" />
+          <Link to="/main" className="seasonsCard">
+            <div className="seasonsCardImage autumn" />
             <h3>AUTUMN</h3>
             <h4>Cozy gatherings around the bonfire.</h4>
           </Link>
-          <Link to="/main" className="SeasonsCard">
-            <div className="SeasonsCardImage Winter" />
+          <Link to="/main" className="seasonsCard">
+            <div className="seasonsCardImage winter" />
             <h3>WINTER</h3>
             <h4>Warm your body up with vin chaud and vodka.</h4>
           </Link>
         </div>
       </section>
 
-      <section className="Brewery">
+      <section className="brewery">
         <h1>BREWERY</h1>
         <h2>
           We host various local breweries of Korea, that are manufacturing
@@ -153,21 +151,21 @@ const Main = () => {
           breweries' efforts and hard work, we can provide fresh beverages at
           all moments.
         </h2>
-        <article className="BreweryContainer">
-          <ul className="BreweryList">
+        <article className="breweryContainer">
+          <ul className="breweryList">
             {BREWERY_DATA.map((brewery, index) => {
               return (
                 <li
                   className={
                     index === brewerySelect
-                      ? 'BreweryItem Active'
-                      : 'BreweryItem'
+                      ? 'breweryItem active'
+                      : 'breweryItem'
                   }
                   key={index}
                   index={index}
                   onClick={handleBreweryClick}
                 >
-                  <div className="BreweryTitle">
+                  <div className="breweryTitle">
                     <h3>{brewery.brewery.toUpperCase()}</h3>
                     <h4>{brewery.location}</h4>
                   </div>
@@ -176,22 +174,22 @@ const Main = () => {
               );
             })}
           </ul>
-          <div className="BreweryImageWrap">
+          <div className="breweryImageWrap">
             {BREWERY_DATA.map((brewery, index) => (
               <div
                 className={
                   index === brewerySelect
-                    ? 'BreweryImageBlock Active'
-                    : 'BreweryImageBlock'
+                    ? 'breweryImageBlock active'
+                    : 'breweryImageBlock'
                 }
                 key={index}
               >
                 <img
-                  className="BreweryImage"
+                  className="breweryImage"
                   src={brewery.image}
                   alt={brewery.brewery}
                 />
-                <p className="BreweryDescription">
+                <p className="breweryDescription">
                   {BREWERY_DATA[brewerySelect].description}
                 </p>
               </div>
@@ -258,70 +256,3 @@ const Main = () => {
 };
 
 export default Main;
-
-// draggable idea
-// walk state를 따로 만들어서 그걸 translate 값에 더하거나 빼기
-// 특정 수치 이상이면 넘어가게 하여 walk state는 초기화하기
-{
-  /* <div
-            className="collectionsItem"
-            name="wine"
-            onMouseOver={handleCollectionsHover}
-          >
-            <h1>WINE</h1>
-            <p>'Beautiful wine bottles with personalized labels.</p>
-          </div>
-          <div
-            className="collectionsItem"
-            name="beer"
-            onMouseOver={handleCollectionsHover}
-          >
-            <h1>BEER</h1>
-            <p>
-              Good old bottle of beer after a long day, makes all worries go
-              away.
-            </p>
-          </div>
-          <div
-            className="collectionsItem"
-            name="spirits"
-            onMouseOver={handleCollectionsHover}
-          >
-            <h1>SPIRITS</h1>
-            <p>'Perfect for party night shots.'</p>
-          </div>
-          <div
-            className="collectionsItem"
-            name="sake"
-            onMouseOver={handleCollectionsHover}
-          >
-            <h1>SAKE</h1>
-            <p>Imported from the best manufacturers in Japan.</p>
-          </div>
-        </div> */
-}
-
-{
-  /* <section className="collections">
-        <h1>COLLECTIONS</h1>
-        <h2>
-          JU LABO features vast varieties of liquor and aperitivo drinks. Our
-          products are imported from all around the globe by reliable retailers.
-          We ensure all our customers that the products are safely shipped and
-          guaranteed.
-        </h2>
-        <div className="collectionsCardContainer">
-          {COLLECTIONS_DATA.map((card, index) => (
-            <Maincard
-              key={index}
-              linkTo={card.linkTo}
-              linkClassName={card.linkClassName}
-              imgSrc={card.imgSrc}
-              imgClassName={card.imgClassName}
-              title={card.title}
-              paragraph={card.paragraph}
-            />
-          ))}
-        </div>
-      </section> */
-}
