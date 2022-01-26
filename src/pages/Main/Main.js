@@ -13,7 +13,6 @@ import './Main.scss';
 const Main = () => {
   const [currSlide, setCurrSlide] = useState(0);
   const mainSliderlength = SLIDER_DATA.length;
-
   const [brewerySelect, setBrewerySelect] = useState(0);
 
   const [currCarousel, setCurrCarousel] = useState(1);
@@ -250,6 +249,10 @@ const Main = () => {
         </div>
         <img className="collectionsBg" src={colBgImg} />
       </section>
+
+      <div className="blankDiv">
+        <img src="/images/julabo_logo.png" />
+      </div>
     </main>
   );
 };

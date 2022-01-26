@@ -70,6 +70,11 @@ export const SOUL_DATA = [
     '/images/Main/IMG_7189.jpg',
   ],
   [
+    '/images/Main/IMG_7196.jpg',
+    '/images/Main/IMG_7197.jpg',
+    '/images/Main/IMG_7198.jpg',
+  ],
+  [
     '/images/Main/IMG_7191.jpg',
     '/images/Main/IMG_7190.jpg',
     '/images/Main/IMG_7192.jpg',

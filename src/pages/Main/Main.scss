@@ -37,14 +37,21 @@
   .blankDiv {
     @include sectionBox();
     height: 80px;
+    text-align: center;
+    position: relative;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+    }
   }
 
   .MainBanner {
     position: relative;
     margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
     width: 100vw;
     aspect-ratio: 10 / 3;
     overflow: hidden;
@@ -73,15 +80,19 @@
     }
 
     .Slide {
+      display: flex;
+      align-content: center;
       width: 100%;
       opacity: 0.7;
       transition: opacity 800ms ease-in;
 
       .SliderImage {
         width: 100%;
+        object-fit: cover;
       }
 
       &.Active {
+        height: 100%;
         opacity: 1;
         transition: opacity 800ms ease-in;
       }
@@ -370,21 +381,25 @@
       height: 100%;
       z-index: 200;
       object-fit: cover;
+      filter: saturate(70%);
     }
     .collectionsItemsWrap {
       position: absolute;
       z-index: 300;
       height: 100%;
       display: flex;
-      align-items: flex-end;
 
       .collectionsItem {
         width: 25%;
+        height: 100%;
         padding: 33px;
         padding: 50px;
         color: white;
         opacity: 0.6;
         transition: 300ms ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
 
         &.active {
           opacity: 1;
