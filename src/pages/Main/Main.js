@@ -1,33 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { SLIDER_DATA, BREWERY_DATA } from './MAIN_DATA';
+import { SLIDER_DATA, BREWERY_DATA, SOUL_DATA } from './MAIN_DATA';
 import './Main.scss';
 
 const Main = () => {
   const [currSlide, setCurrSlide] = useState(0);
+  const mainSliderlength = SLIDER_DATA.length;
+
   const [brewerySelect, setBrewerySelect] = useState(0);
-  const length = SLIDER_DATA.length;
+
+  const [currCarousel, setCurrCarousel] = useState(0);
+  const [carouselTransition, setCarouselTransition] = useState(
+    'transform 500ms ease-in-out'
+  );
+
+  // let soulData = SOUL_DATA;
+  const [soulData, setSoulData] = useState(SOUL_DATA);
+  // const soulsSliderLength = SOUL_DATA.length;
+
+  const [mousePositionX, setMousePositionX] = useState();
 
   useEffect(() => {
     const mainBannerTime = setTimeout(() => {
-      setCurrSlide(currSlide === length - 1 ? 0 : currSlide + 1);
+      setCurrSlide(currSlide === mainSliderlength - 1 ? 0 : currSlide + 1);
     }, 5000);
 
     return () => clearTimeout(mainBannerTime);
   });
 
-  // const prevSlide = () => {
-  //   setCurrSlide(currSlide === 0 ? length - 1 : currSlide - 1);
-  // };
-
   const nextSlide = () => {
-    setCurrSlide(currSlide === length - 1 ? 0 : currSlide + 1);
+    setCurrSlide(currSlide === mainSliderlength - 1 ? 0 : currSlide + 1);
   };
 
   const handleBreweryClick = e => {
     const current = brewerySelect;
     const next = e.target.getAttribute('index');
     setBrewerySelect(brewerySelect + (next - current));
+  };
+
+  const nextSoulsCarousel = () => {
+    setCurrCarousel(currCarousel + 1);
+  };
+
+  const prevSoulsCarousel = () => {
+    setCurrCarousel(currCarousel - 1);
   };
 
   return (
@@ -144,7 +160,26 @@ const Main = () => {
       <section className="souls">
         <h1>SOULS</h1>
         <h2>Lab Technicians at Work</h2>
-        <article className="" />
+        <article className="soulsSlider">
+          <div className="soulsSliderWrap" onClick={nextSoulsCarousel}>
+            {soulData.map((data, index) => (
+              <div
+                className="soulsSliderImageWrap"
+                key={index}
+                style={{
+                  transform: `translateX(-${currCarousel * 100}%)`,
+                  transition: carouselTransition,
+                }}
+              >
+                <img className="soulsSliderImage1" src={data[0]} />
+                <div className="soulsSliderImage1-2">
+                  <img className="soulsSliderImage2" src={data[1]} />
+                  <img className="soulsSliderImage3" src={data[2]} />
+                </div>
+              </div>
+            ))}
+          </div>
+        </article>
       </section>
     </main>
   );

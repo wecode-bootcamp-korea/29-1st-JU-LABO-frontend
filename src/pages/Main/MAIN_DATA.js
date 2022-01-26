@@ -62,3 +62,16 @@ export const BREWERY_DATA = [
       'Who is in for more sweet side of alcohol? Strawberry is just good by itself, but it is better when made into a beverage!',
   },
 ];
+
+export const SOUL_DATA = [
+  [
+    '/images/Main/IMG_7187.jpg',
+    '/images/Main/IMG_7188.jpg',
+    '/images/Main/IMG_7189.jpg',
+  ],
+  [
+    '/images/Main/IMG_7191.jpg',
+    '/images/Main/IMG_7190.jpg',
+    '/images/Main/IMG_7192.jpg',
+  ],
+];
