@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { SLIDER_DATA, BREWERY_DATA, SOUL_DATA } from './MAIN_DATA';
 import './Main.scss';
@@ -15,11 +15,14 @@ const Main = () => {
   );
 
   const soulSliderLength = SOUL_DATA.length;
-  const soulDataStart = SOUL_DATA[0];
-  const soulDataEnd = SOUL_DATA[soulSliderLength - 1];
-  let modifiedSoulData = [soulDataEnd, ...SOUL_DATA, soulDataStart];
-  const [soulData, setSoulData] = useState(modifiedSoulData);
-  const soulSliderRef = useRef(null);
+
+  const makeNewDataArray = arr => {
+    const dataStart = arr[0];
+    const dataEnd = arr[arr.length - 1];
+    const modifiedArray = [dataEnd, ...arr, dataStart];
+
+    return modifiedArray;
+  };
 
   useEffect(() => {
     const mainBannerTime = setTimeout(() => {
@@ -33,11 +36,15 @@ const Main = () => {
     setCurrSlide(currSlide === mainSliderlength - 1 ? 0 : currSlide + 1);
   };
 
+  // BREWERY
+
   const handleBreweryClick = e => {
     const current = brewerySelect;
     const next = e.target.getAttribute('index');
     setBrewerySelect(brewerySelect + (next - current));
   };
+
+  // SOULS CAROUSEL
 
   const nextSoulsCarousel = () => {
     const newCurr = currCarousel + 1;
@@ -181,8 +188,8 @@ const Main = () => {
         <h1>SOULS</h1>
         <h2>Lab Technicians at Work</h2>
         <article className="soulsSlider">
-          <div className="soulsSliderWrap" onClick={nextSoulsCarousel}>
-            {soulData.map((data, index) => (
+          <div className="soulsSliderWrap">
+            {makeNewDataArray(SOUL_DATA).map((data, index) => (
               <div
                 className="soulsSliderImageWrap"
                 key={index}
@@ -190,7 +197,6 @@ const Main = () => {
                   transform: `translateX(-${currCarousel * 100}%)`,
                   transition: `${carouselTransition}`,
                 }}
-                ref={soulSliderRef}
               >
                 <img className="soulsSliderImage1" src={data[0]} />
                 <div className="soulsSliderImage1-2">
@@ -200,6 +206,8 @@ const Main = () => {
               </div>
             ))}
           </div>
+          <i class="fas fa-chevron-left" onClick={prevSoulsCarousel} />
+          <i class="fas fa-chevron-right" onClick={nextSoulsCarousel} />
         </article>
       </section>
     </main>

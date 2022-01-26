@@ -255,6 +255,8 @@
     border-top: none;
 
     .soulsSlider {
+      position: relative;
+
       .soulsSliderWrap {
         display: flex;
         overflow: hidden;
@@ -292,6 +294,27 @@
             }
           }
         }
+      }
+
+      .fa-chevron-left {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba($color: #fff, $alpha: 0.3);
+        padding: 10px 12px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      .fa-chevron-right {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        background-color: rgba($color: #fff, $alpha: 0.3);
+        padding: 10px 12px;
+        font-size: 24px;
+        cursor: pointer;
       }
     }
   }
