@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Maincard from './Maincard';
+import MainSection from './MainSection';
+import ClickList from './ClickList';
 import {
   SLIDER_DATA,
+  SEASONS_DATA,
   BREWERY_DATA,
   SOUL_DATA,
   COLLECTIONS_DATA,
   COLLECTIONS_IMG_DATA,
 } from './MAIN_DATA';
-import Maincard from './Maincard';
 import './Main.scss';
 
 const Main = () => {
-  const [currSlide, setCurrSlide] = useState(0);
+  const [mainBannerSlide, setMainBannerSlide] = useState(0);
   const [brewerySelect, setBrewerySelect] = useState(0);
   const [currCarousel, setCurrCarousel] = useState(1);
   const [carouselTransition, setCarouselTransition] = useState(
@@ -20,18 +22,23 @@ const Main = () => {
   const [colBgImg, setColBgImg] = useState(COLLECTIONS_IMG_DATA.wine);
   const [selectedCollection, setSelectedCollection] = useState('wine');
 
+  // MAIN BANNER
+
   useEffect(() => {
     const mainBannerTime = setTimeout(() => {
       const mainSliderlength = SLIDER_DATA.length;
-      setCurrSlide(currSlide === mainSliderlength - 1 ? 0 : currSlide + 1);
+      setMainBannerSlide(
+        mainBannerSlide === mainSliderlength - 1 ? 0 : mainBannerSlide + 1
+      );
     }, 5000);
-
     return () => clearTimeout(mainBannerTime);
   });
 
   const nextSlide = () => {
     const mainSliderlength = SLIDER_DATA.length;
-    setCurrSlide(currSlide === mainSliderlength - 1 ? 0 : currSlide + 1);
+    setMainBannerSlide(
+      mainBannerSlide === mainSliderlength - 1 ? 0 : mainBannerSlide + 1
+    );
   };
 
   // BREWERY
@@ -97,10 +104,10 @@ const Main = () => {
         </div>
         {SLIDER_DATA.map((slide, index) => (
           <div
-            className={index === currSlide ? 'slide active' : 'slide'}
+            className={index === mainBannerSlide ? 'slide active' : 'slide'}
             key={index}
           >
-            {index === currSlide && (
+            {index === mainBannerSlide && (
               <img
                 alt="slider"
                 src={slide.image}
@@ -114,93 +121,48 @@ const Main = () => {
 
       <div className="blankDiv" />
 
-      <section className="seasons">
-        <h1>THEMES</h1>
-        <h2>
-          We categorize our choice of beverages in themes of four seasons.
-        </h2>
+      <MainSection
+        className="seasons"
+        title="THEMES"
+        desc="We categorize our choice of beverages in themes of four seasons."
+      >
         <div className="seasonsCardContainer">
-          <Link to="/main" className="seasonsCard">
-            <div className="seasonsCardImage spring" />
-            <h3>SPRING</h3>
-            <h4>Fresh breeze and floral sweetness, easy to drink.</h4>
-          </Link>
-          <Link to="/main" className="seasonsCard">
-            <div className="seasonsCardImage summer" />
-            <h3>SUMMER</h3>
-            <h4>Scents of summer beach, coconut rum and more</h4>
-          </Link>
-          <Link to="/main" className="seasonsCard">
-            <div className="seasonsCardImage autumn" />
-            <h3>AUTUMN</h3>
-            <h4>Cozy gatherings around the bonfire.</h4>
-          </Link>
-          <Link to="/main" className="seasonsCard">
-            <div className="seasonsCardImage winter" />
-            <h3>WINTER</h3>
-            <h4>Warm your body up with vin chaud and vodka.</h4>
-          </Link>
+          {SEASONS_DATA.map((card, index) => (
+            <Maincard
+              key={index}
+              linkTo={card.linkTo}
+              linkClassName={card.linkClassName}
+              imgSrc={card.imgSrc}
+              imgClassName={card.imgClassName}
+              title={card.title}
+              paragraph={card.paragraph}
+            />
+          ))}
         </div>
-      </section>
+      </MainSection>
 
-      <section className="brewery">
-        <h1>BREWERY</h1>
-        <h2>
-          We host various local breweries of Korea, that are manufacturing
+      <MainSection
+        className="brewery"
+        title="BREWERY"
+        desc="We host various local breweries of Korea, that are manufacturing
           high-quality beverages with local ingredients. Thanks to the
           breweries' efforts and hard work, we can provide fresh beverages at
-          all moments.
-        </h2>
-        <article className="breweryContainer">
-          <ul className="breweryList">
-            {BREWERY_DATA.map((brewery, index) => {
-              return (
-                <li
-                  className={
-                    index === brewerySelect
-                      ? 'breweryItem active'
-                      : 'breweryItem'
-                  }
-                  key={index}
-                  index={index}
-                  onClick={handleBreweryClick}
-                >
-                  <div className="breweryTitle">
-                    <h3>{brewery.brewery.toUpperCase()}</h3>
-                    <h4>{brewery.location}</h4>
-                  </div>
-                  <i className="fas fa-chevron-right" />
-                </li>
-              );
-            })}
-          </ul>
-          <div className="breweryImageWrap">
-            {BREWERY_DATA.map((brewery, index) => (
-              <div
-                className={
-                  index === brewerySelect
-                    ? 'breweryImageBlock active'
-                    : 'breweryImageBlock'
-                }
-                key={index}
-              >
-                <img
-                  className="breweryImage"
-                  src={brewery.image}
-                  alt={brewery.brewery}
-                />
-                <p className="breweryDescription">
-                  {BREWERY_DATA[brewerySelect].description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </article>
-      </section>
+          all moments."
+      >
+        <ClickList
+          ClickListClassName="breweryContainer"
+          ListClassName="breweryList"
+          data={BREWERY_DATA}
+          selectedState={brewerySelect}
+          onClick={handleBreweryClick}
+        />
+      </MainSection>
 
-      <section className="souls">
-        <h1>SOULS</h1>
-        <h2>Lab Technicians at Work</h2>
+      <MainSection
+        className="souls"
+        title="SOULS"
+        desc="Lab Technicians at Work."
+      >
         <article className="soulsSlider">
           <div className="soulsSliderWrap">
             {makeNewDataArray(SOUL_DATA).map((data, index) => (
@@ -212,10 +174,18 @@ const Main = () => {
                   transition: `${carouselTransition}`,
                 }}
               >
-                <img className="soulsSliderImage1" src={data[0]} />
+                <img alt="image1" className="soulsSliderImage1" src={data[0]} />
                 <div className="soulsSliderImage1-2">
-                  <img className="soulsSliderImage2" src={data[1]} />
-                  <img className="soulsSliderImage3" src={data[2]} />
+                  <img
+                    alt="image2"
+                    className="soulsSliderImage2"
+                    src={data[1]}
+                  />
+                  <img
+                    alt="image3"
+                    className="soulsSliderImage3"
+                    src={data[2]}
+                  />
                 </div>
               </div>
             ))}
@@ -223,7 +193,7 @@ const Main = () => {
           <i class="fas fa-chevron-left" onClick={prevSoulsCarousel} />
           <i class="fas fa-chevron-right" onClick={nextSoulsCarousel} />
         </article>
-      </section>
+      </MainSection>
 
       <div className="blankDiv" />
 
@@ -245,11 +215,11 @@ const Main = () => {
             </div>
           ))}
         </div>
-        <img className="collectionsBg" src={colBgImg} />
+        <img alt="collections" className="collectionsBg" src={colBgImg} />
       </section>
 
       <div className="blankDiv">
-        <img src="/images/julabo_logo.png" />
+        <img alt="julabo logo" src="/images/julabo_logo.png" />
       </div>
     </main>
   );

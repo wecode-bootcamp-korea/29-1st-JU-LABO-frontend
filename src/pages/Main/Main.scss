@@ -116,31 +116,15 @@
         &:hover {
           transform: scale(102%);
 
-          & > .seasonsCardImage {
+          & .seasonsCardWrap > img {
             filter: saturate(100%);
           }
         }
 
-        .seasonsCardImage {
-          padding-bottom: 100%;
-          margin-bottom: 14px;
-          background-size: cover;
-          background-position-x: center;
-          background-position-y: center;
-          background-repeat: no-repeat;
-          filter: saturate(70%);
-
-          &.spring {
-            background-image: url('https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
-          }
-          &.summer {
-            background-image: url('https://images.unsplash.com/photo-1517016006573-2eefaa2f5b63?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
-          }
-          &.autumn {
-            background-image: url('https://images.unsplash.com/photo-1508264165352-258db2ebd59b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80');
-          }
-          &.winter {
-            background-image: url('https://images.unsplash.com/photo-1487424439918-bc6b5bef0380?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2233&q=80');
+        .seasonsCardWrap {
+          img {
+            margin-bottom: 14px;
+            filter: saturate(70%);
           }
         }
 
@@ -172,7 +156,7 @@
       .breweryList {
         width: 50%;
 
-        .breweryItem {
+        .clickListItem {
           display: flex;
           justify-content: space-between;
           align-items: center;
@@ -232,7 +216,7 @@
         margin-right: 24px;
         overflow: hidden;
 
-        .breweryImageBlock {
+        .clickListImageBlock {
           max-height: 0;
           opacity: 0;
 
@@ -243,7 +227,7 @@
           }
         }
 
-        .breweryImage {
+        .clickListImage {
           width: 100%;
           margin-bottom: 22px;
         }
@@ -348,11 +332,6 @@
     max-width: 1190px;
     margin: 0 125px;
     height: 80vh;
-    // display: flex;
-    // background-image: url('https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2072&q=80');
-    // background-size: cover;
-    // background-position-x: center;
-    // background-position-y: center;
 
     .collectionsBg {
       position: absolute;
@@ -362,6 +341,7 @@
       object-fit: cover;
       filter: saturate(70%);
     }
+
     .collectionsItemsWrap {
       position: absolute;
       z-index: 300;

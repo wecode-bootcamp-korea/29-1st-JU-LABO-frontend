@@ -21,6 +21,45 @@ export const SLIDER_DATA = [
   },
 ];
 
+export const SEASONS_DATA = [
+  {
+    linkTo: '/',
+    linkClassName: 'seasonsCard',
+    imgSrc:
+      'https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    imgClassName: 'seasonsCardWrap',
+    title: 'SPRING',
+    paragraph: 'Fresh breeze and floral sweetness, easy to drink.',
+  },
+  {
+    linkTo: '/',
+    linkClassName: 'seasonsCard',
+    imgSrc:
+      'https://images.unsplash.com/photo-1517016006573-2eefaa2f5b63?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+    imgClassName: 'seasonsCardWrap',
+    title: 'SUMMER',
+    paragraph: 'Scents of summer beach, coconut rum and more',
+  },
+  {
+    linkTo: '/',
+    linkClassName: 'seasonsCard',
+    imgSrc:
+      'https://images.unsplash.com/photo-1508264165352-258db2ebd59b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80',
+    imgClassName: 'seasonsCardWrap',
+    title: 'AUTUMN',
+    paragraph: 'Cozy gatherings around the bonfire.',
+  },
+  {
+    linkTo: '/',
+    linkClassName: 'seasonsCard',
+    imgSrc:
+      'https://images.unsplash.com/photo-1487424439918-bc6b5bef0380?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2233&q=80',
+    imgClassName: 'seasonsCardWrap',
+    title: 'WINTER',
+    paragraph: 'Warm your body up with vin chaud and vodka.',
+  },
+];
+
 export const BREWERY_DATA = [
   {
     brewery: 'Gangnam Beer Brewery',
