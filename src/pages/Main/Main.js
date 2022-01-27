@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Maincard from './Maincard';
-import MainSection from './MainSection';
+import Maincard from './Maincard/Maincard';
+import MainSection from './MainSection/MainSection';
 import ClickList from './ClickList/ClickList';
 import {
   SLIDER_DATA,
@@ -63,7 +63,7 @@ const Main = () => {
     setCurrCarousel(newCurr);
 
     if (newCurr === soulSliderLength + 1) {
-      replaceToN(1);
+      moveToNthSlide(1);
     }
     setCarouselTransition('transform 500ms ease-in-out');
   };
@@ -75,12 +75,12 @@ const Main = () => {
     setCurrCarousel(newCurr);
 
     if (newCurr === 0) {
-      replaceToN(soulSliderLength);
+      moveToNthSlide(soulSliderLength);
     }
     setCarouselTransition('transform 500ms ease-in-out');
   };
 
-  const replaceToN = n => {
+  const moveToNthSlide = n => {
     setTimeout(() => {
       setCarouselTransition('');
       setCurrCarousel(n);
@@ -190,8 +190,8 @@ const Main = () => {
               </div>
             ))}
           </div>
-          <i class="fas fa-chevron-left" onClick={prevSoulsCarousel} />
-          <i class="fas fa-chevron-right" onClick={nextSoulsCarousel} />
+          <i className="fas fa-chevron-left" onClick={prevSoulsCarousel} />
+          <i className="fas fa-chevron-right" onClick={nextSoulsCarousel} />
         </article>
       </MainSection>
 

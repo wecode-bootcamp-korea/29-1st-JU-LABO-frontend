@@ -1,6 +1,6 @@
 import React from 'react';
-import ClickListItem from './ClickListItem';
-import ClickImages from './ClickImages';
+import ClickListItem from './ClickListItem/ClickListItem';
+import ClickImages from './ClickImages/ClickImages';
 import './ClickList.scss';
 
 const ClickList = ({
