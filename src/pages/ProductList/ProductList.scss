@@ -76,7 +76,7 @@
         right: 0;
         width: calc(100% + 1px);
         margin-top: 6px;
-        padding: 5px 0 6px 20px;
+        padding: 5px 0 6px;
         background-color: #fff;
         text-align: start;
         font-family: 'Source Sans Pro', sans-serif;
@@ -94,7 +94,8 @@
         }
 
         li {
-          margin-bottom: 7px;
+          padding-bottom: 7px;
+          padding-left: 20px;
         }
       }
     }
@@ -136,6 +137,17 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 20px;
+
+      .filterStart {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 400;
+      }
+
+      .filterItem {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 300;
+        margin-right: 6px;
+      }
 
       button {
         font-size: 15px;

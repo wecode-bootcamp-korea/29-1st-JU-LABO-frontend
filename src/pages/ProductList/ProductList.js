@@ -4,36 +4,65 @@ import './ProductList.scss';
 
 const ProductList = () => {
   const [isfilterModalActive, setIsfilterModalActive] = useState(false);
-  const handleFilterClick = () => {
-    setIsfilterModalActive(!isfilterModalActive);
+  const [selectedFilter, setSelectedFilter] = useState([]);
+  const handleFilterBtnClick = e => {
+    if (
+      e.target.getAttribute('class') === 'filterBtn' ||
+      e.target.getAttribute('class') === 'filterBtn active'
+    ) {
+      setIsfilterModalActive(!isfilterModalActive);
+    }
+  };
+
+  const handleFilterItemClick = e => {
+    const newFilter = e.target.getAttribute('name');
+    if (!selectedFilter.includes(newFilter)) {
+      setSelectedFilter(prev => [...prev, newFilter]);
+    }
+  };
+
+  const eraseAllFilters = () => {
+    setSelectedFilter([]);
   };
 
   return (
     <div className="ProductList">
       <header className="header">
-        <div class="headerTitle">
+        <div className="headerTitle">
           <nav className="breadCrumbs">Home / Spring</nav>
           <h1>Spring</h1>
         </div>
         <button
           type="button"
           className={isfilterModalActive ? 'filterBtn active' : 'filterBtn'}
-          onClick={handleFilterClick}
+          onClick={handleFilterBtnClick}
         >
           <em>Type:</em>
-          <i class="fas fa-plus" />
+          <i className="fas fa-plus" />
           <aside
             className={
               isfilterModalActive ? 'filterModal active' : 'filterModal'
             }
           >
             <ul>
-              <li>Wine</li>
-              <li>Beer</li>
-              <li>Spirits</li>
-              <li>Soju</li>
-              <li>Sake</li>
-              <li>Makgeolli</li>
+              <li name="Wine" onClick={handleFilterItemClick}>
+                Wine
+              </li>
+              <li name="Beer" onClick={handleFilterItemClick}>
+                Beer
+              </li>
+              <li name="Spirits" onClick={handleFilterItemClick}>
+                Spirits
+              </li>
+              <li name="Soju" onClick={handleFilterItemClick}>
+                Soju
+              </li>
+              <li name="Sake" onClick={handleFilterItemClick}>
+                Sake
+              </li>
+              <li name="Makgeolli" onClick={handleFilterItemClick}>
+                Makgeolli
+              </li>
             </ul>
           </aside>
         </button>
@@ -47,8 +76,19 @@ const ProductList = () => {
       </div>
       <main className="list">
         <aside className="listFilter">
-          <div>{}</div>
-          <button type="button">Clear all</button>
+          <div class="filters">
+            {selectedFilter.length > 0 && (
+              <span className="filterStart">Filter: &nbsp;</span>
+            )}
+            {selectedFilter.map((filter, index) => (
+              <span className="filterItem" key={index}>
+                {filter}
+              </span>
+            ))}
+          </div>
+          <button type="button" onClick={eraseAllFilters}>
+            Clear all
+          </button>
         </aside>
         <ul className="listContainer">
           <ProductCard />
