@@ -100,8 +100,6 @@
   }
 
   .seasons {
-    @include sectionBox();
-
     .seasonsCardContainer {
       display: flex;
       justify-content: space-between;
@@ -146,103 +144,10 @@
   }
 
   .brewery {
-    @include sectionBox();
     border-top: none;
-
-    .breweryContainer {
-      display: flex;
-      justify-content: space-between;
-
-      .breweryList {
-        width: 50%;
-
-        .clickListItem {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 15px 20px;
-          border-top: 1px $border solid;
-          border-bottom: 1px $border solid;
-          opacity: 0.3;
-          transition: 200ms ease-in-out;
-          cursor: pointer;
-          margin-top: -1px;
-
-          &:first-child {
-            margin-top: 0px;
-          }
-
-          .fa-chevron-right {
-            opacity: 0;
-            pointer-events: none;
-          }
-
-          &.active {
-            opacity: 1;
-
-            & > .fa-chevron-right {
-              opacity: 1;
-              transition: 600ms ease-in-out;
-            }
-          }
-
-          &:hover {
-            opacity: 1;
-          }
-
-          .breweryTitle {
-            pointer-events: none;
-
-            h3 {
-              font-family: 'Source Sans Pro', sans-serif;
-              font-weight: 700;
-              font-size: 16px;
-              margin-bottom: 4px;
-              pointer-events: none;
-            }
-
-            h4 {
-              font-family: 'Cutive Mono', monospace;
-              font-size: 14px;
-              line-height: 1.2em;
-              pointer-events: none;
-            }
-          }
-        }
-      }
-
-      .breweryImageWrap {
-        width: 40%;
-        margin-right: 24px;
-        overflow: hidden;
-
-        .clickListImageBlock {
-          max-height: 0;
-          opacity: 0;
-
-          &.active {
-            max-height: 1000px;
-            opacity: 1;
-            transition: opacity 300ms ease-in-out;
-          }
-        }
-
-        .clickListImage {
-          width: 100%;
-          margin-bottom: 22px;
-        }
-
-        .breweryDescription {
-          font-family: 'Cutive Mono', monospace;
-          font-size: 13px;
-          line-height: 1.2em;
-        }
-      }
-    }
   }
 
   .souls {
-    @include sectionBox();
     border-top: none;
 
     .soulsSlider {

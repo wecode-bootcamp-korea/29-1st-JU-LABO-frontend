@@ -3,7 +3,7 @@ import './MainSection.scss';
 
 const MainSection = ({ className, title, desc, children }) => {
   return (
-    <section className={'mainSection ' + className}>
+    <section className={'MainSection ' + className}>
       <h1>{title}</h1>
       <h2>{desc}</h2>
       {children}

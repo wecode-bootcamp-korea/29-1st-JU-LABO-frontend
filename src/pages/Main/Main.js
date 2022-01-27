@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Maincard from './Maincard';
 import MainSection from './MainSection';
-import ClickList from './ClickList';
+import ClickList from './ClickList/ClickList';
 import {
   SLIDER_DATA,
   SEASONS_DATA,

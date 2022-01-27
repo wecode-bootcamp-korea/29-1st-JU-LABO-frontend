@@ -1,6 +1,7 @@
 import React from 'react';
 import ClickListItem from './ClickListItem';
 import ClickImages from './ClickImages';
+import './ClickList.scss';
 
 const ClickList = ({
   ClickListClassName,
@@ -10,29 +11,26 @@ const ClickList = ({
   onClick,
 }) => {
   return (
-    <article className={ClickListClassName}>
-      <ul className={ListClassName}>
+    <article className={'ClickList ' + ClickListClassName}>
+      <ul className={'list ' + ListClassName}>
         {data.map((brewery, index) => {
           return (
             <ClickListItem
               key={index}
               selectedState={selectedState}
               index={index}
-              liClassName="clickListItem"
               onClick={onClick}
               data={brewery}
             />
           );
         })}
       </ul>
-      <div className="breweryImageWrap">
+      <div className="clickListImageWrap">
         {data.map((brewery, index) => (
           <ClickImages
             key={index}
             index={index}
             selectedState={selectedState}
-            wrapClassName="clickListImageBlock"
-            imgClassName="clickListImage"
             data={brewery}
           />
         ))}
