@@ -16,11 +16,9 @@ const ProductDetail = () => {
     fetch('http://10.58.0.180:8000/products')
       .then(res => res.json())
       .then(result => {
-        console.log(result);
         setImgs(result.products[0].image_urls);
         setSelected(result.products[0].image_urls[0]);
       })
-      .catch(err => console.log(err));
   }, []);
   return (
     <section className="productDetail">
