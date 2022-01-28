@@ -18,7 +18,7 @@ const ProductDetail = () => {
       .then(result => {
         setImgs(result.products[0].image_urls);
         setSelected(result.products[0].image_urls[0]);
-      })
+      });
   }, []);
   return (
     <section className="productDetail">
