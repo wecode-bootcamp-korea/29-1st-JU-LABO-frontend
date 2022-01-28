@@ -1,23 +1,23 @@
 @import '../../../styles/constant';
 
 .MainSection {
-  border: 1px $border solid;
-  border-top: none;
   width: calc(100% - 250px);
   max-width: 1190px;
   margin: 0 125px;
   padding: 33px;
+  border: 1px $border solid;
+  border-top: none;
 
   h1 {
+    margin-bottom: 16px;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 16px;
   }
 
   h2 {
-    font-family: 'Cutive Mono', monospace;
     margin-bottom: 46px;
+    font-family: 'Cutive Mono', monospace;
     line-height: 1.2em;
   }
 }

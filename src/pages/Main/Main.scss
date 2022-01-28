@@ -1,61 +1,58 @@
 @import '../../styles/constant';
 @import url('https://fonts.googleapis.com/css2?family=Cutive&family=Playfair+Display:ital@0;1&family=Source+Sans+Pro:wght@400;700&display=swap');
 
-// max-width: 1190px
-// padding left right 125px
-
 @mixin sectionBox {
-  border: 1px $border solid;
-  border-top: none;
   width: calc(100% - 250px);
   max-width: 1190px;
   margin: 0 125px;
   padding: 33px;
+  border: 1px $border solid;
+  border-top: none;
 
   h1 {
+    margin-bottom: 16px;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    margin-bottom: 16px;
   }
 
   h2 {
-    font-family: 'Cutive Mono', monospace;
     margin-bottom: 46px;
+    font-family: 'Cutive Mono', monospace;
     line-height: 1.2em;
   }
 }
 
 .main {
-  color: $text;
-  background-color: $bg-light;
-  font-size: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: $text;
+  background-color: $bg-light;
+  font-size: 14px;
 
   .blankDiv {
     @include sectionBox();
+    position: relative;
     height: 80px;
     text-align: center;
-    position: relative;
 
     img {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       width: 100px;
+      transform: translate(-50%, -50%);
     }
   }
 
   .mainBanner {
     position: relative;
-    margin: 0;
     width: 100vw;
     aspect-ratio: 10 / 3;
-    overflow: hidden;
+    margin: 0;
     background-color: #000;
+    overflow: hidden;
 
     .mainBannerTitle {
       position: absolute;
@@ -67,10 +64,10 @@
       z-index: 1000;
 
       h1 {
+        margin-bottom: 16px;
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 28px;
         font-weight: 700;
-        margin-bottom: 16px;
       }
 
       h2 {
@@ -106,9 +103,9 @@
 
       .seasonsCard {
         width: 23%;
-        overflow: hidden;
         text-decoration: none;
         color: $text;
+        overflow: hidden;
         transition: 200ms ease-in-out;
 
         &:hover {
@@ -127,17 +124,17 @@
         }
 
         h3 {
+          margin-bottom: 8px;
           font-family: 'Source Sans Pro', sans-serif;
           font-size: 14px;
           font-weight: 700;
-          margin-bottom: 8px;
         }
 
         h4 {
+          margin-bottom: 4px;
           font-family: 'Cutive Mono', monospace;
           font-size: 12px;
           line-height: 1.2em;
-          margin-bottom: 4px;
         }
       }
     }
@@ -161,10 +158,9 @@
         .soulsSliderImageWrap {
           display: flex;
           align-items: center;
-          width: 100%;
           flex-shrink: 0;
+          width: 100%;
           filter: saturate(60%);
-          // transition: transform 500ms ease-in-out;
 
           .soulsSliderImage1-2 {
             display: flex;
@@ -173,8 +169,8 @@
 
           .soulsSliderImage {
             &1 {
-              margin-right: 12px;
               width: 60%;
+              margin-right: 12px;
               object-fit: contain;
             }
 
@@ -195,11 +191,11 @@
       .fa-chevron-left {
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
-        background-color: rgba($color: #fff, $alpha: 0);
         padding: 10px 14px 10px 10px;
-        font-size: 18px;
         color: rgba($color: #000000, $alpha: 0.3);
+        background-color: rgba($color: #fff, $alpha: 0);
+        font-size: 18px;
+        transform: translateY(-50%);
         cursor: pointer;
 
         &:hover {
@@ -213,11 +209,11 @@
         position: absolute;
         top: 50%;
         right: 0;
-        transform: translateY(-50%);
-        background-color: rgba($color: #fff, $alpha: 0);
         padding: 10px 10px 10px 14px;
-        font-size: 18px;
+        background-color: rgba($color: #fff, $alpha: 0);
         color: rgba($color: #000000, $alpha: 0.3);
+        font-size: 18px;
+        transform: translateY(-50%);
         cursor: pointer;
 
         &:hover {
@@ -231,19 +227,19 @@
 
   .collections {
     position: relative;
-    border: 1px $border solid;
-    border-top: none;
     width: calc(100% - 250px);
     max-width: 1190px;
-    margin: 0 125px;
     height: 80vh;
+    margin: 0 125px;
+    border: 1px $border solid;
+    border-top: none;
 
     .collectionsBg {
       position: absolute;
       width: 100%;
       height: 100%;
-      z-index: 200;
       object-fit: cover;
+      z-index: 200;
       filter: saturate(70%);
     }
 
@@ -254,28 +250,27 @@
       display: flex;
 
       .collectionsItem {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         width: 25%;
         height: 100%;
-        padding: 33px;
         padding: 50px;
         color: white;
         opacity: 0.6;
         transition: 300ms ease-in-out;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
 
         &.active {
+          padding-bottom: 80px;
           opacity: 1;
           transition: 300ms ease-in-out;
-          padding-bottom: 80px;
         }
 
         h1 {
+          margin-bottom: 16px;
           font-family: 'Source Sans Pro', sans-serif;
           font-size: 20px;
           font-weight: 700;
-          margin-bottom: 16px;
           pointer-events: none;
         }
 
