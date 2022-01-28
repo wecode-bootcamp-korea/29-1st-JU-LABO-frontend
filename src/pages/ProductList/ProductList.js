@@ -3,6 +3,19 @@ import ProductCard from './ProductCard/ProductCard';
 import './ProductList.scss';
 
 const ProductList = () => {
+  const [productData, setProductData] = useState([]);
+
+  useEffect(() => {
+    fetch(
+      'http://10.58.2.198:8002/subcategory?category_id=1&subcategory_id=2&type=20'
+    )
+      .then(res => res.json())
+      .then(data => {
+        setProductData(data.result);
+        console.log(data.result);
+      });
+  }, []);
+
   const [isfilterModalActive, setIsfilterModalActive] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState([]);
   const handleFilterBtnClick = e => {
@@ -45,23 +58,17 @@ const ProductList = () => {
             }
           >
             <ul>
-              <li name="Wine" onClick={handleFilterItemClick}>
-                Wine
+              <li name="10ml" onClick={handleFilterItemClick}>
+                10ml
               </li>
-              <li name="Beer" onClick={handleFilterItemClick}>
-                Beer
+              <li name="20ml" onClick={handleFilterItemClick}>
+                20ml
               </li>
-              <li name="Spirits" onClick={handleFilterItemClick}>
-                Spirits
+              <li name="30ml" onClick={handleFilterItemClick}>
+                30ml
               </li>
-              <li name="Soju" onClick={handleFilterItemClick}>
-                Soju
-              </li>
-              <li name="Sake" onClick={handleFilterItemClick}>
-                Sake
-              </li>
-              <li name="Makgeolli" onClick={handleFilterItemClick}>
-                Makgeolli
+              <li name="40ml" onClick={handleFilterItemClick}>
+                40ml
               </li>
             </ul>
           </aside>
@@ -76,7 +83,7 @@ const ProductList = () => {
       </div>
       <main className="list">
         <aside className="listFilter">
-          <div class="filters">
+          <div className="filters">
             {selectedFilter.length > 0 && (
               <span className="filterStart">Filter: &nbsp;</span>
             )}
@@ -91,13 +98,9 @@ const ProductList = () => {
           </button>
         </aside>
         <ul className="listContainer">
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          {productData.map(data => (
+            <ProductCard key={data.product_id} data={data} />
+          ))}
         </ul>
       </main>
     </div>
