@@ -8,18 +8,18 @@
   button {
     border: none;
     background-color: transparent;
-    cursor: pointer;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
+    cursor: pointer;
   }
 
   .header {
     position: sticky;
     top: 0;
-    z-index: 1000;
     background-color: $bg-light;
     border-top: 1px $border solid;
     border-bottom: 1px $border solid;
+    z-index: 1000;
 
     .headerTitle {
       max-width: 1170px;
@@ -49,12 +49,16 @@
       position: absolute;
       top: 50%;
       right: 0;
-      transform: translateY(-50%);
-      z-index: 100;
       border-top: 1px $border solid;
       border-bottom: 1px $border solid;
       border-left: 1px $border solid;
       background-color: #fff;
+      transform: translateY(-50%);
+      z-index: 100;
+
+      em {
+        pointer-events: none;
+      }
 
       &.active {
         .fa-plus {
@@ -78,12 +82,12 @@
         margin-top: 6px;
         padding: 5px 0 6px;
         background-color: #fff;
-        text-align: start;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 300;
         border: 1px $border solid;
         border-top: none;
         border-right: none;
+        text-align: start;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 300;
         transition: 200ms ease;
 
         &.active {
@@ -102,11 +106,11 @@
   }
 
   .banner {
+    display: flex;
     position: relative;
     width: 100%;
     aspect-ratio: 20 / 5;
     overflow: hidden;
-    display: flex;
 
     img {
       width: 100%;
@@ -118,17 +122,16 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
       color: #fff;
       font-family: 'Source Sans Pro', sans-serif;
       font-weight: 700;
       font-size: 32px;
       text-shadow: 0px 0px 4px rgba(61, 61, 61, 0.15);
+      transform: translate(-50%, -50%);
     }
   }
 
   .list {
-    padding-top: 90px;
     max-width: 1170px;
     margin: 0 auto;
     padding: 90px 15px 0;
@@ -144,9 +147,9 @@
       }
 
       .filterItem {
+        margin-right: 6px;
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 300;
-        margin-right: 6px;
       }
 
       button {
