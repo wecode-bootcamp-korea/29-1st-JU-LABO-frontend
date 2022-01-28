@@ -4,15 +4,15 @@ import ClickImages from './ClickImages/ClickImages';
 import './ClickList.scss';
 
 const ClickList = ({
-  ClickListClassName,
-  ListClassName,
+  clickListClassName,
+  listClassName,
   data,
   selectedState,
   onClick,
 }) => {
   return (
-    <article className={'ClickList ' + ClickListClassName}>
-      <ul className={'list ' + ListClassName}>
+    <article className={'clickList ' + clickListClassName}>
+      <ul className={'list ' + listClassName}>
         {data.map((brewery, index) => {
           return (
             <ClickListItem

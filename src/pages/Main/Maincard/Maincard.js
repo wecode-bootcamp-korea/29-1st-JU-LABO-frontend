@@ -11,7 +11,7 @@ const Maincard = ({
   paragraph,
 }) => {
   return (
-    <Link to={linkTo} className={'MainCard ' + linkClassName}>
+    <Link to={linkTo} className={'mainCard ' + linkClassName}>
       <div className={imgClassName}>
         <img src={imgSrc} alt={imgClassName} />
       </div>
