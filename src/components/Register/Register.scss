@@ -2,7 +2,6 @@
 
 .backgroundwrapper {
   height: 100vh;
-  background-color: rgb(233, 243, 243);
 }
 
 .register-wrapper {
@@ -13,10 +12,11 @@
   width: 500px;
 
   h1 {
-    font-size: 40px;
+    font-size: 45px;
     font-weight: bold;
     font-family: 'Cutive', serif;
     padding: 18px;
+    margin-bottom: 22px;
   }
 
   p {
@@ -29,16 +29,23 @@
 .firstnameform {
   display: flex;
   border: 2px solid rgb(177, 172, 172);
+  border-bottom: none;
   background-color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
   .labelform {
+    width: 200px;
     padding: 20px 40px 20px 20px;
     font-family: 'Cutive', serif;
+    font-size: 22px;
+    border: none;
   }
 
   .firstnameinput {
-    width: 300px;
+    width: 200px;
     border: none;
+    font-size: 22px;
     outline: none;
   }
 }
@@ -46,16 +53,22 @@
 .lastnameform {
   display: flex;
   border: 2px solid rgb(177, 172, 172);
-  border-top: none;
   background-color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
   .labelform {
+    width: 200px;
     padding: 20px 40px 20px 20px;
     font-family: 'Cutive', serif;
+    font-size: 22px;
+    width: 200px;
+    border: none;
   }
 
   .lastnameinput {
     width: 300px;
+    font-size: 22px;
     border: none;
     outline: none;
   }
@@ -67,14 +80,20 @@
   border-top: none;
   border-bottom: none;
   background-color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
-  .labelform {
-    padding: 20px 40px 20px 20px;
+  .email-labelform {
+    width: 200px;
+    padding: 20px 0px 20px 20px;
     font-family: 'Cutive', serif;
+    font-size: 22px;
+    border: none;
   }
 
   .emailinput {
     width: 300px;
+    font-size: 22px;
     border: none;
     outline: none;
   }
@@ -84,14 +103,20 @@
   display: flex;
   border: 2px solid rgb(177, 172, 172);
   background-color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
 
   .labelform {
+    width: 200px;
     padding: 20px 40px 20px 20px;
     font-family: 'Cutive', serif;
+    font-size: 22px;
+    border: none;
   }
 
   .passwordinput {
     width: 300px;
+    font-size: 22px;
     border: none;
     outline: none;
   }
@@ -99,6 +124,7 @@
 
 .asklogin {
   @include center;
+
   button {
     font-family: 'Cutive', serif;
     font-size: 20px;
@@ -113,10 +139,11 @@
 
 .buttonwrap {
   @include center;
-}
 
-.registerbutton {
-  width: 300px;
-  padding: 10px;
-  margin-top: 20px;
+  .registerbutton {
+    font-size: 22px;
+    width: 300px;
+    padding: 10px;
+    margin-top: 20px;
+  }
 }

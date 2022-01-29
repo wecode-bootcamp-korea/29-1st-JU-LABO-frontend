@@ -1,7 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Register.scss';
 
 function Register() {
+  const [registerInfo, setRegisterInfo] = useState({
+    firstName: '',
+    lastName: '',
+    emailAddress: '',
+    password: '',
+  });
+
+  const onChange = e => {
+    console.log(e.target.name);
+    setRegisterInfo({ ...registerInfo, [e.target.name]: e.target.value });
+  };
+
+  const registerFetch = () => {
+    fetch(`http://10.58.2.192:8000/users/signup`, {
+      method: 'POST',
+      body: JSON.stringify({
+        first_name: registerInfo.emailAddress,
+        last_name: registerInfo.password,
+        email: registerInfo.emailAddress,
+        password: registerInfo.password,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === 'EMAIL_ALREADY_EXISTS') {
+          alert('이미 존재하는 이메일입니다!');
+        } else if (res.message === 'INVALID_EMAIL') {
+          alert('이메일 양식에 맞지 않습니다 !');
+        } else if (res.message === 'INVALID_PASSWORD') {
+          alert('비밀번호가 양식에 맞지 않습니다!');
+        }
+      });
+  };
+
   return (
     <div>
       <div className="backgroundwrapper">
@@ -12,36 +47,64 @@ function Register() {
             <label className="labelform" htmlFor="name">
               First Name:
             </label>
-            <input className="firstnameinput" type="text" />
+            <input
+              name="firstName"
+              className="firstnameinput"
+              type="text"
+              value={registerInfo.firstName}
+              onChange={onChange}
+            />
           </div>
 
           <div className="lastnameform">
             <label className="labelform" htmlFor="name">
               Last Name:
             </label>
-            <input className="lastnameinput" type="text" />
+            <input
+              name="lastName"
+              className="lastnameinput"
+              type="text"
+              value={registerInfo.lastName}
+              onChange={onChange}
+            />
           </div>
 
           <div className="emailform">
-            <label className="labelform" htmlFor="name">
+            <label
+              className="email-labelform"
+              htmlFor="name"
+              // style={{ color: color }}
+            >
               Email Address:
             </label>
-            <input className="emailinput" type="text" />
+            <input
+              name="emailAddress"
+              className="emailinput"
+              type="text"
+              value={registerInfo.emailAddress}
+              onChange={onChange}
+            />
           </div>
 
           <div className="passwordform">
             <label className="labelform" htmlFor="name">
               Password:
             </label>
-            <input className="passwordinput" type="text" />
-          </div>
-
-          <div className="asklogin">
-            <button>이미 회원이신가유? Click here to login</button>
+            <input
+              name="password"
+              className="passwordinput"
+              type="text"
+              value={registerInfo.password}
+              onChange={onChange}
+            />
           </div>
 
           <div className="buttonwrap">
-            <button className="registerbutton">Register</button>
+            <Link to="/Login">
+              <button className="registerbutton" onClick={registerFetch}>
+                Register
+              </button>
+            </Link>
           </div>
 
           <p>
