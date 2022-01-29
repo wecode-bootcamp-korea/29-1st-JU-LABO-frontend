@@ -1,11 +1,13 @@
 .optionModal {
   position: absolute;
-  right: 160px;
-  top: 100px;
+  left: 0;
+  bottom: 0;
   padding: 0.4rem 0;
   background-color: #ffffff;
   box-shadow: 0 0 2px 1px rgb(0 0 0 / 20%);
   font-size: 14px;
+  z-index: 1;
+
   ul {
     li {
       padding: 0.4rem 1rem;
@@ -19,13 +21,15 @@
 
 .optionModal.on {
   position: absolute;
-  right: 160px;
-  top: 227px;
+  left: 0;
+  top: 0;
   width: 150px;
   padding: 0.4rem 0;
   background-color: #ffffff;
   box-shadow: 0 0 2px 1px rgb(0 0 0 / 20%);
   font-size: 14px;
+  z-index: 1;
+
   ul {
     li {
       padding: 0.4rem 1rem;
