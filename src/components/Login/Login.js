@@ -1,4 +1,4 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.scss';
 
@@ -10,37 +10,44 @@ function Login() {
 
   const [color, setColor] = useState('color');
 
-  const checkLogin = () => {
-    if (loginInfo.emailAddress == '' && loginInfo.password == '') {
-      setColor('red');
-    } else if (loginInfo.password == '') {
-      alert('Password is required!');
-    } else if (loginInfo.emailAddress == '') {
-      alert('Email is required!');
-    }
-  };
+  // const checkLogin = () => {
+  //   if (loginInfo.emailAddress === '' && loginInfo.password == '') {
+  //     setColor('red');
+  //   } else if (loginInfo.password === '') {
+  //     alert('Password is required!');
+  //   } else if (loginInfo.emailAddress === '') {
+  //     alert('Email is required!');
+  //   }
+  // };
 
   const onChange = e => {
-    console.log(e.target.value);
     setloginInfo({ ...loginInfo, [e.target.name]: e.target.value });
   };
 
   const loginFetch = () => {
-    fetch(`http://10.58.2.192:8000/users/login`, {
-      method: 'POST',
-      body: JSON.stringify({
-        email: loginInfo.emailAddress,
-        password: loginInfo.password,
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'INVALID_PASSWORD') {
-          alert('비밀번호가 올바르지 않습니다!');
-        } else if (res.message === 'INVALID_EMAIL') {
-          alert('이메일이 올바르지 않습니다!');
-        }
-      });
+    if (loginInfo.emailAddress === '' && loginInfo.password === '') {
+      setColor('red');
+    } else if (loginInfo.password === '') {
+      alert('Password is required!');
+    } else if (loginInfo.emailAddress === '') {
+      alert('Email is required!');
+    } else {
+      fetch(`http://10.58.2.192:8000/users/login`, {
+        method: 'POST',
+        body: JSON.stringify({
+          email: loginInfo.emailAddress,
+          password: loginInfo.password,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res.message === 'INVALID_PASSWORD') {
+            alert('비밀번호가 올바르지 않습니다!');
+          } else if (res.message === 'INVALID_EMAIL') {
+            alert('이메일이 올바르지 않습니다!');
+          }
+        });
+    }
   };
 
   return (

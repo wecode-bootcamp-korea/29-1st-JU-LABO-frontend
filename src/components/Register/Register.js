@@ -11,7 +11,6 @@ function Register() {
   });
 
   const onChange = e => {
-    console.log(e.target.name);
     setRegisterInfo({ ...registerInfo, [e.target.name]: e.target.value });
   };
 
