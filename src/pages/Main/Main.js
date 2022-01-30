@@ -150,8 +150,8 @@ const Main = () => {
           all moments."
       >
         <ClickList
-          ClickListClassName="breweryContainer"
-          ListClassName="breweryList"
+          clickListClassName="breweryContainer"
+          listClassName="breweryList"
           data={BREWERY_DATA}
           selectedState={brewerySelect}
           onClick={handleBreweryClick}
