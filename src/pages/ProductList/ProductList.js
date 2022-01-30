@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ProductCard from './ProductCard/ProductCard';
 import './ProductList.scss';
 
@@ -12,17 +12,24 @@ const ProductList = () => {
       .then(res => res.json())
       .then(data => {
         setProductData(data.result);
-        console.log(data.result);
       });
   }, []);
 
   const [isfilterModalActive, setIsfilterModalActive] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState([]);
+  const modalRef = useRef();
+
   const handleFilterBtnClick = e => {
     if (
       e.target.getAttribute('class') === 'filterBtn' ||
       e.target.getAttribute('class') === 'filterBtn active'
     ) {
+      setIsfilterModalActive(!isfilterModalActive);
+    }
+  };
+
+  const handleFilterOutsideClick = e => {
+    if (isfilterModalActive && !modalRef.current.contains(e.target)) {
       setIsfilterModalActive(!isfilterModalActive);
     }
   };
@@ -39,11 +46,25 @@ const ProductList = () => {
   };
 
   return (
-    <div className="ProductList">
+    <div className="ProductList" onClick={handleFilterOutsideClick}>
       <header className="header">
         <div className="headerTitle">
-          <nav className="breadCrumbs">Home / Spring</nav>
-          <h1>Spring</h1>
+          <nav className="breadCrumbs">
+            <span className="breadCrumbsItem">Home</span>
+            <span className="breadCrumbsItem">Spring</span>
+            {productData.length > 1 && (
+              <span className="breadCrumbsItem">
+                {productData[0].subcategoryname[0].toUpperCase() +
+                  productData[0].subcategoryname.slice(1)}
+              </span>
+            )}
+          </nav>
+          {productData.length > 1 && (
+            <h1>
+              {productData[0].subcategoryname[0].toUpperCase() +
+                productData[0].subcategoryname.slice(1)}
+            </h1>
+          )}
         </div>
         <button
           type="button"
@@ -56,6 +77,7 @@ const ProductList = () => {
             className={
               isfilterModalActive ? 'filterModal active' : 'filterModal'
             }
+            ref={modalRef}
           >
             <ul>
               <li name="10ml" onClick={handleFilterItemClick}>

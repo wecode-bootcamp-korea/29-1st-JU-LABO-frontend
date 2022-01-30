@@ -30,6 +30,14 @@
       .breadCrumbs {
         font-size: 14px;
         font-weight: 300;
+
+        .breadCrumbsItem::after {
+          content: ' / ';
+        }
+
+        .breadCrumbsItem:last-child::after {
+          content: '';
+        }
       }
 
       h1 {
