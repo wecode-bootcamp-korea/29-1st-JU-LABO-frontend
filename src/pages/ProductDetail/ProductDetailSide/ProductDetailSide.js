@@ -2,20 +2,11 @@ import React, { useState } from 'react';
 import OptionModal from './OptionModal/OptionModal';
 import './ProductDetailSide.scss';
 
-const ProductDetailSide = ({
-  productInfo,
-  setProductInfo,
-  size,
-  setSize,
-  isSizeShow,
-  setIsSizeShow,
-  isQuantityShow,
-  setIsQuantityShow,
-  quantity,
-  setQuantity,
-}) => {
+const ProductDetailSide = ({ productInfo, setProductInfo }) => {
   const [isMore, setIsMore] = useState(false);
-
+  const [quantity, setQuantity] = useState(1);
+  const [isSizeShow, setIsSizeShow] = useState(false);
+  const [isQuantityShow, setIsQuantityShow] = useState(false);
   const isShowModal = e => {
     const checkSize = e.currentTarget.className.includes('sizeInfo');
     const checkQuantity = e.currentTarget.className.includes('quantityInfo');
@@ -49,7 +40,6 @@ const ProductDetailSide = ({
                 <OptionModal
                   productInfo={productInfo}
                   setProductInfo={setProductInfo}
-                  setSize={setSize}
                   setIsShow={setIsSizeShow}
                   isSizeShow={isSizeShow}
                   size
@@ -63,7 +53,11 @@ const ProductDetailSide = ({
                   className="sizeInput"
                 />
               </p>
-              <i className="fas fa-chevron-down" />
+              {isSizeShow ? (
+                <i className="fas fa-times" />
+              ) : (
+                <i className="fas fa-chevron-down" />
+              )}
             </div>
           </div>
 
@@ -86,7 +80,11 @@ const ProductDetailSide = ({
                   className="sizeInput"
                 />
               </p>
-              <i className="fas fa-chevron-down" />
+              {isQuantityShow ? (
+                <i className="fas fa-times" />
+              ) : (
+                <i className="fas fa-chevron-down" />
+              )}
             </div>
           </div>
 

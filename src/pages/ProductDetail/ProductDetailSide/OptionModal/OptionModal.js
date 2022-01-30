@@ -5,7 +5,6 @@ const OptionModal = ({
   productInfo,
   setProductInfo,
   size,
-  setSize,
   setIsShow,
   isSizeShow,
   quan,
@@ -13,6 +12,7 @@ const OptionModal = ({
   setQuantity,
 }) => {
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     fetch('http://localhost:3000/data/data.json')
       .then(res => res.json())
@@ -29,7 +29,6 @@ const OptionModal = ({
       setProductInfo(...findInfo);
     }
     if (size) {
-      setSize(e.target.innerText);
       setIsShow(!isSizeShow);
     }
   };
@@ -40,6 +39,7 @@ const OptionModal = ({
       setIsShow(!isQuantityShow);
     }
   };
+
   return (
     <div className={`optionModal ${quan && 'on'}`}>
       {size ? (

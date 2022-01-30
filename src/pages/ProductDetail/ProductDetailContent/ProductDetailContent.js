@@ -10,13 +10,15 @@ const ProductDetailContent = ({ productInfo }) => {
       setSelected(productInfo.imageUrls[0]);
     }
   }, [setImgArr, productInfo.imageUrls]);
+  const selectImage = img => {
+    setSelected(img);
+  };
 
-  const selectImage = (e, img) => {
+  const selectFirstImage = e => {
     const checkSelected = e.target.classList[0] === 'labelCurrent';
     if (checkSelected) {
-      setSelected(productInfo[1]);
+      setSelected(productInfo.imageUrls[0]);
     }
-    setSelected(img);
   };
 
   return (
@@ -34,7 +36,7 @@ const ProductDetailContent = ({ productInfo }) => {
                     src={img}
                     alt={img}
                     className="productImage selected"
-                    onClick={e => selectImage(e, img)}
+                    onClick={() => selectImage(img)}
                   />
                 </li>
               ) : (
@@ -43,7 +45,7 @@ const ProductDetailContent = ({ productInfo }) => {
                     src={img}
                     alt={img}
                     className="productImage"
-                    onClick={e => selectImage(e, img)}
+                    onClick={() => selectImage(img)}
                   />
                 </li>
               )
@@ -54,7 +56,7 @@ const ProductDetailContent = ({ productInfo }) => {
         <p>
           <span>
             View personalization:{' '}
-            <span className="labelCurrent underLine" onClick={selectImage}>
+            <span className="labelCurrent underLine" onClick={selectFirstImage}>
               label
             </span>{' '}
           </span>
