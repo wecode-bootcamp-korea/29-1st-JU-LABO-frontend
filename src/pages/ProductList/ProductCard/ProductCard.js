@@ -14,7 +14,10 @@ const ProductCard = ({ data }) => {
       </div>
       <div className="cartPrice">
         <button type="button">Add to Cart</button>
-        <strong className="price">₩ {data.price}</strong>
+        <strong className="price">
+          {'₩ ' +
+            data.price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}
+        </strong>
       </div>
     </li>
   );
