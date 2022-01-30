@@ -104,19 +104,19 @@ export const BREWERY_DATA = [
 
 export const SOUL_DATA = [
   [
-    '/images/Main/IMG_7187.jpg',
-    '/images/Main/IMG_7188.jpg',
-    '/images/Main/IMG_7189.jpg',
+    '/images/Main/souls-1.jpg',
+    '/images/Main/souls-2.jpg',
+    '/images/Main/souls-3.jpg',
   ],
   [
-    '/images/Main/IMG_7196.jpg',
-    '/images/Main/IMG_7197.jpg',
-    '/images/Main/IMG_7198.jpg',
+    '/images/Main/souls-4.jpg',
+    '/images/Main/souls-5.jpg',
+    '/images/Main/souls-6.jpg',
   ],
   [
-    '/images/Main/IMG_7191.jpg',
-    '/images/Main/IMG_7190.jpg',
-    '/images/Main/IMG_7192.jpg',
+    '/images/Main/souls-7.jpg',
+    '/images/Main/souls-8.jpg',
+    '/images/Main/souls-9.jpg',
   ],
 ];
 
