@@ -1,21 +1,21 @@
 import React from 'react';
 import './CartItem.scss';
 
-const CartItem = () => {
+const CartItem = ({ item }) => {
   return (
     <div className="cartItem">
       <div className="cartItemContent">
         <div className="cartItemImg">
-          <img src="./images/goodjeongdo.jpg" alt="" />
+          <img src={item.imageUrls} alt="" />
         </div>
         <div className="cartItemContent">
           <div className="cartItemContentHead">
             <div className="cartItemContentTitle">
-              <h3>Another 13</h3>
-              <p>USD $289.00</p>
+              <h3>{item.name}</h3>
+              <p>USD ${item.price}</p>
             </div>
             <div className="cartItemSubCate">
-              <p>봄</p>
+              <p>{item.category}</p>
             </div>
           </div>
           <div className="cartItemContentBody">
