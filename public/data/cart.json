@@ -1,0 +1,32 @@
+[
+  {
+    "category": "봄",
+    "image_descriptions": "n-j-yun-chardonnay-reserva",
+    "imageUrls": "/images/n-j-yun-chardonnay-reserva.jpg",
+    "ml": 20,
+    "name": "N.J.Yun Chardonnay Reserva",
+    "price": "2.00",
+    "quantity": "3",
+    "subcategory": "양주"
+  },
+  {
+    "category": "여름",
+    "image_descriptions": "hyeong_take_ju1",
+    "imageUrls": "/images/hyeong_take_ju1.png",
+    "ml": 20,
+    "name": "N.J.Yun Chardonnay Reserva",
+    "price": "2.00",
+    "quantity": "1",
+    "subcategory": "양주"
+  },
+  {
+    "category": "가을",
+    "image_descriptions": "goodjeongdo",
+    "imageUrls": "/images/goodjeongdo.jpg",
+    "ml": 20,
+    "name": "N.J.Yun Chardonnay Reserva",
+    "price": "2.00",
+    "quantity": "2",
+    "subcategory": "양주"
+  }
+]

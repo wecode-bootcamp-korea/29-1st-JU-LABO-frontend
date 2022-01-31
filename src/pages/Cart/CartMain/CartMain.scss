@@ -1,0 +1,12 @@
+@import '../../../styles/constant';
+
+.cartMain {
+  background-color: $bg-light;
+  height: 100%;
+
+  .cartContentWrap {
+    max-width: 910px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+}
