@@ -8,5 +8,10 @@
     max-width: 910px;
     margin: 0 auto;
     padding: 0 10px;
+
+    .cartContent {
+      display: flex;
+      width: 100%;
+    }
   }
 }

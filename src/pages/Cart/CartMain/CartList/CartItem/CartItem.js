@@ -23,7 +23,7 @@ const CartItem = ({ item }) => {
               <li>
                 <div className="cartItemInfoSize">
                   <p>Size: </p>
-                  <span>50ml</span>
+                  <span>{item.ml}ml</span>
                 </div>
               </li>
               <li>
@@ -31,7 +31,7 @@ const CartItem = ({ item }) => {
                   <p>Quantity: </p>
                   <div className="quantityControl">
                     <button>-</button>
-                    <input type="text" value="3" readOnly />
+                    <input type="text" value={item.quantity} readOnly />
                     <button>+</button>
                   </div>
                 </div>

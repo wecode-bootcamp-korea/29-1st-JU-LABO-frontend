@@ -12,7 +12,6 @@ const CartList = () => {
       });
   }, []);
 
-  console.log(cartItems);
   return (
     <div className="cartList">
       <section className="cartListLayout">

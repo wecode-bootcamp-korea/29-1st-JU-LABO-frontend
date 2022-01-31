@@ -1,5 +1,6 @@
 import React from 'react';
-import CartList from '../CartList/CartList';
+import CartList from './CartList/CartList';
+import CartOrder from './CartOrder/CartOrder';
 import './CartMain.scss';
 
 const CartMain = () => {
@@ -8,6 +9,7 @@ const CartMain = () => {
       <div className="cartContentWrap">
         <div className="cartContent">
           <CartList />
+          <CartOrder />
         </div>
       </div>
     </div>
