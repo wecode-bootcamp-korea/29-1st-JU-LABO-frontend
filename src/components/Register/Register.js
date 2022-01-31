@@ -10,30 +10,49 @@ function Register() {
     password: '',
   });
 
-  const onChange = e => {
+  const [color, setColor] = useState('color');
+
+  const inputHandler = e => {
     setRegisterInfo({ ...registerInfo, [e.target.name]: e.target.value });
   };
 
   const registerFetch = () => {
-    fetch(`http://10.58.2.192:8000/users/signup`, {
-      method: 'POST',
-      body: JSON.stringify({
-        first_name: registerInfo.emailAddress,
-        last_name: registerInfo.password,
-        email: registerInfo.emailAddress,
-        password: registerInfo.password,
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === 'EMAIL_ALREADY_EXISTS') {
-          alert('이미 존재하는 이메일입니다!');
-        } else if (res.message === 'INVALID_EMAIL') {
-          alert('이메일 양식에 맞지 않습니다 !');
-        } else if (res.message === 'INVALID_PASSWORD') {
-          alert('비밀번호가 양식에 맞지 않습니다!');
-        }
-      });
+    if (
+      registerInfo.firstName === '' &&
+      registerInfo.lastName === '' &&
+      registerInfo.emailAddress === '' &&
+      registerInfo.password === ''
+    ) {
+      setColor('red');
+    } else if (registerInfo.firstName === '') {
+      alert('Password is required!');
+    } else if (registerInfo.lastName === '') {
+      alert('Email is required!');
+    } else if (registerInfo.emailAddress === '') {
+      alert('Email is required!');
+    } else if (registerInfo.password === '') {
+      alert('Email is required!');
+    } else {
+      fetch(`http://10.58.2.192:8000/users/signup`, {
+        method: 'POST',
+        body: JSON.stringify({
+          first_name: registerInfo.emailAddress,
+          last_name: registerInfo.password,
+          email: registerInfo.emailAddress,
+          password: registerInfo.password,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res.message === 'EMAIL_ALREADY_EXISTS') {
+            alert('이미 존재하는 이메일입니다!');
+          } else if (res.message === 'INVALID_EMAIL') {
+            alert('이메일 양식에 맞지 않습니다 !');
+          } else if (res.message === 'INVALID_PASSWORD') {
+            alert('비밀번호가 양식에 맞지 않습니다!');
+          }
+        });
+    }
   };
 
   return (
@@ -51,7 +70,8 @@ function Register() {
               className="firstnameinput"
               type="text"
               value={registerInfo.firstName}
-              onChange={onChange}
+              style={{ color: color }}
+              onChange={inputHandler}
             />
           </div>
 
@@ -64,7 +84,8 @@ function Register() {
               className="lastnameinput"
               type="text"
               value={registerInfo.lastName}
-              onChange={onChange}
+              style={{ color: color }}
+              onChange={inputHandler}
             />
           </div>
 
@@ -72,7 +93,7 @@ function Register() {
             <label
               className="email-labelform"
               htmlFor="name"
-              // style={{ color: color }}
+              style={{ color: color }}
             >
               Email Address:
             </label>
@@ -81,7 +102,7 @@ function Register() {
               className="emailinput"
               type="text"
               value={registerInfo.emailAddress}
-              onChange={onChange}
+              onChange={inputHandler}
             />
           </div>
 
@@ -94,7 +115,8 @@ function Register() {
               className="passwordinput"
               type="text"
               value={registerInfo.password}
-              onChange={onChange}
+              style={{ color: color }}
+              onChange={inputHandler}
             />
           </div>
 

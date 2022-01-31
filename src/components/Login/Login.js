@@ -10,17 +10,7 @@ function Login() {
 
   const [color, setColor] = useState('color');
 
-  // const checkLogin = () => {
-  //   if (loginInfo.emailAddress === '' && loginInfo.password == '') {
-  //     setColor('red');
-  //   } else if (loginInfo.password === '') {
-  //     alert('Password is required!');
-  //   } else if (loginInfo.emailAddress === '') {
-  //     alert('Email is required!');
-  //   }
-  // };
-
-  const onChange = e => {
+  const inputHandler = e => {
     setloginInfo({ ...loginInfo, [e.target.name]: e.target.value });
   };
 
@@ -69,7 +59,7 @@ function Login() {
               value={loginInfo.emailAddress}
               className="emailinput"
               type="text"
-              onChange={onChange}
+              onChange={inputHandler}
             />
           </div>
 
@@ -86,7 +76,7 @@ function Login() {
               value={loginInfo.password}
               className="passwordinput"
               type="password"
-              onChange={onChange}
+              onChange={inputHandler}
             />
           </div>
 
