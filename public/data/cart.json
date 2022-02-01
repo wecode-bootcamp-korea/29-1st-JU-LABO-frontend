@@ -17,7 +17,7 @@
     "imageUrls": "/images/boston.jpg",
     "ml": 20,
     "name": "Boston",
-    "price": "2.00",
+    "price": "4.00",
     "quantity": "1",
     "subcategory": "양주"
   },
@@ -28,7 +28,7 @@
     "imageUrls": "/images/guinness.jpg",
     "ml": 20,
     "name": "Guinness",
-    "price": "2.00",
+    "price": "6.00",
     "quantity": "2",
     "subcategory": "양주"
   }

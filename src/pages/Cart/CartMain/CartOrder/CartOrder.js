@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './CartOrder.scss';
 
 const CartOrder = () => {
+  const [products, setProducts] = useState([]);
+  const [total, setTotal] = useState();
+
+  useEffect(() => {
+    fetch('/data/cart.json')
+      .then(res => res.json())
+      .then(res => {
+        getTotal(res);
+      });
+  }, []);
+
+  const getTotal = products => {
+    let totalPrice = 0;
+    products.map(
+      product => (totalPrice += parseInt(product.price) * product.quantity)
+    );
+
+    setTotal(totalPrice);
+  };
+
   return (
     <div className="cartOrder">
       <section className="cartOrderLayout">
@@ -18,7 +38,7 @@ const CartOrder = () => {
             </div>
             <div className="orderDate">
               <p>Sub-total</p>
-              <p>USD $3,028.00</p>
+              <p>USD ${total}</p>
             </div>
             <div className="orderDate">
               <p>Tax:</p>

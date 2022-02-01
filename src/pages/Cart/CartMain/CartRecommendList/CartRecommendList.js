@@ -7,8 +7,8 @@ const CartRecommend = () => {
     <section className="cartRecommend">
       <h3 className="cartRecommendTitle">Recommendations for you:</h3>
       <ul className="recommendItems">
-        {[...Array(4)].map(idx => (
-          <CartRecommendItem />
+        {[...Array(4)].map((item, idx) => (
+          <CartRecommendItem key={idx} />
         ))}
       </ul>
     </section>

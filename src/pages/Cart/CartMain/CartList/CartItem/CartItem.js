@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './CartItem.scss';
 
 const CartItem = ({ item }) => {
+  const [count, setCount] = useState();
+
+  useEffect(() => {
+    setCount(Number(item.quantity));
+  }, []);
+
+  const addQuantity = e => {
+    e.preventDefault();
+    setCount(prev => prev + 1);
+  };
+
+  const subQuantity = e => {
+    e.preventDefault();
+    if (count === 1) return;
+    setCount(prev => prev - 1);
+  };
+
   return (
     <div className="cartItem">
       <div className="cartItemContent">
@@ -30,9 +47,9 @@ const CartItem = ({ item }) => {
                 <div className="cartItemInfoQuantity">
                   <p>Quantity: </p>
                   <div className="quantityControl">
-                    <button>-</button>
-                    <input type="text" value={item.quantity} readOnly />
-                    <button>+</button>
+                    <button onClick={subQuantity}>-</button>
+                    <input type="text" value={count || ''} readOnly />
+                    <button onClick={addQuantity}>+</button>
                   </div>
                 </div>
               </li>
