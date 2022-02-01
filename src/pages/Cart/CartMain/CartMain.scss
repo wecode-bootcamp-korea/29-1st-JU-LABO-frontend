@@ -14,4 +14,14 @@
       width: 100%;
     }
   }
+
+  .cartRecommendWrap {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    .cartRecommendLayout {
+      margin-bottom: 95px;
+    }
+  }
 }
