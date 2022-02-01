@@ -50,7 +50,7 @@ const CartOrder = () => {
             </div>
             <div className="orderDate">
               <p>Total:</p>
-              <p>USD $3,028.00</p>
+              <p>USD ${total}</p>
             </div>
           </div>
         </div>

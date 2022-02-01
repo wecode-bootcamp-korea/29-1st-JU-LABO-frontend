@@ -22,7 +22,14 @@ const CartList = () => {
               <h2 className="sectionTitle">Your Cart</h2>
             </div>
             {cartItems.length &&
-              cartItems.map(item => <CartItem item={item} key={item.id} />)}
+              cartItems.map(item => (
+                <CartItem
+                  item={item}
+                  key={item.id}
+                  setCartItems={setCartItems}
+                  cartItems={cartItems}
+                />
+              ))}
           </form>
         </div>
       </section>

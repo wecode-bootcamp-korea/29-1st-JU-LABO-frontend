@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './CartItem.scss';
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, cartItems, setCartItems }) => {
   const [count, setCount] = useState();
 
   useEffect(() => {
@@ -17,6 +17,10 @@ const CartItem = ({ item }) => {
     e.preventDefault();
     if (count === 1) return;
     setCount(prev => prev - 1);
+  };
+
+  const removeItem = id => {
+    setCartItems(cartItems.filter(item => item.id !== id));
   };
 
   return (
@@ -56,7 +60,7 @@ const CartItem = ({ item }) => {
             </ul>
 
             <div className="cartItemInfoRemove">
-              <p>Remove</p>
+              <p onClick={() => removeItem(item.id)}>Remove</p>
             </div>
           </div>
         </div>
