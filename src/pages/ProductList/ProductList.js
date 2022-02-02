@@ -1,9 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import ProductCard from './ProductCard/ProductCard';
 import './ProductList.scss';
 
 const ProductList = () => {
   const [productData, setProductData] = useState([]);
+
+  const navigate = useNavigate();
+  const params = useParams();
 
   useEffect(() => {
     fetch(
@@ -52,14 +56,14 @@ const ProductList = () => {
           <nav className="breadCrumbs">
             <span className="breadCrumbsItem">Home</span>
             <span className="breadCrumbsItem">Spring</span>
-            {productData.length > 1 && (
+            {productData != 0 && (
               <span className="breadCrumbsItem">
                 {productData[0].subcategoryname[0].toUpperCase() +
                   productData[0].subcategoryname.slice(1)}
               </span>
             )}
           </nav>
-          {productData.length > 1 && (
+          {productData != 0 && (
             <h1>
               {productData[0].subcategoryname[0].toUpperCase() +
                 productData[0].subcategoryname.slice(1)}
@@ -106,7 +110,7 @@ const ProductList = () => {
       <main className="list">
         <aside className="listFilter">
           <div className="filters">
-            {selectedFilter.length > 0 && (
+            {selectedFilter != 0 && (
               <span className="filterStart">Filter: &nbsp;</span>
             )}
             {selectedFilter.map((filter, index) => (
