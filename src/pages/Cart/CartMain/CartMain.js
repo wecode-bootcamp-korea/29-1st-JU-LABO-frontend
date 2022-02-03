@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CartList from './CartList/CartList';
 import CartOrder from './CartOrder/CartOrder';
 import CartRecommendList from './CartRecommendList/CartRecommendList';
 import './CartMain.scss';
 
-const CartMain = () => {
+const CartMain = ({ cartItems, setCartItems }) => {
   return (
     <div className="cartMain">
       <div className="cartContentWrap">
         <div className="cartContent">
-          <CartList />
-          <CartOrder />
+          <CartList setCartItems={setCartItems} cartItems={cartItems} />
+          <CartOrder setCartItems={setCartItems} cartItems={cartItems} />
         </div>
       </div>
       <div className="cartRecommendWrap">

@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './CartOrder.scss';
 
-const CartOrder = () => {
-  const [products, setProducts] = useState([]);
+const CartOrder = ({ cartItems, setCartItems }) => {
   const [total, setTotal] = useState();
 
   useEffect(() => {
-    fetch('/data/cart.json')
-      .then(res => res.json())
-      .then(res => {
-        getTotal(res);
-      });
-  }, []);
+    if (cartItems) {
+      getTotal(cartItems);
+    }
+  }, [cartItems]);
 
   const getTotal = products => {
     let totalPrice = 0;
@@ -38,7 +35,7 @@ const CartOrder = () => {
             </div>
             <div className="orderDate">
               <p>Sub-total</p>
-              <p>USD ${total}</p>
+              <p>USD ${total && total}</p>
             </div>
             <div className="orderDate">
               <p>Tax:</p>
@@ -50,7 +47,7 @@ const CartOrder = () => {
             </div>
             <div className="orderDate">
               <p>Total:</p>
-              <p>USD ${total}</p>
+              <p>USD ${total && total}</p>
             </div>
           </div>
         </div>

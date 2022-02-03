@@ -1,25 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './CartItem.scss';
 
 const CartItem = ({ item, cartItems, setCartItems }) => {
-  const [count, setCount] = useState();
-
-  useEffect(() => {
-    setCount(Number(item.quantity));
-  }, []);
-
-  const addQuantity = e => {
+  const addQuantity = (e, id) => {
     e.preventDefault();
-    setCount(prev => prev + 1);
+
+    const addQuantity = cartItems.map(cartItem => {
+      if (cartItem.id === id) {
+        return { ...cartItem, quantity: Number(cartItem.quantity) + 1 };
+      } else return cartItem;
+    });
+
+    setCartItems(addQuantity);
   };
 
-  const subQuantity = e => {
+  const subQuantity = (e, id) => {
     e.preventDefault();
-    if (count === 1) return;
-    setCount(prev => prev - 1);
+
+    const addQuantity = cartItems.map(cartItem => {
+      if (cartItem.id === id) {
+        return { ...cartItem, quantity: Number(cartItem.quantity) - 1 };
+      } else return cartItem;
+    });
+
+    setCartItems(addQuantity);
   };
 
-  const removeItem = id => {
+  const removeItem = (e, id) => {
     setCartItems(cartItems.filter(item => item.id !== id));
   };
 
@@ -51,9 +58,9 @@ const CartItem = ({ item, cartItems, setCartItems }) => {
                 <div className="cartItemInfoQuantity">
                   <p>Quantity: </p>
                   <div className="quantityControl">
-                    <button onClick={subQuantity}>-</button>
-                    <input type="text" value={count || ''} readOnly />
-                    <button onClick={addQuantity}>+</button>
+                    <button onClick={e => subQuantity(e, item.id)}>-</button>
+                    <input type="text" value={item.quantity || ''} readOnly />
+                    <button onClick={e => addQuantity(e, item.id)}>+</button>
                   </div>
                 </div>
               </li>

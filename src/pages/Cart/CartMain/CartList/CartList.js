@@ -1,18 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CartItem from './CartItem/CartItem';
 import './CartList.scss';
 
-const CartList = () => {
-  const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    fetch('/data/cart.json')
-      .then(res => res.json())
-      .then(res => {
-        setCartItems(res);
-      });
-  }, []);
-
+const CartList = ({ cartItems, setCartItems }) => {
   return (
     <div className="cartList">
       <section className="cartListLayout">
@@ -21,7 +11,7 @@ const CartList = () => {
             <div className="formHead">
               <h2 className="sectionTitle">Your Cart</h2>
             </div>
-            {cartItems.length &&
+            {cartItems &&
               cartItems.map(item => (
                 <CartItem
                   item={item}
