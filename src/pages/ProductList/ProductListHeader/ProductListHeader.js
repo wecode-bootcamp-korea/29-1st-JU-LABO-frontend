@@ -34,14 +34,14 @@ const ProductListHeader = ({
           <span className="breadCrumbsItem">
             {SEASON_DATA[params.category_id - 1]}
           </span>
-          {productData != 0 && (
+          {productData.length > 0 && (
             <span className="breadCrumbsItem">
               {productData[0].subcategoryname[0].toUpperCase() +
                 productData[0].subcategoryname.slice(1)}
             </span>
           )}
         </nav>
-        {productData != 0 && (
+        {productData.length > 0 && (
           <h1>
             {productData[0].subcategoryname[0].toUpperCase() +
               productData[0].subcategoryname.slice(1)}

@@ -14,7 +14,7 @@ const ListFilter = ({
   return (
     <aside className="listFilter">
       <div className="filters">
-        {selectedFilters != 0 && (
+        {selectedFilters.length > 0 && (
           <span className="filterStart">Filter: &nbsp;</span>
         )}
         {selectedFilters.map((filter, index) => (

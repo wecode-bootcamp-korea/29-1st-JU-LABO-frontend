@@ -39,7 +39,7 @@ const ProductList = () => {
           setFilteredProductData([...filteredProductData, data.result]);
         });
     }
-  }, []);
+  }, [selectedFilters]);
 
   const handleFilterOutsideClick = e => {
     if (isfilterModalActive && !modalRef.current.contains(e.target)) {
