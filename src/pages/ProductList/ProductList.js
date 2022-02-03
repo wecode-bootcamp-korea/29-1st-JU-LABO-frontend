@@ -1,17 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import ProductCard from './ProductCard/ProductCard';
+import ListFilter from './ListFilter/ListFilter';
 import './ProductList.scss';
 
 const ProductList = () => {
-  const [productData, setProductData] = useState([]);
-
   const navigate = useNavigate();
   const params = useParams();
 
+  const [productData, setProductData] = useState([]);
+  const [filteredProductData, setFilteredProductData] = useState([]);
+  const [isfilterModalActive, setIsfilterModalActive] = useState(false);
+  const [selectedFilters, setSelectedFilters] = useState([]);
+  const modalRef = useRef();
+
   useEffect(() => {
     fetch(
-      'http://10.58.2.198:8002/subcategory?category_id=1&subcategory_id=2&type=20'
+      `http://10.58.2.198:8002/subcategory?category_id=${params.category_id}&subcategory_id=${params.subcategory_id}`
     )
       .then(res => res.json())
       .then(data => {
@@ -19,15 +24,24 @@ const ProductList = () => {
       });
   }, []);
 
-  const [isfilterModalActive, setIsfilterModalActive] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState([]);
-  const modalRef = useRef();
+  useEffect(() => {
+    if (selectedFilters.length > 0) {
+      fetch(
+        `http://10.58.2.198:8002/subcategory?category_id=${
+          params.category_id
+        }&subcategory_id=${params.subcategory_id}&type=${
+          selectedFilters[selectedFilters.length - 1]
+        }`
+      )
+        .then(res => res.json())
+        .then(data => {
+          setFilteredProductData([...filteredProductData, data.result]);
+        });
+    }
+  }, []);
 
   const handleFilterBtnClick = e => {
-    if (
-      e.target.getAttribute('class') === 'filterBtn' ||
-      e.target.getAttribute('class') === 'filterBtn active'
-    ) {
+    if (e.target.getAttribute('class') === 'filterBtn') {
       setIsfilterModalActive(!isfilterModalActive);
     }
   };
@@ -40,13 +54,9 @@ const ProductList = () => {
 
   const handleFilterItemClick = e => {
     const newFilter = e.target.getAttribute('name');
-    if (!selectedFilter.includes(newFilter)) {
-      setSelectedFilter(prev => [...prev, newFilter]);
+    if (!selectedFilters.includes(newFilter)) {
+      setSelectedFilters([...selectedFilters, newFilter]);
     }
-  };
-
-  const eraseAllFilters = () => {
-    setSelectedFilter([]);
   };
 
   return (
@@ -108,25 +118,19 @@ const ProductList = () => {
         <h1>SPRING</h1>
       </div>
       <main className="list">
-        <aside className="listFilter">
-          <div className="filters">
-            {selectedFilter != 0 && (
-              <span className="filterStart">Filter: &nbsp;</span>
-            )}
-            {selectedFilter.map((filter, index) => (
-              <span className="filterItem" key={index}>
-                {filter}
-              </span>
-            ))}
-          </div>
-          <button type="button" onClick={eraseAllFilters}>
-            Clear all
-          </button>
-        </aside>
+        <ListFilter
+          selectedFilters={selectedFilters}
+          setSelectedFilters={setSelectedFilters}
+          setFilteredProductData={setFilteredProductData}
+        />
         <ul className="listContainer">
-          {productData.map(data => (
-            <ProductCard key={data.product_id} data={data} />
-          ))}
+          {selectedFilters.length === 0
+            ? productData.map(data => (
+                <ProductCard key={data.product_id} data={data} />
+              ))
+            : filteredProductData.map(data => (
+                <ProductCard key={data.product_id} data={data} />
+              ))}
         </ul>
       </main>
     </div>

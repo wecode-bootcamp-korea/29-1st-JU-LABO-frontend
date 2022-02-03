@@ -144,27 +144,6 @@
     margin: 0 auto;
     padding: 90px 15px 0;
 
-    .listFilter {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 20px;
-
-      .filterStart {
-        font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 400;
-      }
-
-      .filterItem {
-        margin-right: 6px;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-weight: 300;
-      }
-
-      button {
-        font-size: 15px;
-      }
-    }
-
     .listContainer {
       display: flex;
       flex-wrap: wrap;
