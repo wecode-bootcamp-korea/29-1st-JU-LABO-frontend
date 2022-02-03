@@ -1,0 +1,30 @@
+@import '../../../styles/constant.scss';
+@import url('https://fonts.googleapis.com/css2?family=Cutive&family=Source+Sans+Pro:wght@200;400;700&display=swap');
+
+.ProductList {
+  .banner {
+    display: flex;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 20 / 5;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      filter: saturate(80%);
+    }
+
+    h1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: #fff;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      text-shadow: 0px 0px 4px rgba(61, 61, 61, 0.15);
+      transform: translate(-50%, -50%);
+    }
+  }
+}

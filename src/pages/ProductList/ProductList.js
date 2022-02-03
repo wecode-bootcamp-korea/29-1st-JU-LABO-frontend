@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import ProductCard from './ProductCard/ProductCard';
+import { useParams } from 'react-router-dom';
+import ProductListBanner from './ProductListBanner/ProductListBanner';
 import ListFilter from './ListFilter/ListFilter';
+import ProductCard from './ProductCard/ProductCard';
 import './ProductList.scss';
 
 const ProductList = () => {
-  const navigate = useNavigate();
   const params = useParams();
 
   const [productData, setProductData] = useState([]);
@@ -59,13 +59,17 @@ const ProductList = () => {
     }
   };
 
+  const SEASON_DATA = ['Spring', 'Summer', 'Autumn', 'Winter'];
+
   return (
     <div className="ProductList" onClick={handleFilterOutsideClick}>
       <header className="header">
         <div className="headerTitle">
           <nav className="breadCrumbs">
             <span className="breadCrumbsItem">Home</span>
-            <span className="breadCrumbsItem">Spring</span>
+            <span className="breadCrumbsItem">
+              {SEASON_DATA[params.category_id - 1]}
+            </span>
             {productData != 0 && (
               <span className="breadCrumbsItem">
                 {productData[0].subcategoryname[0].toUpperCase() +
@@ -110,13 +114,9 @@ const ProductList = () => {
           </aside>
         </button>
       </header>
-      <div className="banner">
-        <img
-          alt="banner"
-          src="https://images.unsplash.com/photo-1491591462767-3b91b2a19487?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-        />
-        <h1>SPRING</h1>
-      </div>
+
+      <ProductListBanner params={params} />
+
       <main className="list">
         <ListFilter
           selectedFilters={selectedFilters}
