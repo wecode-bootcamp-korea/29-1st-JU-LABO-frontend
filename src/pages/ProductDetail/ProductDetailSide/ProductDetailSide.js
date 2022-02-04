@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import OptionModal from './OptionModal/OptionModal';
 import './ProductDetailSide.scss';
 
-const ProductDetailSide = ({ productInfo, setProductInfo }) => {
+const ProductDetailSide = ({
+  productInfo,
+  setProductInfo,
+  productSize,
+  params,
+}) => {
   const [isMore, setIsMore] = useState(false);
   const [quantity, setQuantity] = useState(1);
   const [isSizeShow, setIsSizeShow] = useState(false);
@@ -17,6 +22,8 @@ const ProductDetailSide = ({ productInfo, setProductInfo }) => {
   const toggleShowInfo = () => {
     setIsMore(!isMore);
   };
+
+  console.log(productInfo);
 
   return (
     <div className="productDetailSide">
@@ -42,6 +49,8 @@ const ProductDetailSide = ({ productInfo, setProductInfo }) => {
                   setProductInfo={setProductInfo}
                   setIsShow={setIsSizeShow}
                   isSizeShow={isSizeShow}
+                  productSize={productSize}
+                  params={params}
                   size
                 />
               )}

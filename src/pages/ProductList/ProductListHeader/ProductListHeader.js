@@ -1,5 +1,6 @@
 import React from 'react';
 import FilterModal from './FilterModal/FilterModal';
+import { CATEGORY_TABLE } from '../CATEGORY_TABLE';
 import './ProductListHeader.scss';
 
 const ProductListHeader = ({
@@ -32,21 +33,13 @@ const ProductListHeader = ({
         <nav className="breadCrumbs">
           <span className="breadCrumbsItem">Home</span>
           <span className="breadCrumbsItem">
-            {SEASON_DATA[params.category_id - 1]}
+            {CATEGORY_TABLE[params.category_id][0]}
           </span>
-          {productData.length > 0 && (
-            <span className="breadCrumbsItem">
-              {productData[0].subcategoryname[0].toUpperCase() +
-                productData[0].subcategoryname.slice(1)}
-            </span>
-          )}
+          <span className="breadCrumbsItem">
+            {CATEGORY_TABLE[params.category_id][1]}
+          </span>
         </nav>
-        {productData.length > 0 && (
-          <h1>
-            {productData[0].subcategoryname[0].toUpperCase() +
-              productData[0].subcategoryname.slice(1)}
-          </h1>
-        )}
+        <h1>{CATEGORY_TABLE[params.category_id][1]}</h1>
       </div>
       <button
         type="button"

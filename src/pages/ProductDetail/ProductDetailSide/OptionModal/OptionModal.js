@@ -10,14 +10,16 @@ const OptionModal = ({
   quan,
   isQuantityShow,
   setQuantity,
+  productSize,
+  params,
 }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/data.json')
+    fetch(`http://172.16.100.31:8000/productgroups/${params.id}`)
       .then(res => res.json())
       .then(result => {
-        setProducts(result);
+        setProducts(result.products);
       });
   }, []);
 
@@ -43,13 +45,11 @@ const OptionModal = ({
   return (
     <div className={`optionModal ${quan && 'on'}`}>
       {size ? (
-        products
-          .map(product => product.ml)
-          .map(ml => (
-            <ul onClick={selectSize} key={ml}>
-              <li>{ml}</li>
-            </ul>
-          ))
+        productSize.map(ml => (
+          <ul onClick={selectSize} key={ml}>
+            <li>{ml}</li>
+          </ul>
+        ))
       ) : (
         <ul onClick={selectCount}>
           <li>1</li>

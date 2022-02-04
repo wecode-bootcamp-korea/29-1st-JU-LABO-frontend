@@ -6,12 +6,16 @@ const ProductCard = ({ data }) => {
   const navigate = useNavigate();
 
   const goToProduct = () => {
-    navigate(`/product/${data.product_id}`);
+    navigate(`/product/${data.productgroup_id}`);
   };
 
   return (
     <li className="ProductCard" onClick={goToProduct}>
-      <img alt={data.name} src={data.image_url} className="productImg" />
+      <img
+        alt={data.name}
+        src={data.image.img1.image_url}
+        className="productImg"
+      />
       <h1 className="productName">{data.name}</h1>
       <div className="volumeType">
         <p>{data.ml}ml</p>

@@ -15,15 +15,15 @@ const Header = () => {
           <div className="headerNav">
             <div className="searchwrapper">
               <div className="searchicon">
-                <i class="fas fa-search" />
+                <i className="fas fa-search" />
               </div>
 
               <input type="text" placeholder="search for products" />
               <div className="letter">
-                <i class="far fa-envelope" />
+                <i className="far fa-envelope" />
               </div>
               <div className="loginSignup">
-                <i class="far fa-user" />
+                <i className="far fa-user" />
                 <div className="clickloginsignup">Log In/Register</div>
               </div>
             </div>
@@ -32,7 +32,7 @@ const Header = () => {
           </div>
 
           <div className="shoppingbag">
-            <i class="fas fa-shopping-bag" />
+            <i className="fas fa-shopping-bag" />
           </div>
         </div>
       </div>
