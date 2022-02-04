@@ -1,0 +1,56 @@
+[
+  {
+    "category": "봄",
+    "description": "연두빛이 살짝 감도는 옅은 옐로우 컬러로 백도．라임과 같은 잘 익은 신선한 과일의 향을 느낄 수 있으며 미네랄 향이 상큼한 감귤류의 향과 어우러진 매혹적인 와인이다. 달콤한 과일향과 오크향 그리고 상큼한 산도가 환상적인 조화를 이루며 3가지 품종의 완벽한 조화를 느낄 수 있다.",
+    "image_descriptions": [
+      "n-j-yun-chardonnay-reserva",
+      "hyeong_take_ju1",
+      "goodjeongdo"
+    ],
+    "imageUrls": [
+      "/images/n-j-yun-chardonnay-reserva.jpg",
+      "/images/hyeong_take_ju1.png",
+      "/images/goodjeongdo.jpg"
+    ],
+    "ml": 20,
+    "name": "N.J.Yun Chardonnay Reserva",
+    "price": "2.00",
+    "subcategory": "양주"
+  },
+  {
+    "category": "봄",
+    "description": "연두빛이 살짝 감도는 옅은 옐로우 컬러로 백도．라임과 같은 잘 익은 신선한 과일의 향을 느낄 수 있으며 미네랄 향이 상큼한 감귤류의 향과 어우러진 매혹적인 와인이다. 달콤한 과일향과 오크향 그리고 상큼한 산도가 환상적인 조화를 이루며 3가지 품종의 완벽한 조화를 느낄 수 있다.",
+    "image_descriptions": [
+      "n-j-yun-chardonnay-reserva",
+      "n-j-yun-chardonnay-reserva",
+      "n-j-yun-chardonnay-reserva"
+    ],
+    "imageUrls": [
+      "/images/guinness.jpg",
+      "/images/jyeontory-whisky.jpeg",
+      "/images/n-j-yun-chardonnay-reserva.jpg"
+    ],
+    "ml": 140,
+    "name": "Guinness",
+    "price": "14.00",
+    "subcategory": "양주"
+  },
+  {
+    "category": "봄",
+    "description": "연두빛이 살짝 감도는 옅은 옐로우 컬러로 백도．라임과 같은 잘 익은 신선한 과일의 향을 느낄 수 있으며 미네랄 향이 상큼한 감귤류의 향과 어우러진 매혹적인 와인이다. 달콤한 과일향과 오크향 그리고 상큼한 산도가 환상적인 조화를 이루며 3가지 품종의 완벽한 조화를 느낄 수 있다.",
+    "image_descriptions": [
+      "n-j-yun-chardonnay-reserva",
+      "n-j-yun-chardonnay-reserva",
+      "n-j-yun-chardonnay-reserva"
+    ],
+    "imageUrls": [
+      "/images/chamara.jpg",
+      "/images/goodjeongdo.jpg",
+      "/images/boston.jpg"
+    ],
+    "ml": 260,
+    "name": "Chamara",
+    "price": "26.00",
+    "subcategory": "양주"
+  }
+]

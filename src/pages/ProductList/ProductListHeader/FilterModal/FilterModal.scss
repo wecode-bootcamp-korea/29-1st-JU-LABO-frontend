@@ -1,0 +1,39 @@
+@import '../../../../styles/constant.scss';
+@import url('https://fonts.googleapis.com/css2?family=Cutive&family=Source+Sans+Pro:wght@200;400;700&display=swap');
+
+.ProductList {
+  .header {
+    .filterBtn {
+      .filterModal {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 64px;
+        right: 0;
+        width: calc(100% + 1px);
+        margin-top: 6px;
+        padding: 5px 0 6px;
+        background-color: #fff;
+        border: 1px $border solid;
+        border-top: none;
+        border-right: none;
+        text-align: start;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 300;
+        transition: 200ms ease;
+
+        &.active {
+          visibility: visible;
+          opacity: 1;
+          margin-top: 0;
+          transition: 200ms ease;
+        }
+
+        li {
+          padding-bottom: 7px;
+          padding-left: 20px;
+        }
+      }
+    }
+  }
+}

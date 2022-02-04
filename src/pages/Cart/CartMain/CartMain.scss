@@ -1,0 +1,27 @@
+@import '../../../styles/constant';
+
+.cartMain {
+  background-color: $bg-light;
+  height: 100%;
+
+  .cartContentWrap {
+    max-width: 910px;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    .cartContent {
+      display: flex;
+      width: 100%;
+    }
+  }
+
+  .cartRecommendWrap {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    .cartRecommendLayout {
+      margin-bottom: 95px;
+    }
+  }
+}

@@ -1,0 +1,111 @@
+@import '../../../../../styles/constant';
+
+.cartItem {
+  padding: 15px 15px 10px 15px;
+  border-bottom: 1px solid #e3e0dc;
+
+  .cartItemContent {
+    display: flex;
+
+    .cartItemImg {
+      margin-right: 14px;
+
+      img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+      }
+    }
+
+    .cartItemContent {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+
+      .cartItemContentHead {
+        margin-bottom: 13px;
+        .cartItemContentTitle {
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          align-items: baseline;
+
+          h3 {
+            color: #464646;
+            font-size: 17px;
+            font-weight: bold;
+            line-height: 1.3;
+            text-transform: uppercase;
+          }
+
+          p {
+            line-height: 1;
+            font-size: 15px;
+          }
+        }
+
+        .cartItemSubCate {
+          p {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .cartItemContentBody {
+        .cartItemInfo {
+          margin-bottom: 4px;
+
+          li {
+            margin-bottom: 4px;
+
+            div {
+              display: flex;
+
+              p {
+                color: #404040;
+                width: 74px;
+                font-size: 13px;
+                letter-spacing: 0.02em;
+              }
+
+              .quantityControl {
+                display: flex;
+                align-items: center;
+
+                button {
+                  border: none;
+                  background-color: transparent;
+                }
+
+                input {
+                  width: 30px;
+                  text-align: center;
+                  border: none;
+                  background-color: $bg-light;
+                  outline: none;
+                  &:focus {
+                    outline: none;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .cartItemInfoRemove {
+          padding-top: 10px;
+          p {
+            color: #404040;
+            font-size: 13px;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &:hover {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

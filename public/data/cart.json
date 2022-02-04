@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1",
+    "category": "봄",
+    "image_descriptions": "n-j-yun-chardonnay-reserva",
+    "imageUrls": "/images/goodjeongdo.jpg",
+    "ml": 20,
+    "name": "Goodjeongdo",
+    "price": "2.00",
+    "quantity": "3",
+    "subcategory": "양주"
+  },
+  {
+    "id": "2",
+    "category": "여름",
+    "image_descriptions": "hyeong_take_ju1",
+    "imageUrls": "/images/boston.jpg",
+    "ml": 20,
+    "name": "Boston",
+    "price": "4.00",
+    "quantity": "1",
+    "subcategory": "양주"
+  },
+  {
+    "id": "3",
+    "category": "가을",
+    "image_descriptions": "goodjeongdo",
+    "imageUrls": "/images/guinness.jpg",
+    "ml": 20,
+    "name": "Guinness",
+    "price": "6.00",
+    "quantity": "2",
+    "subcategory": "양주"
+  }
+]
