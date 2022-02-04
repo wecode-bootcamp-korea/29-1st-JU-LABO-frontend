@@ -14,7 +14,7 @@ const Header = () => {
                 <img src="images/searchsmall.png" alt="돋보기" />
               </div>
 
-              <input type="text" placeholder="search for products"></input>
+              <input type="text" placeholder="search for products" />
               <div className="letter">
                 <img src="images/letter.png" alt="contact" />
               </div>

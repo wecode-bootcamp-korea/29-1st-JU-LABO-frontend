@@ -43,7 +43,6 @@ function Login() {
 
   return (
     <div>
-      <Header />
       <div className="backgroundwrapper">
         <div className="loginwrapper">
           <h1>Login</h1>
