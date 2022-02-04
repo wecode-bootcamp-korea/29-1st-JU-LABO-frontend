@@ -1,0 +1,32 @@
+@import '../../../styles/constant.scss';
+
+.mainCard {
+  color: $text;
+  text-decoration: none;
+
+  div {
+    width: 100%;
+    margin-bottom: 14px;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  h3 {
+    margin-bottom: 8px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  h4 {
+    margin-bottom: 4px;
+    font-family: 'Cutive Mono', monospace;
+    line-height: 1.2em;
+  }
+}
