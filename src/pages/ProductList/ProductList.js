@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ProductListHeader from './ProductListHeader/ProductListHeader';
 import ProductListBanner from './ProductListBanner/ProductListBanner';
 import ListFilter from './ListFilter/ListFilter';
@@ -7,7 +7,6 @@ import ProductCard from './ProductCard/ProductCard';
 import './ProductList.scss';
 
 const ProductList = () => {
-  const location = useLocation();
   const params = useParams();
   const modalRef = useRef();
 
