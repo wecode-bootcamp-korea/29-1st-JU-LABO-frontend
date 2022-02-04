@@ -1,149 +1,143 @@
 @import '../../styles/constant.scss';
 
-.backgroundwrapper {
-  height: 100vh;
-}
-
-.register-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px;
-
-  h1 {
-    font-size: 45px;
-    font-weight: bold;
-    font-family: 'Cutive', serif;
-    padding: 18px;
-    margin-bottom: 22px;
+.register {
+  .backgroundwrapper {
+    height: 100vh;
   }
 
-  p {
-    margin-top: 20px;
-    font-family: 'Cutive', serif;
-    font-size: 20px;
-  }
-}
+  .register-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
 
-.firstnameform {
-  display: flex;
-  border: 2px solid rgb(177, 172, 172);
-  border-bottom: none;
-  background-color: #ffffff;
-  padding-top: 10px;
-  padding-bottom: 10px;
+    h1 {
+      font-size: 30px;
+      font-weight: bold;
+      font-family: 'Cutive', serif;
+      padding: 18px;
+      margin-bottom: 15px;
+    }
 
-  .labelform {
-    width: 200px;
-    padding: 20px 40px 20px 20px;
-    font-family: 'Cutive', serif;
-    font-size: 22px;
-    border: none;
-  }
-
-  .firstnameinput {
-    width: 200px;
-    border: none;
-    font-size: 22px;
-    outline: none;
-  }
-}
-
-.lastnameform {
-  display: flex;
-  border: 2px solid rgb(177, 172, 172);
-  background-color: #ffffff;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  .labelform {
-    width: 200px;
-    padding: 20px 40px 20px 20px;
-    font-family: 'Cutive', serif;
-    font-size: 22px;
-    width: 200px;
-    border: none;
+    p {
+      margin-top: 20px;
+      font-family: 'Cutive', serif;
+      font-size: 15px;
+    }
   }
 
-  .lastnameinput {
-    width: 300px;
-    font-size: 22px;
-    border: none;
-    outline: none;
-  }
-}
+  .firstnameform {
+    display: flex;
+    border: 2px solid rgb(177, 172, 172);
+    border-bottom: none;
+    background-color: #ffffff;
 
-.emailform {
-  display: flex;
-  border: 2px solid rgb(177, 172, 172);
-  border-top: none;
-  border-bottom: none;
-  background-color: #ffffff;
-  padding-top: 10px;
-  padding-bottom: 10px;
+    .labelform {
+      width: 160px;
+      padding: 20px 40px 20px 20px;
+      font-family: 'Cutive', serif;
+      font-size: 15px;
+      border: none;
+    }
 
-  .email-labelform {
-    width: 200px;
-    padding: 20px 0px 20px 20px;
-    font-family: 'Cutive', serif;
-    font-size: 22px;
-    border: none;
+    .firstnameinput {
+      width: 300px;
+      border: none;
+      font-size: 15px;
+      outline: none;
+    }
   }
 
-  .emailinput {
-    width: 300px;
-    font-size: 22px;
-    border: none;
-    outline: none;
+  .lastnameform {
+    display: flex;
+    border: 2px solid rgb(177, 172, 172);
+    background-color: #ffffff;
+
+    .labelform {
+      width: 200px;
+      padding: 20px 40px 20px 20px;
+      font-family: 'Cutive', serif;
+      font-size: 15px;
+      width: 160px;
+      border: none;
+    }
+
+    .lastnameinput {
+      width: 300px;
+      font-size: 15px;
+      border: none;
+      outline: none;
+    }
   }
-}
 
-.passwordform {
-  display: flex;
-  border: 2px solid rgb(177, 172, 172);
-  background-color: #ffffff;
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  .labelform {
-    width: 200px;
-    padding: 20px 40px 20px 20px;
-    font-family: 'Cutive', serif;
-    font-size: 22px;
-    border: none;
-  }
-
-  .passwordinput {
-    width: 300px;
-    font-size: 22px;
-    border: none;
-    outline: none;
-  }
-}
-
-.asklogin {
-  @include center;
-
-  button {
-    font-family: 'Cutive', serif;
-    font-size: 20px;
-    margin: 15px;
+  .emailform {
+    display: flex;
+    border: 2px solid rgb(177, 172, 172);
     border-top: none;
-    border-left: none;
-    border-right: none;
-    border-bottom: 1px solid gray;
-    outline: none;
+    border-bottom: none;
+    background-color: #ffffff;
+
+    .email-labelform {
+      width: 160px;
+      padding: 20px 0px 20px 20px;
+      font-family: 'Cutive', serif;
+      font-size: 15px;
+      border: none;
+    }
+
+    .emailinput {
+      width: 300px;
+      font-size: 15px;
+      border: none;
+      outline: none;
+    }
   }
-}
 
-.buttonwrap {
-  @include center;
+  .passwordform {
+    display: flex;
+    border: 2px solid rgb(177, 172, 172);
+    background-color: #ffffff;
 
-  .registerbutton {
-    font-size: 22px;
-    width: 300px;
-    padding: 10px;
-    margin-top: 20px;
+    .labelform {
+      width: 160px;
+      padding: 20px 40px 20px 20px;
+      font-family: 'Cutive', serif;
+      font-size: 15px;
+      border: none;
+    }
+
+    .passwordinput {
+      width: 300px;
+      font-size: 15px;
+      border: none;
+      outline: none;
+    }
+  }
+
+  .asklogin {
+    @include center;
+
+    button {
+      font-family: 'Cutive', serif;
+      font-size: 20px;
+      margin: 15px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid gray;
+      outline: none;
+    }
+  }
+
+  .buttonwrap {
+    @include center;
+
+    .registerbutton {
+      font-size: 15px;
+      width: 300px;
+      padding: 10px;
+      margin-top: 20px;
+    }
   }
 }

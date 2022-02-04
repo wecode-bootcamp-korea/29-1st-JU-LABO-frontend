@@ -5,7 +5,11 @@ const Header = () => {
   return (
     <div>
       <div className="headwrapper">
-        <img src="images/julabo_logo.png" alt="주라보 로고" />
+        <img
+          classNam="logoImg"
+          src="images/julabo_logo.png"
+          alt="주라보 로고"
+        />
 
         <div className="headerinner">
           <div className="headerNav">
