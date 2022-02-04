@@ -6,8 +6,8 @@ const Header = () => {
     <div>
       <div className="headwrapper">
         <img
-          classNam="logoImg"
-          src="images/julabo_logo.png"
+          className="logoImg"
+          src="/images/julabo_logo.png"
           alt="주라보 로고"
         />
 
@@ -15,15 +15,15 @@ const Header = () => {
           <div className="headerNav">
             <div className="searchwrapper">
               <div className="searchicon">
-                <img src="images/searchsmall.png" alt="돋보기" />
+                <i class="fas fa-search" />
               </div>
 
               <input type="text" placeholder="search for products" />
               <div className="letter">
-                <img src="images/letter.png" alt="contact" />
+                <i class="far fa-envelope" />
               </div>
               <div className="loginSignup">
-                <img src="images/user.png" alt="user" />
+                <i class="far fa-user" />
                 <div className="clickloginsignup">Log In/Register</div>
               </div>
             </div>
@@ -32,7 +32,7 @@ const Header = () => {
           </div>
 
           <div className="shoppingbag">
-            <img src="images/bag1.png" alt="bag" />
+            <i class="fas fa-shopping-bag" />
           </div>
         </div>
       </div>
