@@ -16,6 +16,8 @@ const CartItem = ({ item, cartItems, setCartItems }) => {
 
   const subQuantity = (e, id) => {
     e.preventDefault();
+    if (Number(item.quantity) === 0) {
+    }
 
     const addQuantity = cartItems.map(cartItem => {
       if (cartItem.id === id) {
