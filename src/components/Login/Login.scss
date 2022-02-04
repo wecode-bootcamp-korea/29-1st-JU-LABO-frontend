@@ -1,0 +1,124 @@
+@import '../../styles/constant.scss';
+
+.backgroundwrapper {
+  height: 100vh;
+  background-color: $bg-light;
+}
+
+.loginwrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+
+  h1 {
+    font-size: 45px;
+    font-weight: bold;
+    font-family: 'Cutive', serif;
+    padding: 18px;
+    margin-bottom: 22px;
+  }
+
+  p {
+    margin-top: 20px;
+    font-family: 'Cutive', serif;
+    font-size: 20px;
+  }
+}
+
+.loginemailform {
+  display: flex;
+  border: {
+    border: 2px solid rgb(177, 172, 172);
+    bottom: none;
+  }
+
+  background-color: #ffffff;
+  padding: {
+    top: 10px;
+    bottom: 10px;
+  }
+
+  .email-labelform {
+    width: 200px;
+    padding: 20px 0px 20px 20px;
+    font: {
+      family: 'Cutive', serif;
+      size: 22px;
+    }
+  }
+
+  .emailinput {
+    width: 300px;
+    font-size: 22px;
+    border: none;
+    outline: none;
+  }
+}
+
+.passwordform {
+  display: flex;
+  border: 2px solid rgb(177, 172, 172);
+  background-color: #ffffff;
+  padding: {
+    top: 10px;
+    bottom: 10px;
+  }
+
+  .labelform {
+    font: {
+      family: 'Cutive', serif;
+      size: 22px;
+    }
+    width: 200px;
+    padding: 20px 40px 20px 20px;
+    border: none;
+  }
+
+  .passwordinput {
+    width: 300px;
+    font-size: 22px;
+    border: none;
+    outline: none;
+  }
+}
+
+.asksignup {
+  @include center;
+  margin-top: 40px;
+
+  button {
+    font: {
+      family: 'Cutive', serif;
+      size: 22px;
+      style: oblique;
+    }
+
+    background-color: $bg-light;
+    border: $border {
+      top: none;
+      left: none;
+      right: none;
+      bottom: 1px solid;
+    }
+
+    margin: 15px;
+    outline: none;
+  }
+}
+
+.buttonwrap {
+  @include center;
+
+  margin: {
+    top: 30px;
+    bottom: 40px;
+  }
+
+  .loginbutton {
+    width: 300px;
+    font-size: 22px;
+    padding: 10px;
+  }
+}
