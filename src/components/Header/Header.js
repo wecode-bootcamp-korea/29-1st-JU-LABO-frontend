@@ -5,7 +5,11 @@ const Header = () => {
   return (
     <div>
       <div className="headwrapper">
-        <img src="images/julabo_logo.png" alt="주라보 로고" />
+        <img
+          classNam="logoImg"
+          src="images/julabo_logo.png"
+          alt="주라보 로고"
+        />
 
         <div className="headerinner">
           <div className="headerNav">
@@ -14,7 +18,7 @@ const Header = () => {
                 <img src="images/searchsmall.png" alt="돋보기" />
               </div>
 
-              <input type="text" placeholder="search for products"></input>
+              <input type="text" placeholder="search for products" />
               <div className="letter">
                 <img src="images/letter.png" alt="contact" />
               </div>
