@@ -6,7 +6,9 @@
   border: 1px solid $border;
 
   .logoImg {
-    object-fit: cover;
+    width: 180px;
+    margin: 0 16px;
+    object-fit: contain;
   }
 }
 
@@ -28,11 +30,6 @@
   flex: 1;
   width: 100%;
 
-  img {
-    width: 35px;
-    height: 35px;
-  }
-
   input {
     width: 100%;
     font-size: 15px;
@@ -49,27 +46,38 @@
 }
 
 .shoppingbag {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  i {
+    color: $text;
+    font-size: 30px;
+  }
   border-left: 1px solid $border;
 }
 
 .loginSignup {
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 350px;
   border-left: 1px solid $border;
-  padding: 13px;
+
+  i {
+    margin-right: 13px;
+    margin-bottom: 2px;
+  }
+
+  .clickloginsignup {
+    font-size: 12px;
+    font-family: 'Cutive', serif;
+  }
 }
 
 .headerNav {
   @include center;
   flex-direction: column;
   width: 100%;
-}
-
-.clickloginsignup {
-  padding: 13px;
-  font-size: 20px;
-  font-family: 'Cutive', serif;
 }
 
 .category {
