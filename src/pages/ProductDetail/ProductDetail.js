@@ -13,12 +13,10 @@ const ProductDetail = () => {
     fetch(`http://172.16.100.31:8000/productgroups/${params.id}`)
       .then(res => res.json())
       .then(result => {
-        setProductSize(result.mls);
+        setProductSize(result);
         setProductInfo(result.products[0]);
       });
   }, []);
-
-  console.log(productInfo);
 
   return (
     <section className="productDetail">

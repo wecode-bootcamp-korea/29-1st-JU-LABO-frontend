@@ -23,8 +23,6 @@ const ProductDetailSide = ({
     setIsMore(!isMore);
   };
 
-  console.log(productInfo);
-
   return (
     <div className="productDetailSide">
       <div className="productHead">
