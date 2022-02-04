@@ -56,7 +56,7 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className="register">
       <div className="backgroundwrapper">
         <div className="register-wrapper">
           <h1>NEW CLIENTS</h1>

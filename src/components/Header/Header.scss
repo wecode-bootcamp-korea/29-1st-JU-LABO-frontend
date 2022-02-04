@@ -4,6 +4,10 @@
   display: flex;
   position: relative;
   border: 1px solid $border;
+
+  .logoImg {
+    object-fit: cover;
+  }
 }
 
 .headerinner {
