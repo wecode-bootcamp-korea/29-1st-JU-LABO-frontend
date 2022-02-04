@@ -30,7 +30,7 @@
 .loginemailform {
   display: flex;
   border: {
-    border: 2px solid rgb(177, 172, 172);
+    border: 2px solid $border;
     bottom: none;
   }
 
@@ -59,7 +59,7 @@
 
 .passwordform {
   display: flex;
-  border: 2px solid rgb(177, 172, 172);
+
   background-color: #ffffff;
   padding: {
     top: 10px;
