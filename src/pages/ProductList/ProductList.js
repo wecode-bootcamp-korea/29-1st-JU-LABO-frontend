@@ -24,7 +24,7 @@ const ProductList = () => {
       .then(data => {
         setProductData(data.result);
       });
-  }, []);
+  }, [params.category_id, params.subcategory_id]);
 
   useEffect(() => {
     if (selectedFilters.length > 0) {
