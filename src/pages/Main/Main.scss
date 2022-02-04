@@ -1,0 +1,285 @@
+@import '../../styles/constant';
+@import url('https://fonts.googleapis.com/css2?family=Cutive&family=Playfair+Display:ital@0;1&family=Source+Sans+Pro:wght@400;700&display=swap');
+
+@mixin sectionBox {
+  width: calc(100% - 250px);
+  max-width: 1190px;
+  margin: 0 125px;
+  padding: 33px;
+  border: 1px $border solid;
+  border-top: none;
+
+  h1 {
+    margin-bottom: 16px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  h2 {
+    margin-bottom: 46px;
+    font-family: 'Cutive Mono', monospace;
+    line-height: 1.2em;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $text;
+  background-color: $bg-light;
+  font-size: 14px;
+
+  .blankDiv {
+    @include sectionBox();
+    position: relative;
+    height: 80px;
+    text-align: center;
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .mainBanner {
+    position: relative;
+    width: 100vw;
+    aspect-ratio: 10 / 3;
+    margin: 0;
+    background-color: #000;
+    overflow: hidden;
+
+    .mainBannerTitle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      z-index: 1000;
+
+      h1 {
+        margin-bottom: 16px;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 28px;
+        font-weight: 700;
+      }
+
+      h2 {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 18px;
+      }
+    }
+
+    .slide {
+      display: flex;
+      align-content: center;
+      width: 100%;
+      opacity: 0.7;
+      transition: opacity 800ms ease-in;
+
+      .sliderImage {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      &.active {
+        height: 100%;
+        opacity: 1;
+        transition: opacity 800ms ease-in;
+      }
+    }
+  }
+
+  .seasons {
+    .seasonsCardContainer {
+      display: flex;
+      justify-content: space-between;
+
+      .seasonsCard {
+        width: 23%;
+        text-decoration: none;
+        color: $text;
+        overflow: hidden;
+        transition: 200ms ease-in-out;
+
+        &:hover {
+          transform: scale(102%);
+
+          & .seasonsCardWrap > img {
+            filter: saturate(100%);
+          }
+        }
+
+        .seasonsCardWrap {
+          img {
+            margin-bottom: 14px;
+            filter: saturate(70%);
+          }
+        }
+
+        h3 {
+          margin-bottom: 8px;
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+        }
+
+        h4 {
+          margin-bottom: 4px;
+          font-family: 'Cutive Mono', monospace;
+          font-size: 12px;
+          line-height: 1.2em;
+        }
+      }
+    }
+  }
+
+  .brewery {
+    border-top: none;
+  }
+
+  .souls {
+    border-top: none;
+
+    .soulsSlider {
+      position: relative;
+      margin-bottom: 40px;
+
+      .soulsSliderWrap {
+        display: flex;
+        overflow: hidden;
+
+        .soulsSliderImageWrap {
+          display: flex;
+          align-items: center;
+          flex-shrink: 0;
+          width: 100%;
+          filter: saturate(60%);
+
+          .soulsSliderImage1-2 {
+            display: flex;
+            flex-direction: column;
+          }
+
+          .soulsSliderImage {
+            &1 {
+              width: 60%;
+              margin-right: 12px;
+              object-fit: contain;
+            }
+
+            &2 {
+              width: 100%;
+              margin-bottom: 18px;
+              object-fit: contain;
+            }
+
+            &3 {
+              width: 100%;
+              object-fit: contain;
+            }
+          }
+        }
+      }
+
+      .fa-chevron-left {
+        position: absolute;
+        top: 50%;
+        padding: 10px 14px 10px 10px;
+        color: rgba($color: #000000, $alpha: 0.3);
+        background-color: rgba($color: #fff, $alpha: 0);
+        font-size: 18px;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        &:hover {
+          color: rgba($color: #000000, $alpha: 0.6);
+          background-color: rgba($color: #fff, $alpha: 0.5);
+          transition: background-color 200ms ease;
+        }
+      }
+
+      .fa-chevron-right {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        padding: 10px 10px 10px 14px;
+        background-color: rgba($color: #fff, $alpha: 0);
+        color: rgba($color: #000000, $alpha: 0.3);
+        font-size: 18px;
+        transform: translateY(-50%);
+        cursor: pointer;
+
+        &:hover {
+          color: rgba($color: #000000, $alpha: 0.6);
+          background-color: rgba($color: #fff, $alpha: 0.5);
+          transition: background-color 200ms ease;
+        }
+      }
+    }
+  }
+
+  .collections {
+    position: relative;
+    width: calc(100% - 250px);
+    max-width: 1190px;
+    height: 80vh;
+    margin: 0 125px;
+    border: 1px $border solid;
+    border-top: none;
+
+    .collectionsBg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 200;
+      filter: saturate(70%);
+    }
+
+    .collectionsItemsWrap {
+      position: absolute;
+      z-index: 300;
+      height: 100%;
+      display: flex;
+
+      .collectionsItem {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 25%;
+        height: 100%;
+        padding: 50px;
+        color: white;
+        opacity: 0.6;
+        transition: 300ms ease-in-out;
+
+        &.active {
+          padding-bottom: 80px;
+          opacity: 1;
+          transition: 300ms ease-in-out;
+        }
+
+        h1 {
+          margin-bottom: 16px;
+          font-family: 'Source Sans Pro', sans-serif;
+          font-size: 20px;
+          font-weight: 700;
+          pointer-events: none;
+        }
+
+        p {
+          font-family: 'Cutive Mono', monospace;
+          line-height: 1.2em;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+}
