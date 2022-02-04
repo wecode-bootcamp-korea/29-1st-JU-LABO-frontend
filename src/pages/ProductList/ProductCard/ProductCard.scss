@@ -1,0 +1,52 @@
+@import '../../../styles/constant';
+@import url('https://fonts.googleapis.com/css2?family=Cutive&family=Source+Sans+Pro:wght@200;400;700&display=swap');
+
+.ProductCard {
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  margin-left: 2%;
+  margin-bottom: 34px;
+
+  .productImg {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 1px solid $border;
+  }
+
+  .productName {
+    padding: 4px 38px 4px 6px;
+    border: 1px solid $border;
+    border-top: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    line-height: 1.3em;
+  }
+
+  .volumeType {
+    padding: 6px;
+    border: 1px solid $border;
+    border-top: none;
+    font-family: 'Cutive Mono', monospace;
+    font-size: 12px;
+    line-height: 1.2em;
+  }
+
+  .cartPrice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px;
+    border: 1px solid $border;
+    border-top: none;
+    border-bottom: none;
+    font-size: 14px;
+
+    .price {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 400;
+    }
+  }
+}
