@@ -4,7 +4,7 @@ import ProductListHeader from './ProductListHeader/ProductListHeader';
 import ProductListBanner from './ProductListBanner/ProductListBanner';
 import ListFilter from './ListFilter/ListFilter';
 import ProductCard from './ProductCard/ProductCard';
-import { CATEGORY_TABLE } from './CATEGORY_TABLE';
+// import { CATEGORY_TABLE } from './CATEGORY_TABLE';
 import './ProductList.scss';
 
 const ProductList = () => {
