@@ -3,7 +3,7 @@
 .headwrapper {
   display: flex;
   position: relative;
-  border: 1px solid;
+  border: 1px solid $border;
 }
 
 .headerinner {
@@ -17,7 +17,7 @@
   display: flex;
   align-items: center;
   padding: 13px;
-  border-left: 1px solid;
+  border-left: 1px solid $border;
 }
 .searchwrapper {
   display: flex;
@@ -41,19 +41,19 @@
 .letter {
   display: flex;
   align-items: center;
-  border-left: 1px solid;
+  border-left: 1px solid $border;
   padding: 13px;
 }
 
 .shoppingbag {
-  border-left: 1px solid;
+  border-left: 1px solid $border;
 }
 
 .loginSignup {
   display: flex;
   align-items: center;
   width: 350px;
-  border-left: 1px solid;
+  border-left: 1px solid $border;
   padding: 13px;
 }
 
@@ -75,6 +75,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-left: 1px solid;
-  border-top: 1px solid;
+  border-left: 1px solid $border;
+  border-top: 1px solid $border;
+  font-size: 35px;
 }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.scss';
+import Header from '../Header/Header';
 
 function Login() {
   const [loginInfo, setloginInfo] = useState({
@@ -42,6 +43,7 @@ function Login() {
 
   return (
     <div>
+      <Header />
       <div className="backgroundwrapper">
         <div className="loginwrapper">
           <h1>Login</h1>

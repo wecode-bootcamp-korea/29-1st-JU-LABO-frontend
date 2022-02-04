@@ -24,7 +24,7 @@ const Header = () => {
               </div>
             </div>
 
-            <div className="category">봄여름가을겨울</div>
+            <div className="category">весна лето осень зима</div>
           </div>
 
           <div className="shoppingbag">
