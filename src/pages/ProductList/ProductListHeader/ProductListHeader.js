@@ -27,18 +27,25 @@ const ProductListHeader = ({
 
   return (
     <header className="header">
-      <div className="headerTitle">
-        <nav className="breadCrumbs">
-          <span className="breadCrumbsItem">Home</span>
-          <span className="breadCrumbsItem">
-            {CATEGORY_TABLE[params.category_id][0]}
-          </span>
-          <span className="breadCrumbsItem">
-            {CATEGORY_TABLE[params.category_id][1]}
-          </span>
-        </nav>
-        <h1>{CATEGORY_TABLE[params.category_id][1]}</h1>
-      </div>
+      {params !== null ? (
+        <div className="headerTitle">
+          <nav className="breadCrumbs">
+            <span className="breadCrumbsItem">Home</span>
+            <span className="breadCrumbsItem">
+              {CATEGORY_TABLE[params.category_id][0]}
+            </span>
+            <span className="breadCrumbsItem">
+              {CATEGORY_TABLE[params.category_id][1]}
+            </span>
+          </nav>
+          <h1>{CATEGORY_TABLE[params.category_id][1]}</h1>
+        </div>
+      ) : (
+        <div className="headerTitle">
+          <h2>Search results</h2>
+        </div>
+      )}
+
       <button
         type="button"
         className={isfilterModalActive ? 'filterBtn active' : 'filterBtn'}

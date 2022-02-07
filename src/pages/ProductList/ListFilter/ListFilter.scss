@@ -1,7 +1,8 @@
 @import '../../../styles/constant.scss';
 @import url('https://fonts.googleapis.com/css2?family=Cutive&family=Source+Sans+Pro:wght@200;400;700&display=swap');
 
-.ProductList {
+.ProductList,
+.searchList {
   .list {
     .listFilter {
       display: flex;

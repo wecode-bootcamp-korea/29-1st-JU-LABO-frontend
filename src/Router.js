@@ -8,6 +8,7 @@ import Register from './components/Register/Register';
 import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Cart from './pages/Cart/Cart';
+import SearchList from './pages/ProductList/SearchList/SearchList';
 
 const Router = () => {
   return (
@@ -20,6 +21,7 @@ const Router = () => {
         <Route path="/products/:category_id" element={<ProductList />} />
         <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/search" element={<SearchList />} />
       </Routes>
       <Footer />
     </BrowserRouter>
