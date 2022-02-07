@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './CartOrder.scss';
 
-const CartOrder = ({ cartItems, setCartItems }) => {
+const CartOrder = ({ cartItems }) => {
   const [total, setTotal] = useState();
 
   useEffect(() => {

@@ -6,18 +6,18 @@ import './Cart.scss';
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   useEffect(() => {
-    fetch('/data/cart.json')
+    fetch('http://10.58.6.164:8000/carts', {
+      headers: {
+        token:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MX0._L5a_ydjIIS90fJl5YP4HLe_lX31ioC5BcTUWD1lm8s',
+      },
+    })
       .then(res => res.json())
       .then(res => {
-        setCartItems(res);
+        sessionStorage.setItem('cartItems', JSON.stringify(res));
       });
   }, []);
-  return (
-    <>
-      <CartModal cartItems={cartItems} setCartItems={setCartItems} />
-      <CartMain cartItems={cartItems} setCartItems={setCartItems} />
-    </>
-  );
+  return <CartMain />;
 };
 
 export default Cart;

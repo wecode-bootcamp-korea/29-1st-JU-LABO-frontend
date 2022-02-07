@@ -4,7 +4,7 @@ import './CartRecommendItem.scss';
 const CartRecommendItem = () => {
   return (
     <li className="cartRecommendItem">
-      <img src="./images/boston.jpg" alt="boston" />
+      <img src="./images/boston1.jpg" alt="boston" />
       <div className="recommendItemContent">
         <h3 className="recommendItemTitle">Boston</h3>
         <div className="recommendItemDetails">

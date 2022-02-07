@@ -4,13 +4,13 @@ import CartOrder from './CartOrder/CartOrder';
 import CartRecommendList from './CartRecommendList/CartRecommendList';
 import './CartMain.scss';
 
-const CartMain = ({ cartItems, setCartItems }) => {
+const CartMain = ({ quantity, setQuantity }) => {
   return (
     <div className="cartMain">
       <div className="cartContentWrap">
         <div className="cartContent">
-          <CartList setCartItems={setCartItems} cartItems={cartItems} />
-          <CartOrder setCartItems={setCartItems} cartItems={cartItems} />
+          <CartList quantity={quantity} setQuantity={setQuantity} />
+          <CartOrder />
         </div>
       </div>
       <div className="cartRecommendWrap">

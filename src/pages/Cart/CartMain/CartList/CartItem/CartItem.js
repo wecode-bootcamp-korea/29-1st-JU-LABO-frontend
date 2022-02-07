@@ -1,17 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './CartItem.scss';
 
 const CartItem = ({ item, cartItems, setCartItems }) => {
+  const [quantity, setQuantity] = useState();
+
+  useEffect(() => {
+    if (item) setQuantity(item.quantity);
+  }, []);
+
   const addQuantity = (e, id) => {
     e.preventDefault();
 
-    const addQuantity = cartItems.map(cartItem => {
+    const addQuan = cartItems.map(cartItem => {
       if (cartItem.id === id) {
-        return { ...cartItem, quantity: Number(cartItem.quantity) + 1 };
+        // addQuan();
+        const curr = +quantity + 1;
+
+        setQuantity(curr);
+        fetch('', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            ...cartItem,
+            quantity: curr,
+          }),
+        });
+        return { ...cartItem, quantity: curr };
       } else return cartItem;
     });
 
-    setCartItems(addQuantity);
+    setCartItems(addQuan);
+
+    sessionStorage.setItem('cartItems', JSON.stringify(addQuan));
   };
 
   const subQuantity = (e, id) => {
@@ -19,13 +41,17 @@ const CartItem = ({ item, cartItems, setCartItems }) => {
     if (Number(item.quantity) === 0) {
     }
 
-    const addQuantity = cartItems.map(cartItem => {
+    const subQuan = cartItems.map(cartItem => {
       if (cartItem.id === id) {
+        const curr = +quantity - 1;
+        setQuantity(curr);
+
         return { ...cartItem, quantity: Number(cartItem.quantity) - 1 };
       } else return cartItem;
     });
 
-    setCartItems(addQuantity);
+    setCartItems(subQuan);
+    sessionStorage.setItem('cartItems', JSON.stringify(subQuan));
   };
 
   const removeItem = (e, id) => {
@@ -61,7 +87,7 @@ const CartItem = ({ item, cartItems, setCartItems }) => {
                   <p>Quantity: </p>
                   <div className="quantityControl">
                     <button onClick={e => subQuantity(e, item.id)}>-</button>
-                    <input type="text" value={item.quantity || ''} readOnly />
+                    <input type="text" value={quantity || ''} readOnly />
                     <button onClick={e => addQuantity(e, item.id)}>+</button>
                   </div>
                 </div>

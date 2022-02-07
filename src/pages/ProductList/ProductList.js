@@ -4,7 +4,7 @@ import ProductListHeader from './ProductListHeader/ProductListHeader';
 import ProductListBanner from './ProductListBanner/ProductListBanner';
 import ListFilter from './ListFilter/ListFilter';
 import ProductCard from './ProductCard/ProductCard';
-// import { CATEGORY_TABLE } from './CATEGORY_TABLE';
+import { fetchProductList } from '../../api/config';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -17,36 +17,29 @@ const ProductList = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
 
   useEffect(() => {
-    fetch(
-      // `http://172.16.100.203:8002/categories/product?category_subcategory_id=${params.category_id}`
-      `http://172.16.100.203:8002/categories/product?category_subcategory_id=1`
-    )
+    fetch(fetchProductList + `?category_subcategory_id=${params.category_id}`)
       .then(res => res.json())
       .then(data => {
         setProductData(data.products);
       });
   }, [params.category_id]);
 
-  // useEffect(() => {
-  //   if (selectedFilters.length > 0) {
-  //     fetch(
-  //       `http://10.58.2.198:8002/subcategory?category_id=${
-  //         params.category_id
-  //       }&subcategory_id=${params.subcategory_id}&type=${parseInt(
-  //         selectedFilters[selectedFilters.length - 1]
-  //       )}`
-  //     )
-  //       .then(res => res.json())
-  //       .then(data => {
-  //         setFilteredProductData([...filteredProductData, data.result]);
-  //       });
-  //   }
-  // }, [
-  //   selectedFilters,
-  //   params.category_id,
-  //   params.subcategory_id,
-  //   filteredProductData,
-  // ]);
+  useEffect(() => {
+    if (selectedFilters.length > 0) {
+      fetch(
+        fetchProductList +
+          `?category_subcategory_id=${params.category_id}&ml=${parseInt(
+            selectedFilters[selectedFilters.length - 1]
+          )}`
+      )
+        .then(res => res.json())
+        .then(data => {
+          setFilteredProductData(prev =>
+            prev.concat(data.products).sort((a, b) => a.ml - b.ml)
+          );
+        });
+    }
+  }, [selectedFilters, params.category_id]);
 
   const handleFilterOutsideClick = e => {
     if (isfilterModalActive && !modalRef.current.contains(e.target)) {
@@ -75,8 +68,13 @@ const ProductList = () => {
           setFilteredProductData={setFilteredProductData}
         />
         <ul className="listContainer">
-          {productData.length &&
+          {filteredProductData.length === 0 &&
+            productData.length > 0 &&
             productData.map(data => <ProductCard key={data.id} data={data} />)}
+          {filteredProductData.length > 0 &&
+            filteredProductData.map(data => (
+              <ProductCard key={data.id} data={data} />
+            ))}
         </ul>
       </main>
     </div>

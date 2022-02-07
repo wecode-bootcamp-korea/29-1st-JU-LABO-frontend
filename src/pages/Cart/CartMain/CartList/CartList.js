@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CartItem from './CartItem/CartItem';
 import './CartList.scss';
 
-const CartList = ({ cartItems, setCartItems }) => {
+const CartList = () => {
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    setCartItems(JSON.parse(sessionStorage.getItem('cartItems')));
+  }, []);
+
   return (
     <div className="cartList">
       <section className="cartListLayout">

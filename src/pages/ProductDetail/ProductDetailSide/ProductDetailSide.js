@@ -23,6 +23,18 @@ const ProductDetailSide = ({
     setIsMore(!isMore);
   };
 
+  const addCart = () => {
+    fetch('', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        ...productInfo,
+      }),
+    });
+  };
+
   return (
     <div className="productDetailSide">
       <div className="productHead">
@@ -37,7 +49,7 @@ const ProductDetailSide = ({
       </div>
 
       <div className="productForm">
-        <form action="#" method="post">
+        <form action="#" method="post" onClick={addCart}>
           <div className="formRow">
             <p className="productLabel">Size: </p>
             <div className="productInfo sizeInfo" onClick={isShowModal}>

@@ -36,6 +36,9 @@ function Login() {
           } else if (res.message === 'INVALID_EMAIL') {
             alert('이메일이 올바르지 않습니다!');
           }
+          if (res.token) {
+            sessionStorage.setItem('loginToken', res.token);
+          }
         });
     }
   };
