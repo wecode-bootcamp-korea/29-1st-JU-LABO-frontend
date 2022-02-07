@@ -12,17 +12,14 @@ const FilterModal = ({
       ref={modalRef}
     >
       <ul>
-        <li name="10ml" onClick={handleFilterItemClick}>
-          10ml
+        <li name="200ml" onClick={handleFilterItemClick}>
+          200ml
         </li>
-        <li name="20ml" onClick={handleFilterItemClick}>
-          20ml
+        <li name="500ml" onClick={handleFilterItemClick}>
+          500ml
         </li>
-        <li name="30ml" onClick={handleFilterItemClick}>
-          30ml
-        </li>
-        <li name="40ml" onClick={handleFilterItemClick}>
-          40ml
+        <li name="1000ml" onClick={handleFilterItemClick}>
+          1000ml
         </li>
       </ul>
     </aside>

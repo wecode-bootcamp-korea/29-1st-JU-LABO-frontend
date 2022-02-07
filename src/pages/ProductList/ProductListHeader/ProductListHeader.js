@@ -25,8 +25,6 @@ const ProductListHeader = ({
     }
   };
 
-  const SEASON_DATA = ['Spring', 'Summer', 'Autumn', 'Winter'];
-
   return (
     <header className="header">
       <div className="headerTitle">
