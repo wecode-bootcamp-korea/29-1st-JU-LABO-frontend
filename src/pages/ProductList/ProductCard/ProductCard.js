@@ -10,7 +10,7 @@ const ProductCard = ({ data }) => {
   };
 
   return (
-    <li className="ProductCard" onClick={goToProduct}>
+    <li className="productCard" onClick={goToProduct}>
       <img
         alt={data.name}
         src={data.image[0].image_url}
