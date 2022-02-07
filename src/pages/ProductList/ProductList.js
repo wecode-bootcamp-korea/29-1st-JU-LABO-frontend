@@ -4,6 +4,7 @@ import ProductListHeader from './ProductListHeader/ProductListHeader';
 import ProductListBanner from './ProductListBanner/ProductListBanner';
 import ListFilter from './ListFilter/ListFilter';
 import ProductCard from './ProductCard/ProductCard';
+import { fetchProductList } from '../../api/config';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -16,9 +17,7 @@ const ProductList = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
 
   useEffect(() => {
-    fetch(
-      `http://10.58.4.48:8002/categories/product?category_subcategory_id=${params.category_id}`
-    )
+    fetch(fetchProductList + `?category_subcategory_id=${params.category_id}`)
       .then(res => res.json())
       .then(data => {
         setProductData(
@@ -31,9 +30,10 @@ const ProductList = () => {
   useEffect(() => {
     if (selectedFilters.length > 0) {
       fetch(
-        `http://10.58.4.48:8002/categories/product?category_subcategory_id=${
-          params.category_id
-        }&ml=${parseInt(selectedFilters[selectedFilters.length - 1])}`
+        fetchProductList +
+          `?category_subcategory_id=${params.category_id}&ml=${parseInt(
+            selectedFilters[selectedFilters.length - 1]
+          )}`
       )
         .then(res => res.json())
         .then(data => {
