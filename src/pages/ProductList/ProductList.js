@@ -64,6 +64,7 @@ const ProductList = () => {
         <ListFilter
           selectedFilters={selectedFilters}
           setSelectedFilters={setSelectedFilters}
+          filteredProductData={filteredProductData}
           setFilteredProductData={setFilteredProductData}
         />
         <ul className="listContainer">
