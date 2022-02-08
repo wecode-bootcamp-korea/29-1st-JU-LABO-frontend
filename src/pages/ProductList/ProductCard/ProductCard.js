@@ -5,7 +5,25 @@ import './ProductCard.scss';
 const ProductCard = ({ data }) => {
   const navigate = useNavigate();
 
+  const addToRecommendation = () => {
+    fetch('', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: sessionStorage.getItem('loginToken'),
+      },
+      body: JSON.stringify({ product_id: data.product_id }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.success) {
+          alert('추천에 추가 완료~');
+        }
+      });
+  };
+
   const goToProduct = () => {
+    addToRecommendation();
     navigate(`/product/${data.id}`);
   };
 
