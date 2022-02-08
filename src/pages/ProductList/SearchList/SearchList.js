@@ -11,7 +11,6 @@ const SearchList = () => {
   const modalRef = useRef();
 
   const [productData, setProductData] = useState([]);
-  // const [filteredProductData, setFilteredProductData] = useState([]);
   const [isfilterModalActive, setIsfilterModalActive] = useState(false);
   const [selectedFilters, setSelectedFilters] = useState([]);
 
@@ -49,7 +48,6 @@ const SearchList = () => {
         <ListFilter
           selectedFilters={selectedFilters}
           setSelectedFilters={setSelectedFilters}
-          // setFilteredProductData={setFilteredProductData}
         />
         <aside className="indicatorTotal">
           {productData.length !== 0 &&

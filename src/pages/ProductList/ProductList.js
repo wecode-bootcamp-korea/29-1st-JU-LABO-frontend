@@ -20,10 +20,7 @@ const ProductList = () => {
     fetch(fetchProductList + `?category_subcategory_id=${params.category_id}`)
       .then(res => res.json())
       .then(data => {
-        setProductData(
-          data.products
-          // .sort((a, b) => a.name.localeCompare(b.name))
-        );
+        setProductData(data.products);
       });
   }, [params.category_id]);
 
@@ -51,10 +48,9 @@ const ProductList = () => {
   };
 
   return (
-    <div className="ProductList" onClick={handleFilterOutsideClick}>
+    <div className="productList" onClick={handleFilterOutsideClick}>
       <ProductListHeader
         params={params}
-        productData={productData}
         isfilterModalActive={isfilterModalActive}
         setIsfilterModalActive={setIsfilterModalActive}
         selectedFilters={selectedFilters}
@@ -71,13 +67,11 @@ const ProductList = () => {
           setFilteredProductData={setFilteredProductData}
         />
         <ul className="listContainer">
-          {filteredProductData.length === 0 &&
-            productData.length > 0 &&
-            productData.map(data => <ProductCard key={data.id} data={data} />)}
-          {filteredProductData.length > 0 &&
-            filteredProductData.map(data => (
-              <ProductCard key={data.id} data={data} />
-            ))}
+          {filteredProductData.length === 0 && productData.length > 0
+            ? productData.map(data => <ProductCard key={data.id} data={data} />)
+            : filteredProductData.map(data => (
+                <ProductCard key={data.id} data={data} />
+              ))}
         </ul>
       </main>
     </div>

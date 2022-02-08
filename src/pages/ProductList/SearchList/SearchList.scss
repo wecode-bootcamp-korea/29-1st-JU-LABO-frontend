@@ -1,5 +1,4 @@
 @import '../../../styles/constant.scss';
-@import url('https://fonts.googleapis.com/css2?family=Cutive&family=Source+Sans+Pro:wght@200;400;700&display=swap');
 
 .searchList {
   color: $text;
@@ -26,8 +25,9 @@
   }
 
   .indicatorTotal {
-    font-family: 'Cutive Mono', monospace;
+    margin-bottom: 28px;
     font-size: 14px;
+    font-family: 'Cutive Mono', monospace;
     font-weight: 600;
   }
 

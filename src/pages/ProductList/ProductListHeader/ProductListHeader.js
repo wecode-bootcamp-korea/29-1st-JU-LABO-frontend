@@ -5,7 +5,6 @@ import './ProductListHeader.scss';
 
 const ProductListHeader = ({
   params,
-  productData,
   isfilterModalActive,
   setIsfilterModalActive,
   selectedFilters,

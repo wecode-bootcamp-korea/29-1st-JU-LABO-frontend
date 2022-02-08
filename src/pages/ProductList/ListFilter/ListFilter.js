@@ -15,7 +15,7 @@ const ListFilter = ({
     <aside className="listFilter">
       <div className="filters">
         {selectedFilters.length > 0 && (
-          <span className="filterStart">Filter: &nbsp;</span>
+          <span className="filterStart">Filter:</span>
         )}
         {selectedFilters.map((filter, index) => (
           <span className="filterItem" key={index}>
