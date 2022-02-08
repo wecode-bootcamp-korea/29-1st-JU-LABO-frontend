@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.scss';
+import Category from './Category';
 
 const Header = () => {
+  const [isToken, setIsToken] = useState(false);
+
+  useEffect(() => {
+    if (JSON.parse(sessionStorage.getItem('login'))) {
+      setIsToken(true);
+    }
+  }, []);
+
   return (
     <div>
       <div className="headwrapper">
@@ -24,11 +33,17 @@ const Header = () => {
               </div>
               <div className="loginSignup">
                 <i class="far fa-user" />
-                <div className="clickloginsignup">Log In/Register</div>
+                <div className="clickloginsignup">
+                  {isToken ? `Hello, ` : 'Log In/Register'}
+                </div>
               </div>
             </div>
-
-            <div className="category">весна лето осень зима</div>
+            <div className="category">
+              <Category name="Spring" param="0" />
+              <Category name="Summer" param="6" />
+              <Category name="Autumn" param="12" />
+              <Category name="Winter" param="18" />
+            </div>
           </div>
 
           <div className="shoppingbag">

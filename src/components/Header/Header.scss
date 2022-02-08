@@ -4,20 +4,17 @@
   display: flex;
   position: relative;
   border: 1px solid $border;
-
   .logoImg {
     width: 180px;
     margin: 0 16px;
     object-fit: contain;
   }
 }
-
 .headerinner {
   display: flex;
   width: 100%;
   justify-content: space-between;
 }
-
 .searchicon {
   display: flex;
   align-items: center;
@@ -26,10 +23,8 @@
 }
 .searchwrapper {
   display: flex;
-
   flex: 1;
   width: 100%;
-
   input {
     width: 100%;
     font-size: 15px;
@@ -37,14 +32,12 @@
     outline: none;
   }
 }
-
 .letter {
   display: flex;
   align-items: center;
   border-left: 1px solid $border;
   padding: 13px;
 }
-
 .shoppingbag {
   display: flex;
   align-items: center;
@@ -55,31 +48,26 @@
   }
   border-left: 1px solid $border;
 }
-
 .loginSignup {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 350px;
   border-left: 1px solid $border;
-
   i {
     margin-right: 13px;
     margin-bottom: 2px;
   }
-
   .clickloginsignup {
     font-size: 12px;
     font-family: 'Cutive', serif;
   }
 }
-
 .headerNav {
   @include center;
   flex-direction: column;
   width: 100%;
 }
-
 .category {
   flex: 1;
   width: 100%;

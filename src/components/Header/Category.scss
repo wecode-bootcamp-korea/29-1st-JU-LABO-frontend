@@ -1,0 +1,56 @@
+@import '../../styles/constant.scss';
+
+.categoryItem {
+  margin: 0px 20px 0 20px;
+  font-size: 25px;
+
+  .categoryExpand {
+    background: #fff;
+    display: flex;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    width: 100vw;
+    height: 250px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    transition: 300ms ease;
+  }
+
+  &:hover > .categoryExpand {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .categoryExpandImage {
+    margin: 20px;
+  }
+  .categoryExpandWrapper {
+    margin-left: 40px;
+  }
+  .categoryExpandHead {
+    margin-top: 20px;
+    font-size: 25px;
+  }
+  .categoryExpandDrinks {
+    margin-top: 20px;
+    font-size: 20px;
+
+    div {
+      margin: 10px 0px 10px 0px;
+    }
+    div:hover {
+      border-bottom: 2px solid black;
+      display: inline-block;
+    }
+  }
+  .categoryExpandHead:hover {
+    width: 140px;
+    border-bottom: 3px solid black;
+  }
+}
+
+.categoryItem:hover {
+  border-bottom: 4px solid black;
+}
