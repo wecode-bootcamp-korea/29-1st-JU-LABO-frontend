@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Login.scss';
+import { api } from '../../api/config';
 
 function Login() {
+  const navigate = useNavigate();
   const [loginInfo, setloginInfo] = useState({
     emailAddress: '',
     password: '',
@@ -22,7 +25,7 @@ function Login() {
     } else if (loginInfo.emailAddress === '') {
       alert('Email is required!');
     } else {
-      fetch(`http://10.58.2.192:8000/users/login`, {
+      fetch(api.fetchLogin, {
         method: 'POST',
         body: JSON.stringify({
           email: loginInfo.emailAddress,
@@ -35,6 +38,10 @@ function Login() {
             alert('비밀번호가 올바르지 않습니다!');
           } else if (res.message === 'INVALID_EMAIL') {
             alert('이메일이 올바르지 않습니다!');
+          }
+          if (res.token) {
+            sessionStorage.setItem('loginToken', res.token);
+            navigate('/');
           }
         });
     }
@@ -87,15 +94,13 @@ function Login() {
           </div>
 
           <div className="buttonwrap">
-            <Link to="/">
-              <button className="loginbutton" onClick={loginFetch}>
-                Login
-              </button>
-            </Link>
+            <button className="loginbutton" onClick={loginFetch}>
+              Login
+            </button>
           </div>
 
           <p>
-            Now that it's all said and done I can't believe you were the one To
+            Now that it's all said and done I n't believe you were the one To
             build me up and tear me down Like an old abandoned house And what
             you said when you left Just left me cold and out of breath I fell
             too far, was in way too deep Guess I let you get the best of me

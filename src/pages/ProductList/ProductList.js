@@ -4,7 +4,7 @@ import ProductListHeader from './ProductListHeader/ProductListHeader';
 import ProductListBanner from './ProductListBanner/ProductListBanner';
 import ListFilter from './ListFilter/ListFilter';
 import ProductCard from './ProductCard/ProductCard';
-import { fetchProductList } from '../../api/config';
+import { api } from '../../api/config';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -17,7 +17,9 @@ const ProductList = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
 
   useEffect(() => {
-    fetch(fetchProductList + `?category_subcategory_id=${params.category_id}`)
+    fetch(
+      api.fetchProductList + `?category_subcategory_id=${params.category_id}`
+    )
       .then(res => res.json())
       .then(data => {
         setProductData(data.products);
@@ -28,7 +30,7 @@ const ProductList = () => {
     Promise.all(
       selectedFilters.map(ml =>
         fetch(
-          fetchProductList +
+          api.fetchProductList +
             `?category_subcategory_id=${params.category_id}&ml=${parseInt(ml)}`
         )
       )

@@ -11,15 +11,14 @@ const CartList = ({ cartItems, setCartItems }) => {
             <div className="formHead">
               <h2 className="sectionTitle">Your Cart</h2>
             </div>
-            {cartItems &&
-              cartItems.map(item => (
-                <CartItem
-                  item={item}
-                  key={item.id}
-                  setCartItems={setCartItems}
-                  cartItems={cartItems}
-                />
-              ))}
+            {cartItems.map(item => (
+              <CartItem
+                item={item}
+                key={item.cart_id}
+                setCartItems={setCartItems}
+                cartItems={cartItems}
+              />
+            ))}
           </form>
         </div>
       </section>

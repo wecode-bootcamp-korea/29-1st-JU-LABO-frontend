@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './CartOrder.scss';
 
 const CartOrder = ({ cartItems, setCartItems }) => {
+  const navigate = useNavigate();
   const [total, setTotal] = useState();
 
   useEffect(() => {
@@ -19,6 +21,9 @@ const CartOrder = ({ cartItems, setCartItems }) => {
     setTotal(totalPrice);
   };
 
+  const goToHome = () => {
+    navigate('/');
+  };
   return (
     <div className="cartOrder">
       <section className="cartOrderLayout">
@@ -55,7 +60,9 @@ const CartOrder = ({ cartItems, setCartItems }) => {
           <div className="tableTotal">
             *Final total will depend on shipping destination
           </div>
-          <button>CHECK OUT</button>
+          <button type="button" onClick={goToHome}>
+            CHECK OUT
+          </button>
         </div>
 
         <div className="orderNote">

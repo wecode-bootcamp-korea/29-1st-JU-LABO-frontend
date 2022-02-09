@@ -9,7 +9,7 @@ const CartModalItemList = ({ cartItems, setCartItems }) => {
         cartItems.map(item => (
           <CartModalItem
             item={item}
-            key={item.id}
+            key={item.cart_id}
             cartItems={cartItems}
             setCartItems={setCartItems}
           />
