@@ -48,7 +48,7 @@ const Footer = () => {
               <div className="liVisitUs">
                 <ul>
                   <li>Store Location</li>
-                  <li>Sevice</li>
+                  <li>Service</li>
                   <li>In-Store Service </li>
                 </ul>
               </div>
