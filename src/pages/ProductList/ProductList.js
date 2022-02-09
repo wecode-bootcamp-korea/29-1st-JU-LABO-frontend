@@ -27,20 +27,17 @@ const ProductList = () => {
   }, [params.category_id]);
 
   useEffect(() => {
-    if (selectedFilters.length > 0) {
-      fetch(
-        api.fetchProductList +
-          `?category_subcategory_id=${params.category_id}&ml=${parseInt(
-            selectedFilters[selectedFilters.length - 1]
-          )}`
+    Promise.all(
+      selectedFilters.map(ml =>
+        fetch(
+          fetchProductList +
+            `?category_subcategory_id=${params.category_id}&ml=${parseInt(ml)}`
+        )
       )
-        .then(res => res.json())
-        .then(data => {
-          setFilteredProductData(prev =>
-            prev.concat(data.products).sort((a, b) => a.ml - b.ml)
-          );
-        });
-    }
+    )
+      .then(res => Promise.all(res.map(item => item.json())))
+      .then(res => res.map(data => data.products))
+      .then(arr => setFilteredProductData([].concat.apply([], arr)));
   }, [selectedFilters, params.category_id]);
 
   const handleFilterOutsideClick = e => {
@@ -50,10 +47,9 @@ const ProductList = () => {
   };
 
   return (
-    <div className="ProductList" onClick={handleFilterOutsideClick}>
+    <div className="productList" onClick={handleFilterOutsideClick}>
       <ProductListHeader
         params={params}
-        productData={productData}
         isfilterModalActive={isfilterModalActive}
         setIsfilterModalActive={setIsfilterModalActive}
         selectedFilters={selectedFilters}
@@ -67,16 +63,13 @@ const ProductList = () => {
         <ListFilter
           selectedFilters={selectedFilters}
           setSelectedFilters={setSelectedFilters}
-          setFilteredProductData={setFilteredProductData}
         />
         <ul className="listContainer">
-          {filteredProductData.length === 0 &&
-            productData.length > 0 &&
-            productData.map(data => <ProductCard key={data.id} data={data} />)}
-          {filteredProductData.length > 0 &&
-            filteredProductData.map(data => (
-              <ProductCard key={data.id} data={data} />
-            ))}
+          {filteredProductData.length === 0 && productData.length > 0
+            ? productData.map(data => <ProductCard key={data.id} data={data} />)
+            : filteredProductData.map(data => (
+                <ProductCard key={data.id} data={data} />
+              ))}
         </ul>
       </main>
     </div>

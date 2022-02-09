@@ -17,6 +17,8 @@
 
   h2 {
     margin-bottom: 46px;
+    font-size: 16px;
+    font-weight: 600;
     font-family: 'Cutive Mono', monospace;
     line-height: 1.2em;
   }
@@ -60,18 +62,18 @@
       transform: translate(-50%, -50%);
       text-align: center;
       color: #fff;
-      z-index: 1000;
+      z-index: 500;
 
       h1 {
         margin-bottom: 16px;
         font-family: 'Source Sans Pro', sans-serif;
-        font-size: 28px;
+        font-size: 36px;
         font-weight: 700;
       }
 
       h2 {
         font-family: 'Source Sans Pro', sans-serif;
-        font-size: 18px;
+        font-size: 24px;
       }
     }
 
@@ -132,7 +134,8 @@
         h4 {
           margin-bottom: 4px;
           font-family: 'Cutive Mono', monospace;
-          font-size: 12px;
+          font-size: 14px;
+          font-weight: 600;
           line-height: 1.2em;
         }
       }

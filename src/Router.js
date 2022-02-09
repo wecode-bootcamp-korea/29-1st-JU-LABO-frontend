@@ -8,6 +8,7 @@ import Register from './components/Register/Register';
 import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Cart from './pages/Cart/Cart';
+import SearchList from './pages/ProductList/SearchList/SearchList';
 
 const Router = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +28,8 @@ const Router = () => {
           path="/cart"
           element={<Cart setIsOpen={setIsOpen} isOpen={isOpen} />}
         />
+
+        <Route path="/search" element={<SearchList />} />
       </Routes>
       <Footer />
     </BrowserRouter>

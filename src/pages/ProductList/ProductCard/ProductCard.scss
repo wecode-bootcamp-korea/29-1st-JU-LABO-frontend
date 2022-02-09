@@ -1,5 +1,4 @@
 @import '../../../styles/constant';
-@import url('https://fonts.googleapis.com/css2?family=Cutive&family=Source+Sans+Pro:wght@200;400;700&display=swap');
 
 .productCard {
   display: flex;
@@ -7,6 +6,7 @@
   width: 23%;
   margin-left: 2%;
   margin-bottom: 34px;
+  cursor: pointer;
 
   .productImg {
     width: 100%;
@@ -23,6 +23,8 @@
     font-weight: 700;
     font-size: 19px;
     line-height: 1.3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .volumeType {
