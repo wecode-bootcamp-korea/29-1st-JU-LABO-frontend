@@ -30,7 +30,7 @@ const ProductList = () => {
     Promise.all(
       selectedFilters.map(ml =>
         fetch(
-          fetchProductList +
+          api.fetchProductList +
             `?category_subcategory_id=${params.category_id}&ml=${parseInt(ml)}`
         )
       )
