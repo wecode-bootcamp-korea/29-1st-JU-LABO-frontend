@@ -50,11 +50,12 @@ const SearchList = () => {
           setSelectedFilters={setSelectedFilters}
         />
         <aside className="indicatorTotal">
-          {productData.length !== 0 &&
-            productData.length +
+          {productData.length !== 0
+            ? productData.length +
               ` results for "${location.search.slice(
                 location.search.indexOf('=') + 1
-              )}"`}
+              )}"`
+            : 'No results...'}
         </aside>
         <ul className="listContainer">
           {productData.length !== 0 &&
