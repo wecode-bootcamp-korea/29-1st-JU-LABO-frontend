@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import RegisterForm from './RegisterForm';
 import './Register.scss';
+import { error } from '../../error/error';
 
 function Register() {
   const [registerInfo, setRegisterInfo] = useState({
@@ -11,43 +12,43 @@ function Register() {
     password: '',
   });
 
-  const registerFetch = () => {
-    if (
-      registerInfo.firstName === '' &&
-      registerInfo.lastName === '' &&
-      registerInfo.emailAddress === '' &&
-      registerInfo.password === ''
-    ) {
-      alert('Fill the requirement!');
-    } else if (registerInfo.firstName === '') {
+  const navigate = useNavigate();
+  const { firstName, lastName, emailAddress, password } = registerInfo;
+
+  const validationInput = () => {
+    const allText = firstName && lastName && emailAddress && password;
+
+    if (allText) {
+      alert('complete!');
+    } else if (firstName === '') {
       alert('FirstName is required!');
-    } else if (registerInfo.lastName === '') {
+    } else if (lastName === '') {
       alert('LastName is required!');
-    } else if (registerInfo.emailAddress === '') {
+    } else if (emailAddress === '') {
       alert('Email is required!');
-    } else if (registerInfo.password === '') {
+    } else if (password === '') {
       alert('Password is required!');
-    } else {
-      fetch(`http://10.58.2.192:8000/users/signup`, {
-        method: 'POST',
-        body: JSON.stringify({
-          first_name: registerInfo.emailAddress,
-          last_name: registerInfo.password,
-          email: registerInfo.emailAddress,
-          password: registerInfo.password,
-        }),
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res.message === 'EMAIL_ALREADY_EXISTS') {
-            alert('이미 존재하는 이메일입니다!');
-          } else if (res.message === 'INVALID_EMAIL') {
-            alert('이메일 양식에 맞지 않습니다 !');
-          } else if (res.message === 'INVALID_PASSWORD') {
-            alert('비밀번호가 양식에 맞지 않습니다!');
-          }
-        });
     }
+  };
+
+  const registerFetch = () => {
+    validationInput();
+    fetch(`http://10.58.2.192:8000/users/signup`, {
+      method: 'POST',
+      body: JSON.stringify({
+        first_name: emailAddress,
+        last_name: password,
+        email: emailAddress,
+        password: password,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.message === error[res.message].name) {
+          alert(error[res.message].desc);
+        }
+        navigate('/login');
+      });
   };
 
   return (
@@ -95,11 +96,9 @@ function Register() {
           </div>
 
           <div className="buttonWrap">
-            <Link to="/Login">
-              <button className="registerButton" onClick={registerFetch}>
-                Register
-              </button>
-            </Link>
+            <button className="registerButton" onClick={registerFetch}>
+              Register
+            </button>
           </div>
 
           <p>

@@ -5,13 +5,13 @@
   font-size: 23px;
 
   .categoryExpand {
-    background: #fff;
     display: flex;
     position: absolute;
     top: calc(100% + 1px);
     left: 0;
     width: 100vw;
     height: 250px;
+    background: #fff;
     opacity: 0;
     visibility: hidden;
     z-index: 1000;

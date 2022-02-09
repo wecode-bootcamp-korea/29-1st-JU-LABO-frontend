@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import InputForm from './InputForm';
 import './Login.scss';
+import { error } from '../../error/error';
 
 function Login() {
   const [loginInfo, setloginInfo] = useState({
@@ -9,32 +10,27 @@ function Login() {
     password: '',
   });
 
+  const navigate = useNavigate();
+
   const loginFetch = () => {
-    if (loginInfo.emailAddress === '' && loginInfo.password === '') {
-      alert('Password is required!');
-    } else if (loginInfo.password === '') {
-      alert('Password is required!');
-    } else if (loginInfo.emailAddress === '') {
-      alert('Email is required!');
-    } else {
-      fetch(`http://10.58.2.192:8000/users/login`, {
-        method: 'POST',
-        body: JSON.stringify({
-          email: loginInfo.emailAddress,
-          password: loginInfo.password,
-        }),
-      })
-        .then(res => res.json())
-        .then(res => {
-          if (res.message === 'INVALID_PASSWORD') {
-            alert('비밀번호가 올바르지 않습니다!');
-          } else if (res.message === 'INVALID_EMAIL') {
-            alert('이메일이 올바르지 않습니다!');
-          }
-          if (res.token)
-            sessionStorage.setItem('login', JSON.stringify(res.token));
-        });
-    }
+    fetch(`http://10.58.2.192:8000/users/login`, {
+      method: 'POST',
+      body: JSON.stringify({
+        email: loginInfo.emailAddress,
+        password: loginInfo.password,
+      }),
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.token) {
+          sessionStorage.setItem('login', JSON.stringify(res.token));
+          navigate('/');
+        }
+        if (res.message === error[res.message].name) {
+          alert(error[res.message].desc);
+        }
+        return;
+      });
   };
 
   return (
@@ -67,11 +63,9 @@ function Login() {
             </Link>
           </div>
           <div className="buttonWrap">
-            <Link to="/">
-              <button className="loginButton" onClick={loginFetch}>
-                Login
-              </button>
-            </Link>
+            <button className="loginButton" onClick={loginFetch}>
+              Login
+            </button>
           </div>
           <p>
             Now that it's all said and done I can't believe you were the one To
@@ -86,5 +80,3 @@ function Login() {
 }
 
 export default Login;
-
-<InputForm name="emailAddress" id="email" />;

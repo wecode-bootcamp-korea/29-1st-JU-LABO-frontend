@@ -2,12 +2,21 @@ import React, { useState, useEffect } from 'react';
 import './Header.scss';
 import Category from './Category';
 import About from './About';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isToken, setIsToken] = useState(false);
+  const [userInfo, setUserInfo] = useState();
 
   useEffect(() => {
     if (JSON.parse(sessionStorage.getItem('login'))) {
+      fetch('', {
+        headers: { Authorization: sessionStorage.getItem('login') },
+      })
+        .then(res => res.json())
+        .then(res => {
+          setUserInfo(res);
+        });
       setIsToken(true);
     }
   }, []);
@@ -15,11 +24,13 @@ const Header = () => {
   return (
     <div>
       <div className="headWrapper">
-        <img
-          className="logoImg"
-          src="/images/julabo_logo.png"
-          alt="주라보 로고"
-        />
+        <Link to="/">
+          <img
+            className="logoImg"
+            src="/images/julabo_logo.png"
+            alt="주라보 로고"
+          />
+        </Link>
 
         <div className="headerInner">
           <div className="headerNav">
@@ -35,7 +46,7 @@ const Header = () => {
               <div className="loginSignup">
                 <i class="far fa-user" />
                 <div className="clickLoginSignup">
-                  {isToken ? `Hello, ` : 'Log In/Register'}
+                  {isToken ? `Hello, ${userInfo.name} ` : 'Log In/Register'}
                 </div>
               </div>
             </div>
