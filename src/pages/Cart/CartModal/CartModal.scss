@@ -1,5 +1,6 @@
 .cartModal {
   position: absolute;
+  z-index: 100;
   width: 410px;
   right: 0;
   opacity: 1;
@@ -11,8 +12,6 @@
     .miniCartBody {
       max-height: 100%;
       overflow-y: auto;
-    }
-    .miniCartFooter {
     }
   }
 }

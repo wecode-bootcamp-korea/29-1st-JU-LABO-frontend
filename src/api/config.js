@@ -1,4 +1,14 @@
-// export const fetchProduct = 'http://10.58.0.180:8000/products';
-export const fetchProductList = 'http://10.58.4.48:8002/products/productlist';
-export const fetchSearchList = 'http://10.58.4.48:8002/categories/search';
-export const fetchDetailProduct = 'http://10.58.6.164:8000/products';
+const BASE_URL = 'http://10.58.0.160:8000';
+
+export const api = {
+  fetchLogin: BASE_URL + '/users/login',
+  fetchSignup: BASE_URL + '/users/signup',
+  fetchProductList: BASE_URL + '/products/productlist',
+  fetchSearchList: BASE_URL + '/categories/search',
+  fetchDetailProduct: BASE_URL + '/products',
+  fetchAddCart: BASE_URL + '/carts',
+  fetchCartItems: BASE_URL + '/carts',
+  fetchCartModifyQuantity: BASE_URL + '/carts',
+  fetchCartDeleteItem: BASE_URL + '/carts',
+  fetchOrderRecommendList: BASE_URL + '/carts/recommendation',
+};

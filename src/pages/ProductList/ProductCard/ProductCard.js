@@ -11,11 +11,7 @@ const ProductCard = ({ data }) => {
 
   return (
     <li className="productCard" onClick={goToProduct}>
-      <img
-        alt={data.name}
-        src={data.image[0].image_url}
-        className="productImg"
-      />
+      <img alt={data.name} src={data.image[0]} className="productImg" />
       <h1 className="productName">{data.name}</h1>
       <div className="volumeType">
         <p>{data.ml}ml</p>

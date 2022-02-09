@@ -1,7 +1,12 @@
 import React from 'react';
+import CartModal from '../../pages/Cart/CartModal/CartModal';
 import './Header.scss';
 
-const Header = () => {
+const Header = ({ setIsOpen, isOpen }) => {
+  const openCartModal = () => {
+    setIsOpen(prev => !prev);
+  };
+
   return (
     <div>
       <div className="headwrapper">
@@ -31,11 +36,12 @@ const Header = () => {
             <div className="category">весна лето осень зима</div>
           </div>
 
-          <div className="shoppingbag">
+          <div className="shoppingbag" onClick={openCartModal}>
             <i className="fas fa-shopping-bag" />
           </div>
         </div>
       </div>
+      {isOpen && <CartModal setIsOpen={setIsOpen} isOpen={isOpen} />}
     </div>
   );
 };

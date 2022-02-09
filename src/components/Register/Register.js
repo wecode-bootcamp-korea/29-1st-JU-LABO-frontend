@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Register.scss';
+import { api } from '../../api/config';
 
 function Register() {
   const [registerInfo, setRegisterInfo] = useState({
@@ -33,7 +34,7 @@ function Register() {
     } else if (registerInfo.password === '') {
       alert('Email is required!');
     } else {
-      fetch(`http://10.58.2.192:8000/users/signup`, {
+      fetch(api.fetchSignup, {
         method: 'POST',
         body: JSON.stringify({
           first_name: registerInfo.emailAddress,
@@ -50,6 +51,8 @@ function Register() {
             alert('이메일 양식에 맞지 않습니다 !');
           } else if (res.message === 'INVALID_PASSWORD') {
             alert('비밀번호가 양식에 맞지 않습니다!');
+          } else {
+            sessionStorage.setItem('token', res.token);
           }
         });
     }
@@ -60,80 +63,86 @@ function Register() {
       <div className="backgroundwrapper">
         <div className="register-wrapper">
           <h1>NEW CLIENTS</h1>
+          <form action="#" method="post">
+            <div className="firstnameform">
+              <label className="labelform" htmlFor="name">
+                First Name:
+              </label>
+              <input
+                name="firstName"
+                className="firstnameinput"
+                type="text"
+                value={registerInfo.firstName}
+                style={{ color: color }}
+                onChange={inputHandler}
+              />
+            </div>
 
-          <div className="firstnameform">
-            <label className="labelform" htmlFor="name">
-              First Name:
-            </label>
-            <input
-              name="firstName"
-              className="firstnameinput"
-              type="text"
-              value={registerInfo.firstName}
-              style={{ color: color }}
-              onChange={inputHandler}
-            />
-          </div>
+            <div className="lastnameform">
+              <label className="labelform" htmlFor="name">
+                Last Name:
+              </label>
+              <input
+                name="lastName"
+                className="lastnameinput"
+                type="text"
+                value={registerInfo.lastName}
+                style={{ color: color }}
+                onChange={inputHandler}
+              />
+            </div>
 
-          <div className="lastnameform">
-            <label className="labelform" htmlFor="name">
-              Last Name:
-            </label>
-            <input
-              name="lastName"
-              className="lastnameinput"
-              type="text"
-              value={registerInfo.lastName}
-              style={{ color: color }}
-              onChange={inputHandler}
-            />
-          </div>
+            <div className="emailform">
+              <label
+                className="email-labelform"
+                htmlFor="name"
+                style={{ color: color }}
+              >
+                Email Address:
+              </label>
+              <input
+                name="emailAddress"
+                className="emailinput"
+                type="text"
+                value={registerInfo.emailAddress}
+                onChange={inputHandler}
+              />
+            </div>
 
-          <div className="emailform">
-            <label
-              className="email-labelform"
-              htmlFor="name"
-              style={{ color: color }}
-            >
-              Email Address:
-            </label>
-            <input
-              name="emailAddress"
-              className="emailinput"
-              type="text"
-              value={registerInfo.emailAddress}
-              onChange={inputHandler}
-            />
-          </div>
+            <div className="passwordform">
+              <label className="labelform" htmlFor="name">
+                Password:
+              </label>
+              <input
+                name="password"
+                className="passwordinput"
+                type="text"
+                value={registerInfo.password}
+                style={{ color: color }}
+                onChange={inputHandler}
+              />
+            </div>
 
-          <div className="passwordform">
-            <label className="labelform" htmlFor="name">
-              Password:
-            </label>
-            <input
-              name="password"
-              className="passwordinput"
-              type="text"
-              value={registerInfo.password}
-              style={{ color: color }}
-              onChange={inputHandler}
-            />
-          </div>
+            <div className="buttonwrap">
+              <Link to="/Login">
+                <button
+                  className="registerbutton"
+                  onClick={registerFetch}
+                  type="submit"
+                >
+                  Register
+                </button>
+              </Link>
+            </div>
 
-          <div className="buttonwrap">
-            <Link to="/Login">
-              <button className="registerbutton" onClick={registerFetch}>
-                Register
-              </button>
-            </Link>
-          </div>
-
-          <p>
-            Now that it's all said and done I can't believe you were the one To
-            build me up and tear me down Like an old abandoned house And what
-            you said when you left Just left me cold and out of breath I fell
-            too far, was in way too deep Guess I let you get the best of me
-          </p>
+            <p>
+              Now that it's all said and done I can't believe you were the one
+              To build me up and tear me down Like an old abandoned house And
+              what you said when you left Just left me cold and out of breath I
+              fell too far, was in way too deep Guess I let you get the best of
+              me
+            </p>
+          </form>
         </div>
       </div>
     </div>

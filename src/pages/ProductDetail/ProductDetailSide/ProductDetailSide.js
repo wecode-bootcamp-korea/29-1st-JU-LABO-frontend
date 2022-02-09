@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import OptionModal from './OptionModal/OptionModal';
 import './ProductDetailSide.scss';
+import { api } from '../../../api/config';
 
 const ProductDetailSide = ({
   productInfo,
   setProductInfo,
   productSize,
   params,
+  isOpen,
+  setIsOpen,
 }) => {
   const [isMore, setIsMore] = useState(false);
   const [quantity, setQuantity] = useState(1);
@@ -23,16 +26,20 @@ const ProductDetailSide = ({
     setIsMore(!isMore);
   };
 
-  const addCart = () => {
-    fetch('', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        ...productInfo,
-      }),
-    });
+  const addCart = e => {
+    e.preventDefault();
+    setIsOpen(prev => !prev);
+    // fetch(api.fetchAddCart, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Authorization: sessionStorage.getItem('loginToken'),
+    //   },
+    //   body: JSON.stringify({
+    //     ...productInfo,
+    //     quantity: quantity,
+    //   }),
+    // });
   };
 
   return (
@@ -49,70 +56,68 @@ const ProductDetailSide = ({
       </div>
 
       <div className="productForm">
-        <form action="#" method="post" onClick={addCart}>
-          <div className="formRow">
-            <p className="productLabel">Size: </p>
-            <div className="productInfo sizeInfo" onClick={isShowModal}>
-              {isSizeShow && (
-                <OptionModal
-                  productInfo={productInfo}
-                  setProductInfo={setProductInfo}
-                  setIsShow={setIsSizeShow}
-                  isSizeShow={isSizeShow}
-                  productSize={productSize}
-                  params={params}
-                  size
-                />
-              )}
-              <p>
-                <input
-                  type="text"
-                  value={productInfo.ml || ''}
-                  readOnly
-                  className="sizeInput"
-                />
-              </p>
-              {isSizeShow ? (
-                <i className="fas fa-times" />
-              ) : (
-                <i className="fas fa-chevron-down" />
-              )}
-            </div>
+        <div className="formRow">
+          <p className="productLabel">Size: </p>
+          <div className="productInfo sizeInfo" onClick={isShowModal}>
+            {isSizeShow && (
+              <OptionModal
+                productInfo={productInfo}
+                setProductInfo={setProductInfo}
+                setIsShow={setIsSizeShow}
+                isSizeShow={isSizeShow}
+                productSize={productSize}
+                params={params}
+                size
+              />
+            )}
+            <p>
+              <input
+                type="text"
+                value={productInfo.ml || ''}
+                readOnly
+                className="sizeInput"
+              />
+            </p>
+            {isSizeShow ? (
+              <i className="fas fa-times" />
+            ) : (
+              <i className="fas fa-chevron-down" />
+            )}
           </div>
+        </div>
 
-          <div className="formRow">
-            <p className="productLabel">Quantity: </p>
-            <div className="productInfo quantityInfo" onClick={isShowModal}>
-              {isQuantityShow && (
-                <OptionModal
-                  setQuantity={setQuantity}
-                  setIsShow={setIsQuantityShow}
-                  isQuantityShow={isQuantityShow}
-                  quan
-                />
-              )}
-              <p>
-                <input
-                  type="text"
-                  value={quantity}
-                  readOnly
-                  className="sizeInput"
-                />
-              </p>
-              {isQuantityShow ? (
-                <i className="fas fa-times" />
-              ) : (
-                <i className="fas fa-chevron-down" />
-              )}
-            </div>
+        <div className="formRow">
+          <p className="productLabel">Quantity: </p>
+          <div className="productInfo quantityInfo" onClick={isShowModal}>
+            {isQuantityShow && (
+              <OptionModal
+                setQuantity={setQuantity}
+                setIsShow={setIsQuantityShow}
+                isQuantityShow={isQuantityShow}
+                quan
+              />
+            )}
+            <p>
+              <input
+                type="text"
+                value={quantity}
+                readOnly
+                className="sizeInput"
+              />
+            </p>
+            {isQuantityShow ? (
+              <i className="fas fa-times" />
+            ) : (
+              <i className="fas fa-chevron-down" />
+            )}
           </div>
+        </div>
 
-          <div className="cartBtnWrap">
-            <button className="addCart" type="submit">
-              ADD TO CART
-            </button>
-          </div>
-        </form>
+        <div className="cartBtnWrap">
+          <button className="addCart" type="submit" onClick={addCart}>
+            ADD TO CART
+          </button>
+        </div>
 
         <div className="productInfoTextWrap">
           <p className="productInfoText">

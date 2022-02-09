@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './OptionModal.scss';
-import { fetchDetailProduct } from '../../../../api/config';
 
 const OptionModal = ({
   productInfo,
@@ -14,16 +13,6 @@ const OptionModal = ({
   productSize,
   params,
 }) => {
-  const [products, setProducts] = useState([]);
-
-  // useEffect(() => {
-  //   fetch(`${fetchDetailProduct}/${params.id}`)
-  //     .then(res => res.json())
-  //     .then(result => {
-  //       setProducts(result.products);
-  //     });
-  // }, []);
-
   const selectSize = e => {
     const findInfo = productSize.products.filter(
       product => product.ml === Number(e.target.innerText)

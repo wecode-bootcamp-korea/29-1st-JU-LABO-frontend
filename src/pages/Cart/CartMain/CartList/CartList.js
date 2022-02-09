@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CartItem from './CartItem/CartItem';
 import './CartList.scss';
 
-const CartList = () => {
-  const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    setCartItems(JSON.parse(sessionStorage.getItem('cartItems')));
-  }, []);
-
+const CartList = ({ cartItems, setCartItems }) => {
   return (
     <div className="cartList">
       <section className="cartListLayout">
@@ -17,15 +11,14 @@ const CartList = () => {
             <div className="formHead">
               <h2 className="sectionTitle">Your Cart</h2>
             </div>
-            {cartItems &&
-              cartItems.map(item => (
-                <CartItem
-                  item={item}
-                  key={item.id}
-                  setCartItems={setCartItems}
-                  cartItems={cartItems}
-                />
-              ))}
+            {cartItems.map(item => (
+              <CartItem
+                item={item}
+                key={item.cart_id}
+                setCartItems={setCartItems}
+                cartItems={cartItems}
+              />
+            ))}
           </form>
         </div>
       </section>
