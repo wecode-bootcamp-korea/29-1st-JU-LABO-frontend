@@ -5,11 +5,11 @@ const ProductDetailContent = ({ productInfo }) => {
   const [imgArr, setImgArr] = useState([]);
   const [selected, setSelected] = useState('');
   useEffect(() => {
-    setImgArr(productInfo.imageUrls);
-    if (productInfo.imageUrls) {
-      setSelected(productInfo.imageUrls[0]);
+    setImgArr(productInfo.image_urls);
+    if (productInfo.image_urls) {
+      setSelected(productInfo.image_urls[0]);
     }
-  }, [setImgArr, productInfo.imageUrls]);
+  }, [setImgArr, productInfo.image_urls]);
   const selectImage = img => {
     setSelected(img);
   };
@@ -17,7 +17,7 @@ const ProductDetailContent = ({ productInfo }) => {
   const selectFirstImage = e => {
     const checkSelected = e.target.classList[0] === 'labelCurrent';
     if (checkSelected) {
-      setSelected(productInfo.imageUrls[0]);
+      setSelected(productInfo.image_urls[0]);
     }
   };
 

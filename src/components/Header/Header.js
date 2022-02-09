@@ -30,7 +30,7 @@ const Header = () => {
 
               <input type="text" placeholder="search for products" />
               <div className="letter">
-                <i class="far fa-envelope" />
+                <i className="far fa-envelope" />
               </div>
               <div className="loginSignup">
                 <i class="far fa-user" />
