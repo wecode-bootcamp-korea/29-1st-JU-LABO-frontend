@@ -28,6 +28,7 @@ const ProductDetailSide = ({
 
   const addCart = e => {
     e.preventDefault();
+
     setIsOpen(prev => !prev);
     fetch(api.fetchAddCart, {
       method: 'POST',
