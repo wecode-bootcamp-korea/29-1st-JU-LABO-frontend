@@ -25,6 +25,10 @@ export const CATEGORY_TABLE = {
   24: ['Winter', 'Spirits'],
 };
 
+// TOFIX : 구조분해할당 배열을 통하여 조금 더 효율화 할 수 있는 부분이 있는지 고민하기!!
+// const season = [Spring,Summer,Autumn,Winter] = ["Spring","Summer","Autumn","Winter"]
+//const drink = [Sake,Soju,Makgeolli,Beer,Wine,Spirits] = ['Sake','Soju','Makgeolli','Beer','Wine','Spirits']
+
 export const CATEGORY_IMAGE = {
   Spring:
     'https://images.unsplash.com/photo-1491591462767-3b91b2a19487?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
