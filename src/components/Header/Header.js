@@ -38,7 +38,6 @@ const Header = () => {
               <div className="searchIcon">
                 <i class="fas fa-search" />
               </div>
-
               <input type="text" placeholder="search for products" />
               <div className="letter">
                 <i className="far fa-envelope" />
