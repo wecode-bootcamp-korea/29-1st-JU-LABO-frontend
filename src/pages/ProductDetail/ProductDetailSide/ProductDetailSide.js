@@ -29,17 +29,17 @@ const ProductDetailSide = ({
   const addCart = e => {
     e.preventDefault();
     setIsOpen(prev => !prev);
-    // fetch(api.fetchAddCart, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: sessionStorage.getItem('loginToken'),
-    //   },
-    //   body: JSON.stringify({
-    //     ...productInfo,
-    //     quantity: quantity,
-    //   }),
-    // });
+    fetch(api.fetchAddCart, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: sessionStorage.getItem('loginToken'),
+      },
+      body: JSON.stringify({
+        ...productInfo,
+        quantity: quantity,
+      }),
+    });
   };
 
   return (

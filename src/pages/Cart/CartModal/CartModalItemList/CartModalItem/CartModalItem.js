@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { api } from '../../../../../api/config';
 import './CartModalItem.scss';
 
 const CartModalItem = ({ item, cartItems, setCartItems }) => {
-  const navigate = useNavigate();
   const [quantity, setQuantity] = useState();
 
   const addQuantity = (e, id) => {
