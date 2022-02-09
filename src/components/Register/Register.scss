@@ -1,15 +1,14 @@
 @import '../../styles/constant.scss';
 
 .register {
-  .backgroundwrapper {
+  .backgroundWrapper {
     height: 100vh;
   }
 
-  .register-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .registerWrapper {
+    margin: 0 auto;
+    padding-top: 40px;
+    padding-bottom: 40px;
     width: 500px;
 
     h1 {
@@ -17,6 +16,7 @@
       font-weight: bold;
       font-family: 'Cutive', serif;
       padding: 18px;
+
       margin-bottom: 15px;
     }
 
@@ -24,98 +24,27 @@
       margin-top: 20px;
       font-family: 'Cutive', serif;
       font-size: 15px;
+      line-height: 30px;
     }
   }
 
-  .firstnameform {
-    display: flex;
-    border: 2px solid rgb(177, 172, 172);
-    border-bottom: none;
-    background-color: #ffffff;
+  .registerInputWrapper {
+    border: 1px $border solid;
 
-    .labelform {
-      width: 160px;
-      padding: 20px 40px 20px 20px;
-      font-family: 'Cutive', serif;
-      font-size: 15px;
-      border: none;
+    .firstNameWrapper {
+      border-bottom: 1px $border solid;
     }
 
-    .firstnameinput {
-      width: 300px;
-      border: none;
-      font-size: 15px;
-      outline: none;
+    .lastNameWrapper {
+      border-bottom: 1px $border solid;
+    }
+
+    .emaillWrapper {
+      border-bottom: 1px $border solid;
     }
   }
 
-  .lastnameform {
-    display: flex;
-    border: 2px solid rgb(177, 172, 172);
-    background-color: #ffffff;
-
-    .labelform {
-      width: 200px;
-      padding: 20px 40px 20px 20px;
-      font-family: 'Cutive', serif;
-      font-size: 15px;
-      width: 160px;
-      border: none;
-    }
-
-    .lastnameinput {
-      width: 300px;
-      font-size: 15px;
-      border: none;
-      outline: none;
-    }
-  }
-
-  .emailform {
-    display: flex;
-    border: 2px solid rgb(177, 172, 172);
-    border-top: none;
-    border-bottom: none;
-    background-color: #ffffff;
-
-    .email-labelform {
-      width: 160px;
-      padding: 20px 0px 20px 20px;
-      font-family: 'Cutive', serif;
-      font-size: 15px;
-      border: none;
-    }
-
-    .emailinput {
-      width: 300px;
-      font-size: 15px;
-      border: none;
-      outline: none;
-    }
-  }
-
-  .passwordform {
-    display: flex;
-    border: 2px solid rgb(177, 172, 172);
-    background-color: #ffffff;
-
-    .labelform {
-      width: 160px;
-      padding: 20px 40px 20px 20px;
-      font-family: 'Cutive', serif;
-      font-size: 15px;
-      border: none;
-    }
-
-    .passwordinput {
-      width: 300px;
-      font-size: 15px;
-      border: none;
-      outline: none;
-    }
-  }
-
-  .asklogin {
+  .askLogin {
     @include center;
 
     button {
@@ -130,10 +59,10 @@
     }
   }
 
-  .buttonwrap {
+  .buttonWrap {
     @include center;
 
-    .registerbutton {
+    .registerButton {
       font-size: 15px;
       width: 300px;
       padding: 10px;

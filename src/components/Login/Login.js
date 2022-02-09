@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import InputForm from './InputForm';
 import './Login.scss';
 
 function Login() {
@@ -8,15 +9,9 @@ function Login() {
     password: '',
   });
 
-  const [color, setColor] = useState('color');
-
-  const inputHandler = e => {
-    setloginInfo({ ...loginInfo, [e.target.name]: e.target.value });
-  };
-
   const loginFetch = () => {
     if (loginInfo.emailAddress === '' && loginInfo.password === '') {
-      setColor('red');
+      alert('Password is required!');
     } else if (loginInfo.password === '') {
       alert('Password is required!');
     } else if (loginInfo.emailAddress === '') {
@@ -44,58 +39,40 @@ function Login() {
 
   return (
     <div>
-      <div className="backgroundwrapper">
-        <div className="loginwrapper">
+      <div className="backgroundWrapper">
+        <div className="formWrapper">
           <h1>Login</h1>
-
-          <div className="loginemailform">
-            <label
-              className="email-labelform"
-              htmlFor="name"
-              style={{ color: color }}
-            >
-              Email Address:
-            </label>
-            <input
+          <div className="inputWrapper">
+            <InputForm
+              label="Email Address:"
               name="emailAddress"
-              value={loginInfo.emailAddress}
-              className="emailinput"
-              type="text"
-              onChange={inputHandler}
+              id="email"
+              loginInfo={loginInfo}
+              setloginInfo={setloginInfo}
             />
+            <div className="passwordInput">
+              <InputForm
+                label="Password:"
+                name="password"
+                id="password"
+                loginInfo={loginInfo}
+                setloginInfo={setloginInfo}
+              />
+            </div>
           </div>
 
-          <div className="passwordform">
-            <label
-              className="labelform"
-              htmlFor="name"
-              style={{ color: color }}
-            >
-              Password:
-            </label>
-            <input
-              name="password"
-              value={loginInfo.password}
-              className="passwordinput"
-              type="password"
-              onChange={inputHandler}
-            />
-          </div>
-
-          <div className="asksignup">
+          <div className="askSignup">
             <Link to="/Register">
               <button> Click here to sign up</button>
             </Link>
           </div>
-
-          <div className="buttonwrap">
+          <div className="buttonWrap">
             <Link to="/">
-              <button className="loginbutton" onClick={loginFetch}>
+              <button className="loginButton" onClick={loginFetch}>
                 Login
               </button>
             </Link>
           </div>
-
           <p>
             Now that it's all said and done I can't believe you were the one To
             build me up and tear me down Like an old abandoned house And what
@@ -109,3 +86,5 @@ function Login() {
 }
 
 export default Login;
+
+<InputForm name="emailAddress" id="email" />;

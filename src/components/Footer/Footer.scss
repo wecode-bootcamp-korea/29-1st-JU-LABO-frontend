@@ -1,0 +1,41 @@
+@import '../../styles/constant';
+
+.footer {
+  border-top: 1px $border solid;
+  display: flex;
+  justify-content: center;
+  background-color: $bg-light;
+  margin-top: -1px;
+
+  .footerInnerWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+
+    .footerInner {
+      display: flex;
+      justify-content: space-between;
+      height: 300px;
+      // border-right: 1px solid $border;
+      // border-left: 1px solid $border;
+      padding: 40px;
+
+      li {
+        margin: 10px 0px 10px 0px;
+        font-size: 13px;
+        cursor: pointer;
+      }
+    }
+
+    .footerInnerSecond {
+      @include center;
+      height: 50px;
+
+      a {
+        font-size: 30px;
+        text-decoration: none;
+      }
+    }
+  }
+}

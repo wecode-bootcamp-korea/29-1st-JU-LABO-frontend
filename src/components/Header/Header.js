@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Header.scss';
 import Category from './Category';
+import About from './About';
 
 const Header = () => {
   const [isToken, setIsToken] = useState(false);
@@ -13,17 +14,17 @@ const Header = () => {
 
   return (
     <div>
-      <div className="headwrapper">
+      <div className="headWrapper">
         <img
           className="logoImg"
           src="/images/julabo_logo.png"
           alt="주라보 로고"
         />
 
-        <div className="headerinner">
+        <div className="headerInner">
           <div className="headerNav">
-            <div className="searchwrapper">
-              <div className="searchicon">
+            <div className="searchWrapper">
+              <div className="searchIcon">
                 <i class="fas fa-search" />
               </div>
 
@@ -33,7 +34,7 @@ const Header = () => {
               </div>
               <div className="loginSignup">
                 <i class="far fa-user" />
-                <div className="clickloginsignup">
+                <div className="clickLoginSignup">
                   {isToken ? `Hello, ` : 'Log In/Register'}
                 </div>
               </div>
@@ -43,10 +44,11 @@ const Header = () => {
               <Category name="Summer" param="6" />
               <Category name="Autumn" param="12" />
               <Category name="Winter" param="18" />
+              <About name="About" />
             </div>
           </div>
 
-          <div className="shoppingbag">
+          <div className="shoppingBag">
             <i class="fas fa-shopping-bag" />
           </div>
         </div>
