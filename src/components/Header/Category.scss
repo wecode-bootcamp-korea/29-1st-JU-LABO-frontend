@@ -26,26 +26,16 @@
   .categoryExpandImage {
     margin: 20px;
   }
+
   .categoryExpandWrapper {
     margin-left: 40px;
   }
+
   .categoryExpandHead {
     margin-top: 20px;
     font-size: 25px;
   }
-  .categoryExpandDrinks {
-    margin-top: 20px;
-    font-size: 20px;
 
-    div {
-      margin: 10px 0px 10px 0px;
-    }
-    div:hover {
-      border-bottom: 2px solid black;
-      display: inline-block;
-      margin: 0px;
-    }
-  }
   .categoryExpandHead:hover {
     width: 140px;
     border-bottom: 3px solid black;

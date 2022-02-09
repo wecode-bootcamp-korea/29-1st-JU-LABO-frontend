@@ -1,21 +1,22 @@
 import React from 'react';
 import './InputForm.scss';
 
-const InputForm = ({ name, id, loginInfo, setloginInfo, label }) => {
+const InputForm = ({ loginInfo, setloginInfo, list }) => {
   const inputHandler = e => {
     setloginInfo({ ...loginInfo, [e.target.name]: e.target.value });
   };
+
   return (
-    <div className="inputForm">
-      <label className="labelForm" htmlFor={id}>
-        {label}
+    <div className="loginInputForm">
+      <label className="labelForm" htmlFor={list.id}>
+        {list.label}
       </label>
       <input
-        id={id}
-        name={name}
-        value={loginInfo[name]}
+        id={list.id}
+        name={list.name}
+        value={loginInfo[list.name]}
         className="inputForm"
-        type={id}
+        type={list.id}
         onChange={inputHandler}
       />
     </div>

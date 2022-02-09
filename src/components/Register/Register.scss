@@ -6,56 +6,44 @@
   }
 
   .registerWrapper {
-    margin: 0 auto;
-    padding-top: 40px;
-    padding-bottom: 40px;
     width: 500px;
+    margin: 0 auto;
+    padding-top: 40px 0 40px 0;
 
     h1 {
+      padding: 18px;
+      margin-bottom: 15px;
       font-size: 30px;
       font-weight: bold;
       font-family: 'Cutive', serif;
-      padding: 18px;
-
-      margin-bottom: 15px;
     }
 
     p {
       margin-top: 20px;
+      line-height: 30px;
       font-family: 'Cutive', serif;
       font-size: 15px;
-      line-height: 30px;
     }
   }
 
   .registerInputWrapper {
-    border: 1px $border solid;
-
-    .firstNameWrapper {
-      border-bottom: 1px $border solid;
-    }
-
-    .lastNameWrapper {
-      border-bottom: 1px $border solid;
-    }
-
-    .emaillWrapper {
-      border-bottom: 1px $border solid;
-    }
+    border-bottom: 1px $border solid;
   }
 
   .askLogin {
     @include center;
 
     button {
+      margin: 15px;
+      border: {
+        top: none;
+        left: none;
+        right: none;
+        bottom: 1px solid gray;
+      }
+      outline: none;
       font-family: 'Cutive', serif;
       font-size: 20px;
-      margin: 15px;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      border-bottom: 1px solid gray;
-      outline: none;
     }
   }
 
@@ -63,10 +51,10 @@
     @include center;
 
     .registerButton {
-      font-size: 15px;
       width: 300px;
       padding: 10px;
       margin-top: 20px;
+      font-size: 15px;
     }
   }
 }

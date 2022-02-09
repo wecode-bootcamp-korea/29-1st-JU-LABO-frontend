@@ -7,10 +7,10 @@
   .categoryExpand {
     display: flex;
     position: absolute;
-    top: calc(100% + 1px);
-    left: 0;
     width: 100vw;
     height: 250px;
+    top: calc(100% + 1px);
+    left: 0;
     background: #fff;
     opacity: 0;
     visibility: hidden;

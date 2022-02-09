@@ -4,6 +4,7 @@
   display: flex;
   position: relative;
   border: 1px solid $border;
+
   .logoImg {
     width: 180px;
     margin: 0 16px;
@@ -12,9 +13,10 @@
 }
 .headerInner {
   display: flex;
-  width: 100%;
   justify-content: space-between;
+  width: 100%;
 }
+
 .searchIcon {
   display: flex;
   align-items: center;
@@ -25,13 +27,15 @@
   display: flex;
   flex: 1;
   width: 100%;
+
   input {
     width: 100%;
-    font-size: 15px;
     border: none;
+    font-size: 15px;
     outline: none;
   }
 }
+
 .letter {
   display: flex;
   align-items: center;

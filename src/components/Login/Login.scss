@@ -6,24 +6,26 @@
 }
 
 .formWrapper {
-  margin: 0 auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
   width: 500px;
+  margin: 0 auto;
+  padding-top: 40px 0 40px 0;
 
   h1 {
-    font-size: 30px;
-    font-weight: bold;
-    font-family: 'Cutive', serif;
     padding: 18px;
     margin-bottom: 22px;
+
+    font: {
+      size: 30px;
+      weight: bold;
+      family: 'Cutive', serif;
+    }
   }
 
   p {
+    line-height: 30px;
     margin-top: 20px;
     font-family: 'Cutive', serif;
     font-size: 15px;
-    line-height: 30px;
   }
 }
 
@@ -52,8 +54,6 @@
 }
 
 .inputWrapper {
-  border: 1px $border solid;
-
   .passwordInput {
     border-top: 1px $border solid;
   }
@@ -69,7 +69,7 @@
 
   .loginButton {
     width: 300px;
-    font-size: 15px;
     padding: 10px;
+    font-size: 15px;
   }
 }

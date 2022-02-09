@@ -1,15 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Category.scss';
+import CategoryList from './CategoryList';
+import { CATEGORY_LIST_DATA } from './CATEGORY_LIST_DATA';
 
-const Category = ({ name, param }) => {
-  const navigate = useNavigate();
-
-  const goToList = e => {
-    const addNum = e.target.getAttribute('order');
-    navigate(`/products/${+param + Number(addNum)}`);
-  };
-
+const Category = ({ name }) => {
   return (
     <div className="categoryItem">
       {name}
@@ -21,26 +15,9 @@ const Category = ({ name, param }) => {
         />
         <div className="categoryExpandWrapper">
           <div className="categoryExpandHead">{name}</div>
-          <div className="categoryExpandDrinks">
-            <div onClick={goToList} order="1">
-              Sake
-            </div>
-            <div onClick={goToList} order="2">
-              Soju
-            </div>
-            <div onClick={goToList} order="3">
-              Makgeolli
-            </div>
-            <div onClick={goToList} order="4">
-              Beer
-            </div>
-            <div onClick={goToList} order="5">
-              Wine
-            </div>
-            <div onClick={goToList} order="6">
-              Spirits
-            </div>
-          </div>
+          {CATEGORY_LIST_DATA.map((data, index) => (
+            <CategoryList key={index} id={index} drinks={data} />
+          ))}
         </div>
       </div>
     </div>

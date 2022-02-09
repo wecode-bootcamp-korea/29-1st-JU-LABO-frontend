@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import RegisterForm from './RegisterForm';
 import './Register.scss';
 import { error } from '../../error/error';
+import { REGISTER_FORM_DATA } from './REGISTER_FORM_DATA';
 
 function Register() {
   const [registerInfo, setRegisterInfo] = useState({
@@ -18,16 +19,10 @@ function Register() {
   const validationInput = () => {
     const allText = firstName && lastName && emailAddress && password;
 
-    if (allText) {
+    if (!allText) {
+      alert('Fill the requirements!');
+    } else {
       alert('complete!');
-    } else if (firstName === '') {
-      alert('FirstName is required!');
-    } else if (lastName === '') {
-      alert('LastName is required!');
-    } else if (emailAddress === '') {
-      alert('Email is required!');
-    } else if (password === '') {
-      alert('Password is required!');
     }
   };
 
@@ -59,40 +54,15 @@ function Register() {
 
           <div className="registerInputWrapper">
             <div className="firstNameWrapper">
-              <RegisterForm
-                label="First Name:"
-                name="firstName"
-                id="firstName"
-                registerInfo={registerInfo}
-                setRegisterInfo={setRegisterInfo}
-              />
+              {REGISTER_FORM_DATA.map((data, index) => (
+                <RegisterForm
+                  key={index}
+                  list={data}
+                  registerInfo={registerInfo}
+                  setRegisterInfo={setRegisterInfo}
+                />
+              ))}
             </div>
-            <div className="lastNameWrapper">
-              <RegisterForm
-                label="Last Name:"
-                name="lastName"
-                id="lastName"
-                registerInfo={registerInfo}
-                setRegisterInfo={setRegisterInfo}
-              />
-            </div>
-
-            <div className="emaillWrapper">
-              <RegisterForm
-                label="Email Address:"
-                name="emailAddress"
-                id="emailAddress"
-                registerInfo={registerInfo}
-                setRegisterInfo={setRegisterInfo}
-              />
-            </div>
-            <RegisterForm
-              label="Password:"
-              name="password"
-              id="password"
-              registerInfo={registerInfo}
-              setRegisterInfo={setRegisterInfo}
-            />
           </div>
 
           <div className="buttonWrap">

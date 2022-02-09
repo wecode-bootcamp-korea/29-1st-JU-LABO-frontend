@@ -1,13 +1,13 @@
 @import '../../styles/constant.scss';
 
-.inputForm {
+.registerInputForm {
   display: flex;
-  border: {
-    border: 2px solid $border;
-    bottom: none;
-  }
-
+  border: 1px solid $border;
   background-color: #ffffff;
+
+  &:first-child {
+    border-bottom: none;
+  }
 
   .labelForm {
     width: 200px;
@@ -21,8 +21,8 @@
 
   .inputForm {
     width: 300px;
-    font-size: 15px;
     border: none;
     outline: none;
+    font-size: 15px;
   }
 }

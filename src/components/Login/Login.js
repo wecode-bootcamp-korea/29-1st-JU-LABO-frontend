@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import InputForm from './InputForm';
 import './Login.scss';
 import { error } from '../../error/error';
+import { LOGIN_FORM_DATA } from './LOGIN_FORM_DATA';
 
 function Login() {
   const [loginInfo, setloginInfo] = useState({
@@ -11,20 +12,21 @@ function Login() {
   });
 
   const navigate = useNavigate();
+  const [emailAddress, password] = loginInfo;
 
   const loginFetch = () => {
     fetch(`http://10.58.2.192:8000/users/login`, {
       method: 'POST',
       body: JSON.stringify({
-        email: loginInfo.emailAddress,
-        password: loginInfo.password,
+        email: emailAddress,
+        password: password,
       }),
     })
       .then(res => res.json())
       .then(res => {
         if (res.token) {
           sessionStorage.setItem('login', JSON.stringify(res.token));
-          navigate('/');
+          return navigate('/');
         }
         if (res.message === error[res.message].name) {
           alert(error[res.message].desc);
@@ -38,23 +40,16 @@ function Login() {
       <div className="backgroundWrapper">
         <div className="formWrapper">
           <h1>Login</h1>
+
           <div className="inputWrapper">
-            <InputForm
-              label="Email Address:"
-              name="emailAddress"
-              id="email"
-              loginInfo={loginInfo}
-              setloginInfo={setloginInfo}
-            />
-            <div className="passwordInput">
+            {LOGIN_FORM_DATA.map((data, index) => (
               <InputForm
-                label="Password:"
-                name="password"
-                id="password"
+                key={index}
+                list={data}
                 loginInfo={loginInfo}
                 setloginInfo={setloginInfo}
               />
-            </div>
+            ))}
           </div>
 
           <div className="askSignup">
