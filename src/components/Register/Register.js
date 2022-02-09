@@ -17,7 +17,8 @@ function Register() {
     setRegisterInfo({ ...registerInfo, [e.target.name]: e.target.value });
   };
 
-  const registerFetch = () => {
+  const registerFetch = e => {
+    e.preventDefault();
     if (
       registerInfo.firstName === '' &&
       registerInfo.lastName === '' &&
@@ -124,15 +125,13 @@ function Register() {
             </div>
 
             <div className="buttonwrap">
-              <Link to="/Login">
-                <button
-                  className="registerbutton"
-                  onClick={registerFetch}
-                  type="submit"
-                >
-                  Register
-                </button>
-              </Link>
+              <button
+                className="registerbutton"
+                onClick={registerFetch}
+                type="submit"
+              >
+                Register
+              </button>
             </div>
 
             <p>
