@@ -5,7 +5,6 @@ import './Header.scss';
 
 const Header = ({ setIsOpen, isOpen }) => {
   const location = useLocation();
-  console.log(location);
   const openCartModal = () => {
     if (location.pathname !== '/cart') {
       setIsOpen(prev => !prev);
