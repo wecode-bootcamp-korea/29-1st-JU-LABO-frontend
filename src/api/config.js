@@ -4,7 +4,7 @@ export const api = {
   fetchLogin: BASE_URL + '/users/login',
   fetchSignup: BASE_URL + '/users/signup',
   fetchProductList: BASE_URL + '/products/productlist',
-  fetchSearchList: BASE_URL + '/categories/search',
+  fetchSearchList: BASE_URL + '/products/productsearch',
   fetchDetailProduct: BASE_URL + '/products',
   fetchAddCart: BASE_URL + '/carts',
   fetchCartItems: BASE_URL + '/carts',
