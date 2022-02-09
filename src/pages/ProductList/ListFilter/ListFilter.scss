@@ -1,7 +1,7 @@
 @import '../../../styles/constant.scss';
-@import url('https://fonts.googleapis.com/css2?family=Cutive&family=Source+Sans+Pro:wght@200;400;700&display=swap');
 
-.ProductList {
+.productList,
+.searchList {
   .list {
     .listFilter {
       display: flex;
@@ -9,6 +9,7 @@
       margin-bottom: 20px;
 
       .filterStart {
+        margin-right: 6px;
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 400;
       }
@@ -17,6 +18,11 @@
         margin-right: 6px;
         font-family: 'Source Sans Pro', sans-serif;
         font-weight: 300;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: line-through;
+        }
       }
 
       button {

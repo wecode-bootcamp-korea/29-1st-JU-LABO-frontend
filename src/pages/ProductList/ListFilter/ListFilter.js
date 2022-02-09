@@ -1,24 +1,26 @@
 import React from 'react';
 import './ListFilter.scss';
 
-const ListFilter = ({
-  selectedFilters,
-  setSelectedFilters,
-  setFilteredProductData,
-}) => {
+const ListFilter = ({ selectedFilters, setSelectedFilters }) => {
+  const removeOneFilter = e => {
+    const newSelectedFilters = selectedFilters.filter(
+      item => item !== e.target.innerHTML
+    );
+    setSelectedFilters(newSelectedFilters);
+  };
+
   const eraseAllFilters = () => {
     setSelectedFilters([]);
-    setFilteredProductData([]);
   };
 
   return (
     <aside className="listFilter">
       <div className="filters">
         {selectedFilters.length > 0 && (
-          <span className="filterStart">Filter: &nbsp;</span>
+          <span className="filterStart">Filter:</span>
         )}
         {selectedFilters.map((filter, index) => (
-          <span className="filterItem" key={index}>
+          <span className="filterItem" key={index} onClick={removeOneFilter}>
             {filter}
           </span>
         ))}

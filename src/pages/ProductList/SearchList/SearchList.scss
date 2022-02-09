@@ -1,0 +1,44 @@
+@import '../../../styles/constant.scss';
+
+.searchList {
+  color: $text;
+  background-color: $bg-light;
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    cursor: pointer;
+  }
+
+  .list {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 20px 15px 0;
+
+    .listContainer {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: -2%;
+    }
+  }
+
+  .indicatorTotal {
+    margin-bottom: 28px;
+    font-size: 14px;
+    font-family: 'Cutive Mono', monospace;
+    font-weight: 600;
+  }
+
+  .header {
+    .headerTitle {
+      padding: 16px 15px 16px;
+    }
+    .filterBtn {
+      .filterModal {
+        top: 47px; // different header height than ProductList
+      }
+    }
+  }
+}
