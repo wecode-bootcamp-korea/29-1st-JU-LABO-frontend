@@ -1,10 +1,15 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import CartModal from '../../pages/Cart/CartModal/CartModal';
 import './Header.scss';
 
 const Header = ({ setIsOpen, isOpen }) => {
+  const location = useLocation();
+  console.log(location);
   const openCartModal = () => {
-    setIsOpen(prev => !prev);
+    if (location.pathname !== '/cart') {
+      setIsOpen(prev => !prev);
+    }
   };
 
   return (
