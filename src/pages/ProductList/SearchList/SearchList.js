@@ -15,10 +15,10 @@ const SearchList = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
 
   useEffect(() => {
-    fetch(api.fetchSearchList + location.search)
+    fetch(api.fetchProductList + location.search)
       .then(res => res.json())
       .then(data => {
-        setProductData(data.result);
+        setProductData(data.products);
       });
   }, [location]);
 
