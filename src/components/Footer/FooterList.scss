@@ -6,4 +6,11 @@
     font-size: 13px;
     cursor: pointer;
   }
+
+  a {
+    @extend li;
+    display: block;
+    color: $text;
+    text-decoration: none;
+  }
 }
