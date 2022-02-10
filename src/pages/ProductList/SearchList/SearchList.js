@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import ProductListHeader from '../ProductListHeader/ProductListHeader';
 import ListFilter from '../ListFilter/ListFilter';
 import ProductCard from '../ProductCard/ProductCard';
-import { fetchSearchList } from '../../../api/config';
+import { api } from '../../../api/config';
 import './SearchList.scss';
 
 const SearchList = () => {
@@ -15,7 +15,7 @@ const SearchList = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
 
   useEffect(() => {
-    fetch(fetchSearchList + location.search)
+    fetch(api.fetchSearchList + location.search)
       .then(res => res.json())
       .then(data => {
         setProductData(data.result);
