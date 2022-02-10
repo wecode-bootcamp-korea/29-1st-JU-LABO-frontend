@@ -1,0 +1,47 @@
+@import '../../styles/constant.scss';
+
+.categoryItem {
+  margin: 0px 20px 0 20px;
+  font-size: 23px;
+
+  .categoryExpand {
+    display: flex;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    width: 100vw;
+    height: 300px;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 2000;
+    transition: 200ms ease;
+  }
+
+  &:hover > .categoryExpand {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .categoryExpandImage {
+    margin: 20px;
+  }
+
+  .categoryExpandWrapper {
+    margin-left: 40px;
+  }
+
+  .categoryExpandHead {
+    margin-top: 20px;
+    font-size: 25px;
+  }
+
+  .categoryExpandHead:hover {
+    width: 140px;
+    border-bottom: 3px solid black;
+  }
+}
+
+.categoryItem:hover {
+  border-bottom: 4px solid black;
+}
