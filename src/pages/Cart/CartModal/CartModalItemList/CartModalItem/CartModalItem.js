@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { api } from '../../../../../api/config';
 import './CartModalItem.scss';
 
 const CartModalItem = ({ item, cartItems, setCartItems }) => {
   const [quantity, setQuantity] = useState();
+
+  useEffect(() => {
+    if (item) setQuantity(item.quantity);
+  }, [item]);
 
   const addQuantity = (e, id) => {
     e.preventDefault();
@@ -63,7 +67,7 @@ const CartModalItem = ({ item, cartItems, setCartItems }) => {
     <div className="CartModalItem">
       <div className="miniCartItemWrap">
         <div className="miniCartItemImg">
-          <img src={item.imageUrls} alt="" />
+          <img src={item.image_url} alt="" />
         </div>
         <div className="miniCartItemContent">
           <div className="miniCartItemHeadWrap">
@@ -86,9 +90,9 @@ const CartModalItem = ({ item, cartItems, setCartItems }) => {
               <li>
                 <p>Quantity: </p>
                 <div>
-                  <button onClick={e => subQuantity(e, item.id)}>-</button>
-                  <input type="text" value={item.quantity || ''} readOnly />
-                  <button onClick={e => addQuantity(e, item.id)}>+</button>
+                  <button onClick={e => subQuantity(e, item.cart_id)}>-</button>
+                  <input type="text" value={quantity || ''} readOnly />
+                  <button onClick={e => addQuantity(e, item.cart_id)}>+</button>
                 </div>
               </li>
             </ul>

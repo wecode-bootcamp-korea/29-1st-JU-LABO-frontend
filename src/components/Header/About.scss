@@ -1,0 +1,43 @@
+@import '../../styles/constant.scss';
+
+.categoryItem {
+  margin: 0px 20px 0 20px;
+  font-size: 23px;
+
+  .categoryExpand {
+    display: flex;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    width: 100vw;
+    background: #fff;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    transition: 200ms ease;
+  }
+
+  &:hover > .categoryExpand {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .categoryExpandWrapper {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  .categoryExpandHead {
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .categoryExpandDrinks {
+    margin-top: 20px;
+    font-size: 20px;
+
+    p {
+      line-height: 40px;
+      margin: 0 60px 0 60px;
+    }
+  }
+}

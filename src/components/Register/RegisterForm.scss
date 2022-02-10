@@ -1,0 +1,28 @@
+@import '../../styles/constant.scss';
+
+.registerInputForm {
+  display: flex;
+  border: 1px solid $border;
+  background-color: #ffffff;
+
+  &:first-child {
+    border-bottom: none;
+  }
+
+  .labelForm {
+    width: 200px;
+    padding: 20px 0px 20px 20px;
+
+    font: {
+      family: 'Cutive', serif;
+      size: 15px;
+    }
+  }
+
+  .inputForm {
+    width: 300px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+  }
+}

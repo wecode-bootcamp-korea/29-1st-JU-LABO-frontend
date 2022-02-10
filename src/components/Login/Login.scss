@@ -1,81 +1,35 @@
 @import '../../styles/constant.scss';
 
-.backgroundwrapper {
+.backgroundWrapper {
   height: 100vh;
   background-color: $bg-light;
 }
 
-.loginwrapper {
-  margin: 0 auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
+.formWrapper {
   width: 500px;
+  margin: 0 auto;
+  padding-top: 40px 0 40px 0;
 
   h1 {
-    font-size: 30px;
-    font-weight: bold;
-    font-family: 'Cutive', serif;
-    padding: 18px;
+    padding: 80px 18px 18px 18px;
     margin-bottom: 22px;
+
+    font: {
+      size: 30px;
+      weight: bold;
+      family: 'Cutive', serif;
+    }
   }
 
   p {
+    line-height: 30px;
     margin-top: 20px;
     font-family: 'Cutive', serif;
     font-size: 15px;
   }
 }
 
-.loginemailform {
-  display: flex;
-  border: {
-    border: 2px solid $border;
-    bottom: none;
-  }
-
-  background-color: #ffffff;
-
-  .email-labelform {
-    width: 200px;
-    padding: 20px 0px 20px 20px;
-    font: {
-      family: 'Cutive', serif;
-      size: 15px;
-    }
-  }
-
-  .emailinput {
-    width: 300px;
-    font-size: 15px;
-    border: none;
-    outline: none;
-  }
-}
-
-.passwordform {
-  display: flex;
-  border-top: 1px solid gray;
-  background-color: #ffffff;
-
-  .labelform {
-    font: {
-      family: 'Cutive', serif;
-      size: 15px;
-    }
-    width: 200px;
-    padding: 20px 40px 20px 20px;
-    border: none;
-  }
-
-  .passwordinput {
-    width: 300px;
-    font-size: 15px;
-    border: none;
-    outline: none;
-  }
-}
-
-.asksignup {
+.askSignup {
   @include center;
   margin-top: 40px;
 
@@ -99,7 +53,13 @@
   }
 }
 
-.buttonwrap {
+.inputWrapper {
+  .passwordInput {
+    border-top: 1px $border solid;
+  }
+}
+
+.buttonWrap {
   @include center;
 
   margin: {
@@ -107,9 +67,9 @@
     bottom: 40px;
   }
 
-  .loginbutton {
+  .loginButton {
     width: 300px;
-    font-size: 15px;
     padding: 10px;
+    font-size: 15px;
   }
 }

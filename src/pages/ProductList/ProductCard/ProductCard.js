@@ -1,29 +1,26 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { api } from '../../../api/config';
 import './ProductCard.scss';
 
 const ProductCard = ({ data }) => {
   const navigate = useNavigate();
 
   const addToRecommendation = () => {
-    fetch('', {
+    fetch(api.fetchPopular, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         Authorization: sessionStorage.getItem('loginToken'),
       },
-      body: JSON.stringify({ product_id: data.product_id }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.success) {
-          alert('추천에 추가 완료~');
-        }
-      });
+      body: JSON.stringify({ product_id: data.id }),
+    });
   };
 
   const goToProduct = () => {
-    addToRecommendation();
+    if (sessionStorage.getItem('loginToken')) {
+      addToRecommendation();
+    }
     navigate(`/product/${data.id}`);
   };
 

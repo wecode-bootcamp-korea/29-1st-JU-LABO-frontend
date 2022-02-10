@@ -1,0 +1,34 @@
+@import '../../styles/constant';
+
+.footer {
+  display: flex;
+  justify-content: center;
+  background-color: $bg-light;
+  border-top: 1px $border solid;
+  margin-top: -1px;
+
+  .footerInnerWrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+
+    .footerInner {
+      display: flex;
+      justify-content: space-between;
+      height: 300px;
+      padding: 40px;
+    }
+
+    .footerInnerSecond {
+      @include center;
+      height: 50px;
+
+      a {
+        color: black;
+        font-size: 30px;
+        text-decoration: none;
+      }
+    }
+  }
+}

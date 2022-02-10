@@ -1,0 +1,43 @@
+export const FOOTER_LIST = [
+  {
+    id: 1,
+    name: 'Ju LaBo',
+    first: 'About Us',
+    second: 'Discovery',
+    third: 'Ju Journal',
+  },
+  {
+    id: 2,
+    name: 'Client Care',
+    first: ' Product Warranty',
+    second: 'Privacy Policy',
+    third: 'Do Not Sell My Personal',
+    fourth: 'Information',
+    fivth: 'Terms &amp; Conditions',
+    sixth: 'Terms &amp; Conditions Of Sale',
+  },
+  {
+    id: 3,
+    name: 'Shipping',
+    first: ' Delivery Warranty',
+    second: 'Collect',
+    third: 'Tracking',
+    fourth: 'Information',
+    fivth: 'Terms &amp; Conditions',
+    sixth: 'Terms &amp; Conditions Of Sale',
+  },
+  {
+    id: 4,
+    name: 'Visit us',
+    first: ' Store Location ',
+    second: 'Service',
+    third: 'Tracking',
+    fourth: 'In-Store Service',
+  },
+  {
+    id: 5,
+    name: 'Join us',
+    first: ' Log In ',
+    second: 'Sign Up',
+  },
+];

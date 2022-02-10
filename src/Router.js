@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Main from './pages/Main/Main';
@@ -15,6 +16,7 @@ const Router = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Header setIsOpen={setIsOpen} isOpen={isOpen} />
       <Routes>
         <Route path="/" element={<Main />} />

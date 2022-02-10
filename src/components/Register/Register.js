@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import RegisterForm from './RegisterForm';
 import './Register.scss';
+import { ERROR_MESSAGE } from '../../error/ERROR_MESSAGE';
+import { REGISTER_FORM_DATA } from './REGISTER_FORM_DATA';
 import { api } from '../../api/config';
 
 function Register() {
@@ -11,48 +14,36 @@ function Register() {
     password: '',
   });
 
-  const [color, setColor] = useState('color');
+  const navigate = useNavigate();
+  const { firstName, lastName, emailAddress, password } = registerInfo;
 
-  const inputHandler = e => {
-    setRegisterInfo({ ...registerInfo, [e.target.name]: e.target.value });
+  const validationInput = () => {
+    const allText = firstName && lastName && emailAddress && password;
+
+    if (!allText) {
+      return false;
+    } else {
+      return true;
+    }
   };
 
   const registerFetch = () => {
-    if (
-      registerInfo.firstName === '' &&
-      registerInfo.lastName === '' &&
-      registerInfo.emailAddress === '' &&
-      registerInfo.password === ''
-    ) {
-      setColor('red');
-    } else if (registerInfo.firstName === '') {
-      alert('Password is required!');
-    } else if (registerInfo.lastName === '') {
-      alert('Email is required!');
-    } else if (registerInfo.emailAddress === '') {
-      alert('Email is required!');
-    } else if (registerInfo.password === '') {
-      alert('Email is required!');
-    } else {
+    if (validationInput()) {
       fetch(api.fetchSignup, {
         method: 'POST',
         body: JSON.stringify({
-          first_name: registerInfo.emailAddress,
-          last_name: registerInfo.password,
-          email: registerInfo.emailAddress,
-          password: registerInfo.password,
+          first_name: firstName,
+          last_name: lastName,
+          email: emailAddress,
+          password: password,
         }),
       })
         .then(res => res.json())
         .then(res => {
-          if (res.message === 'EMAIL_ALREADY_EXISTS') {
-            alert('이미 존재하는 이메일입니다!');
-          } else if (res.message === 'INVALID_EMAIL') {
-            alert('이메일 양식에 맞지 않습니다 !');
-          } else if (res.message === 'INVALID_PASSWORD') {
-            alert('비밀번호가 양식에 맞지 않습니다!');
+          if (res.message !== 'SUCCESS') {
+            alert(ERROR_MESSAGE[res.message]);
           } else {
-            sessionStorage.setItem('token', res.token);
+            navigate('/login');
           }
         });
     }
@@ -60,89 +51,35 @@ function Register() {
 
   return (
     <div className="register">
-      <div className="backgroundwrapper">
-        <div className="register-wrapper">
+      <div className="backgroundWrapper">
+        <div className="registerWrapper">
           <h1>NEW CLIENTS</h1>
-          <form action="#" method="post">
-            <div className="firstnameform">
-              <label className="labelform" htmlFor="name">
-                First Name:
-              </label>
-              <input
-                name="firstName"
-                className="firstnameinput"
-                type="text"
-                value={registerInfo.firstName}
-                style={{ color: color }}
-                onChange={inputHandler}
-              />
-            </div>
 
-            <div className="lastnameform">
-              <label className="labelform" htmlFor="name">
-                Last Name:
-              </label>
-              <input
-                name="lastName"
-                className="lastnameinput"
-                type="text"
-                value={registerInfo.lastName}
-                style={{ color: color }}
-                onChange={inputHandler}
-              />
+          <div className="registerInputWrapper">
+            <div className="firstNameWrapper">
+              {REGISTER_FORM_DATA.map(data => (
+                <RegisterForm
+                  key={data.id}
+                  list={data}
+                  registerInfo={registerInfo}
+                  setRegisterInfo={setRegisterInfo}
+                />
+              ))}
             </div>
+          </div>
 
-            <div className="emailform">
-              <label
-                className="email-labelform"
-                htmlFor="name"
-                style={{ color: color }}
-              >
-                Email Address:
-              </label>
-              <input
-                name="emailAddress"
-                className="emailinput"
-                type="text"
-                value={registerInfo.emailAddress}
-                onChange={inputHandler}
-              />
-            </div>
+          <div className="buttonWrap">
+            <button className="registerButton" onClick={registerFetch}>
+              Register
+            </button>
+          </div>
 
-            <div className="passwordform">
-              <label className="labelform" htmlFor="name">
-                Password:
-              </label>
-              <input
-                name="password"
-                className="passwordinput"
-                type="text"
-                value={registerInfo.password}
-                style={{ color: color }}
-                onChange={inputHandler}
-              />
-            </div>
-
-            <div className="buttonwrap">
-              <Link to="/Login">
-                <button
-                  className="registerbutton"
-                  onClick={registerFetch}
-                  type="submit"
-                >
-                  Register
-                </button>
-              </Link>
-            </div>
-
-            <p>
-              Now that it's all said and done I can't believe you were the one
-              To build me up and tear me down Like an old abandoned house And
-              what you said when you left Just left me cold and out of breath I
-              fell too far, was in way too deep Guess I let you get the best of
-              me
-            </p>
-          </form>
+          <p>
+            Now that it's all said and done I can't believe you were the one To
+            build me up and tear me down Like an old abandoned house And what
+            you said when you left Just left me cold and out of breath I fell
+            too far, was in way too deep Guess I let you get the best of me
+          </p>
         </div>
       </div>
     </div>
