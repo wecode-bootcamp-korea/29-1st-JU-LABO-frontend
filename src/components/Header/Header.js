@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import CartModal from '../../pages/Cart/CartModal/CartModal';
 import './Header.scss';
 import Category from './Category';
 import About from './About';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ setIsOpen, isOpen }) => {
   const [isToken, setIsToken] = useState(false);
   const [userInfo, setUserInfo] = useState();
 
@@ -20,6 +21,10 @@ const Header = () => {
       setIsToken(true);
     }
   }, []);
+
+  const openCartModal = () => {
+    setIsOpen(prev => !prev);
+  };
 
   return (
     <div>
@@ -63,11 +68,12 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="shoppingBag">
-            <i class="fas fa-shopping-bag" />
+          <div className="shoppingBag" onClick={openCartModal}>
+            <i className="fas fa-shopping-bag" />
           </div>
         </div>
       </div>
+      {isOpen && <CartModal setIsOpen={setIsOpen} isOpen={isOpen} />}
     </div>
   );
 };

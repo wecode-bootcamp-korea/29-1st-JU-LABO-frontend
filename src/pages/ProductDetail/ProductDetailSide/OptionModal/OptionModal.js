@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './OptionModal.scss';
 
 const OptionModal = ({
@@ -13,18 +13,8 @@ const OptionModal = ({
   productSize,
   params,
 }) => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://172.16.100.31:8000/productgroups/${params.id}`)
-      .then(res => res.json())
-      .then(result => {
-        setProducts(result.products);
-      });
-  }, []);
-
   const selectSize = e => {
-    const findInfo = products.filter(
+    const findInfo = productSize.products.filter(
       product => product.ml === Number(e.target.innerText)
     );
     if (findInfo) {
@@ -45,7 +35,7 @@ const OptionModal = ({
   return (
     <div className={`optionModal ${quan && 'on'}`}>
       {size ? (
-        productSize.map(ml => (
+        productSize.mls.map(ml => (
           <ul onClick={selectSize} key={ml}>
             <li>{ml}</li>
           </ul>

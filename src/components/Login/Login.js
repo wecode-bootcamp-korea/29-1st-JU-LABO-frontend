@@ -4,18 +4,19 @@ import InputForm from './InputForm';
 import './Login.scss';
 import { error } from '../../error/error';
 import { LOGIN_FORM_DATA } from './LOGIN_FORM_DATA';
+import { api } from '../../api/config';
 
 function Login() {
+  const navigate = useNavigate();
   const [loginInfo, setloginInfo] = useState({
     emailAddress: '',
     password: '',
   });
 
-  const navigate = useNavigate();
   const { emailAddress, password } = loginInfo;
 
   const loginFetch = () => {
-    fetch(`http://10.58.2.192:8000/users/login`, {
+    fetch(api.fetchLogin, {
       method: 'POST',
       body: JSON.stringify({
         email: emailAddress,
@@ -63,7 +64,7 @@ function Login() {
             </button>
           </div>
           <p>
-            Now that it's all said and done I can't believe you were the one To
+            Now that it's all said and done I n't believe you were the one To
             build me up and tear me down Like an old abandoned house And what
             you said when you left Just left me cold and out of breath I fell
             too far, was in way too deep Guess I let you get the best of me

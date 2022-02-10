@@ -1,29 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { api } from '../../../../../api/config';
 import './CartModalItem.scss';
 
 const CartModalItem = ({ item, cartItems, setCartItems }) => {
+  const [quantity, setQuantity] = useState();
+
   const addQuantity = (e, id) => {
     e.preventDefault();
 
-    const addQuantity = cartItems.map(cartItem => {
-      if (cartItem.id === id) {
-        return { ...cartItem, quantity: Number(cartItem.quantity) + 1 };
+    const addQuan = cartItems?.map(cartItem => {
+      if (cartItem.cart_id === id) {
+        const curr = +quantity + 1;
+
+        setQuantity(curr);
+        fetch(api.fetchCartModifyQuantity, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: sessionStorage.getItem('loginToken'),
+          },
+          body: JSON.stringify({
+            ...cartItem,
+            quantity: curr,
+          }),
+        });
+
+        return { ...cartItem, quantity: curr };
       } else return cartItem;
     });
-
-    setCartItems(addQuantity);
+    setCartItems(addQuan);
   };
 
   const subQuantity = (e, id) => {
     e.preventDefault();
+    const curr = +quantity - 1;
 
-    const addQuantity = cartItems.map(cartItem => {
-      if (cartItem.id === id) {
+    if (curr === 0) {
+      return;
+    }
+
+    const subQuan = cartItems.map(cartItem => {
+      if (cartItem.cart_id === id) {
+        setQuantity(curr);
+        fetch(api.fetchCartModifyQuantity, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: sessionStorage.getItem('loginToken'),
+          },
+          body: JSON.stringify({
+            ...cartItem,
+            quantity: curr,
+          }),
+        });
         return { ...cartItem, quantity: Number(cartItem.quantity) - 1 };
       } else return cartItem;
     });
 
-    setCartItems(addQuantity);
+    setCartItems(subQuan);
   };
   return (
     <div className="CartModalItem">

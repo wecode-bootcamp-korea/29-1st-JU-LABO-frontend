@@ -4,7 +4,7 @@ import ProductListHeader from './ProductListHeader/ProductListHeader';
 import ProductListBanner from './ProductListBanner/ProductListBanner';
 import ListFilter from './ListFilter/ListFilter';
 import ProductCard from './ProductCard/ProductCard';
-// import { CATEGORY_TABLE } from './CATEGORY_TABLE';
+import { api } from '../../api/config';
 import './ProductList.scss';
 
 const ProductList = () => {
@@ -18,8 +18,7 @@ const ProductList = () => {
 
   useEffect(() => {
     fetch(
-      // `http://172.16.100.203:8002/categories/product?category_subcategory_id=${params.category_id}`
-      `http://172.16.100.203:8002/categories/product?category_subcategory_id=1`
+      api.fetchProductList + `?category_subcategory_id=${params.category_id}`
     )
       .then(res => res.json())
       .then(data => {
@@ -27,26 +26,19 @@ const ProductList = () => {
       });
   }, [params.category_id]);
 
-  // useEffect(() => {
-  //   if (selectedFilters.length > 0) {
-  //     fetch(
-  //       `http://10.58.2.198:8002/subcategory?category_id=${
-  //         params.category_id
-  //       }&subcategory_id=${params.subcategory_id}&type=${parseInt(
-  //         selectedFilters[selectedFilters.length - 1]
-  //       )}`
-  //     )
-  //       .then(res => res.json())
-  //       .then(data => {
-  //         setFilteredProductData([...filteredProductData, data.result]);
-  //       });
-  //   }
-  // }, [
-  //   selectedFilters,
-  //   params.category_id,
-  //   params.subcategory_id,
-  //   filteredProductData,
-  // ]);
+  useEffect(() => {
+    Promise.all(
+      selectedFilters.map(ml =>
+        fetch(
+          api.fetchProductList +
+            `?category_subcategory_id=${params.category_id}&ml=${parseInt(ml)}`
+        )
+      )
+    )
+      .then(res => Promise.all(res.map(item => item.json())))
+      .then(res => res.map(data => data.products))
+      .then(arr => setFilteredProductData([].concat.apply([], arr)));
+  }, [selectedFilters, params.category_id]);
 
   const handleFilterOutsideClick = e => {
     if (isfilterModalActive && !modalRef.current.contains(e.target)) {
@@ -55,10 +47,9 @@ const ProductList = () => {
   };
 
   return (
-    <div className="ProductList" onClick={handleFilterOutsideClick}>
+    <div className="productList" onClick={handleFilterOutsideClick}>
       <ProductListHeader
         params={params}
-        productData={productData}
         isfilterModalActive={isfilterModalActive}
         setIsfilterModalActive={setIsfilterModalActive}
         selectedFilters={selectedFilters}
@@ -72,11 +63,13 @@ const ProductList = () => {
         <ListFilter
           selectedFilters={selectedFilters}
           setSelectedFilters={setSelectedFilters}
-          setFilteredProductData={setFilteredProductData}
         />
         <ul className="listContainer">
-          {productData.length &&
-            productData.map(data => <ProductCard key={data.id} data={data} />)}
+          {filteredProductData.length === 0 && productData.length > 0
+            ? productData.map(data => <ProductCard key={data.id} data={data} />)
+            : filteredProductData.map(data => (
+                <ProductCard key={data.id} data={data} />
+              ))}
         </ul>
       </main>
     </div>

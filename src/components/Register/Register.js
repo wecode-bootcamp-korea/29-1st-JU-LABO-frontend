@@ -4,6 +4,7 @@ import RegisterForm from './RegisterForm';
 import './Register.scss';
 import { error } from '../../error/error';
 import { REGISTER_FORM_DATA } from './REGISTER_FORM_DATA';
+import { api } from '../../api/config';
 
 function Register() {
   const [registerInfo, setRegisterInfo] = useState({
@@ -28,7 +29,7 @@ function Register() {
 
   const registerFetch = () => {
     validationInput();
-    fetch(`http://10.58.2.192:8000/users/signup`, {
+    fetch(api.fetchSignup, {
       method: 'POST',
       body: JSON.stringify({
         first_name: emailAddress,
