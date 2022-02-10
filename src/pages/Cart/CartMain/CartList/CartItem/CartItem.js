@@ -59,7 +59,7 @@ const CartItem = ({ item, cartItems, setCartItems }) => {
             quantity: curr,
           }),
         });
-        return { ...cartItem, quantity: Number(cartItem.quantity) - 1 };
+        return { ...cartItem, quantity: curr };
       } else return cartItem;
     });
 

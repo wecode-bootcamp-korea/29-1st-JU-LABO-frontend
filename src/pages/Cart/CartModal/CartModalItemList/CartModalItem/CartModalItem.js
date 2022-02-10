@@ -45,6 +45,7 @@ const CartModalItem = ({ item, cartItems, setCartItems }) => {
 
     const subQuan = cartItems.map(cartItem => {
       if (cartItem.cart_id === id) {
+        const curr = +quantity - 1;
         setQuantity(curr);
         fetch(api.fetchCartModifyQuantity, {
           method: 'PUT',
@@ -57,7 +58,7 @@ const CartModalItem = ({ item, cartItems, setCartItems }) => {
             quantity: curr,
           }),
         });
-        return { ...cartItem, quantity: Number(cartItem.quantity) - 1 };
+        return { ...cartItem, quantity: curr };
       } else return cartItem;
     });
 
