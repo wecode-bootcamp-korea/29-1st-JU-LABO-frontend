@@ -42,13 +42,18 @@ const Header = () => {
               <div className="letter">
                 <i className="far fa-envelope" />
               </div>
+
               <div className="loginSignup">
                 <i class="far fa-user" />
+
                 <div className="clickLoginSignup">
-                  {isToken ? `Hello, ${userInfo.name} ` : 'Log In/Register'}
+                  <Link to="/login" className="textLink">
+                    {isToken ? `Hello, ${userInfo.name} ` : 'Log In/Register'}
+                  </Link>
                 </div>
               </div>
             </div>
+
             <div className="category">
               <Category name="Spring" param="0" />
               <Category name="Summer" param="6" />

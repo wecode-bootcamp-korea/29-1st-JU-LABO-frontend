@@ -12,7 +12,7 @@ function Login() {
   });
 
   const navigate = useNavigate();
-  const [emailAddress, password] = loginInfo;
+  const { emailAddress, password } = loginInfo;
 
   const loginFetch = () => {
     fetch(`http://10.58.2.192:8000/users/login`, {
