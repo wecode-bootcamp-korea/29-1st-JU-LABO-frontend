@@ -6,7 +6,7 @@ import About from './About';
 import './Header.scss';
 
 const Header = ({ setIsOpen, isOpen }) => {
-  const token = sessionStorage.getItem('login');
+  const token = sessionStorage.getItem('loginToken');
   const username = sessionStorage.getItem('username');
   const location = useLocation();
   const navigate = useNavigate();

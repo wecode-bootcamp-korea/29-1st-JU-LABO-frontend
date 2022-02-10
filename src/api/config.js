@@ -1,4 +1,5 @@
-const BASE_URL = 'http://10.58.0.47:8000';
+const BASE_URL = 'http://3.90.45.177:8000';
+
 export const api = {
   fetchLogin: BASE_URL + '/users/login',
   fetchSignup: BASE_URL + '/users/signup',

@@ -37,8 +37,8 @@ const ProductDetailSide = ({
         Authorization: sessionStorage.getItem('loginToken'),
       },
       body: JSON.stringify({
-        ...productInfo,
-        quantity: quantity,
+        product_id: productInfo.product_id,
+        quantity: Number(quantity),
       }),
     });
   };
