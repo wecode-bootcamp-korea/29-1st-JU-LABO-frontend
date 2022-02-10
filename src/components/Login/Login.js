@@ -25,7 +25,6 @@ function Login() {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res);
         if (res.token) {
           sessionStorage.setItem('login', JSON.stringify(res.token));
           sessionStorage.setItem(
