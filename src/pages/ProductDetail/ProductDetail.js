@@ -18,6 +18,7 @@ const ProductDetail = ({ isOpen, setIsOpen }) => {
         setProductInfo(result.products[0]);
       });
   }, [params.id]);
+
   return (
     <section className="productDetail">
       <ProductDetailContent productInfo={productInfo} />
