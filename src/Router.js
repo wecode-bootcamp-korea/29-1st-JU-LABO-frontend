@@ -10,6 +10,7 @@ import ProductList from './pages/ProductList/ProductList';
 import ProductDetail from './pages/ProductDetail/ProductDetail';
 import Cart from './pages/Cart/Cart';
 import SearchList from './pages/ProductList/SearchList/SearchList';
+import AboutUs from './pages/AboutUs/AboutUs';
 
 const Router = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +33,7 @@ const Router = () => {
         />
 
         <Route path="/search" element={<SearchList />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
       <Footer />
     </BrowserRouter>

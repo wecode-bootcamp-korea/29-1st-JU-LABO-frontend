@@ -4,6 +4,8 @@
   display: flex;
   position: relative;
   border: 1px solid $border;
+  font-family: 'Source Sans Pro', sans-serif;
+  z-index: 1000;
 
   .logoImg {
     width: 180px;

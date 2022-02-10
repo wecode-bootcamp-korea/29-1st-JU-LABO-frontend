@@ -13,8 +13,8 @@ export const FOOTER_LIST = [
     second: 'Privacy Policy',
     third: 'Do Not Sell My Personal',
     fourth: 'Information',
-    fivth: 'Terms &amp; Conditions',
-    sixth: 'Terms &amp; Conditions Of Sale',
+    fivth: 'Terms & Conditions',
+    sixth: 'Terms & Conditions Of Sale',
   },
   {
     id: 3,
@@ -23,8 +23,8 @@ export const FOOTER_LIST = [
     second: 'Collect',
     third: 'Tracking',
     fourth: 'Information',
-    fivth: 'Terms &amp; Conditions',
-    sixth: 'Terms &amp; Conditions Of Sale',
+    fivth: 'Terms & Conditions',
+    sixth: 'Terms & Conditions Of Sale',
   },
   {
     id: 4,
