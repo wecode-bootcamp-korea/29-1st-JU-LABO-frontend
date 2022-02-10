@@ -1,8 +1,15 @@
 @import '../../styles/constant.scss';
 
+$head-margin-bottom: 12px;
+$head-border-bottom: 3px;
+
 .categoryItem {
+  display: flex;
+  align-items: center;
+  height: 100%;
   margin: 0px 20px 0 20px;
-  font-size: 23px;
+  font-size: 20px;
+  color: $text;
 
   .categoryExpand {
     display: flex;
@@ -11,11 +18,35 @@
     left: 0;
     width: 100vw;
     height: 300px;
+    padding: 20px;
     background: #fff;
     opacity: 0;
     visibility: hidden;
     z-index: 2000;
     transition: 200ms ease;
+
+    .popularList {
+      margin-left: 40px;
+
+      .categoryExpandHead {
+        width: auto;
+      }
+
+      .categoryExpandDrinks {
+        div {
+          font-weight: 700;
+          font-family: 'Cutive Mono', monospace;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .divider {
+      height: 80%;
+      align-self: center;
+
+      border-left: 1px solid $border;
+    }
   }
 
   &:hover > .categoryExpand {
@@ -32,16 +63,22 @@
   }
 
   .categoryExpandHead {
+    width: 140px;
     margin-top: 20px;
-    font-size: 25px;
+    margin-bottom: $head-margin-bottom;
+    margin-right: 40px;
+    padding-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
   }
 
   .categoryExpandHead:hover {
-    width: 140px;
-    border-bottom: 3px solid black;
+    margin-bottom: calc($head-margin-bottom - $head-border-bottom);
+    border-bottom: $head-border-bottom solid black;
   }
 }
 
 .categoryItem:hover {
-  border-bottom: 4px solid black;
+  margin-bottom: -3px;
+  border-bottom: 3px solid black;
 }
