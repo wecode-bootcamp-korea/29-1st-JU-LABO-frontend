@@ -7,9 +7,9 @@
   .categoryExpand {
     display: flex;
     position: absolute;
-    width: 100vw;
     top: calc(100% + 1px);
     left: 0;
+    width: 100vw;
     background: #fff;
     opacity: 0;
     visibility: hidden;

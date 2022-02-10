@@ -16,7 +16,7 @@ const InputForm = ({ loginInfo, setloginInfo, list }) => {
         name={list.name}
         value={loginInfo[list.name]}
         className="inputForm"
-        type={list.id}
+        type={list.type}
         onChange={inputHandler}
       />
     </div>

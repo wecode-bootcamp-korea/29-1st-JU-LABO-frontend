@@ -1,26 +1,26 @@
 export const REGISTER_FORM_DATA = [
   {
-    id: 'email',
+    id: 1,
     label: 'Email Address:',
-    name: 'emailAddress',
+    name: 'emailaddress',
     type: 'email',
   },
   {
-    id: 'password',
+    id: 2,
     label: 'Password:',
     name: 'password',
-    type: ' password',
+    type: 'password',
   },
   {
-    id: 'lastName',
+    id: 3,
     label: 'Last Name:',
-    name: 'lastName',
+    name: 'lastname',
     type: 'text',
   },
   {
-    id: 'firstName',
+    id: 4,
     label: 'First Name:',
-    name: 'firstName',
+    name: 'firstname',
     type: 'text',
   },
 ];

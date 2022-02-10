@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CartModal from '../../pages/Cart/CartModal/CartModal';
 import './Header.scss';
 import Category from './Category';
@@ -6,21 +6,8 @@ import About from './About';
 import { Link } from 'react-router-dom';
 
 const Header = ({ setIsOpen, isOpen }) => {
-  const [isToken, setIsToken] = useState(false);
-  const [userInfo, setUserInfo] = useState();
-
-  useEffect(() => {
-    if (JSON.parse(sessionStorage.getItem('login'))) {
-      fetch('', {
-        headers: { Authorization: sessionStorage.getItem('login') },
-      })
-        .then(res => res.json())
-        .then(res => {
-          setUserInfo(res);
-        });
-      setIsToken(true);
-    }
-  }, []);
+  const token = sessionStorage.getItem('login');
+  const username = sessionStorage.getItem('username');
 
   const openCartModal = () => {
     setIsOpen(prev => !prev);
@@ -47,13 +34,13 @@ const Header = ({ setIsOpen, isOpen }) => {
               <div className="letter">
                 <i className="far fa-envelope" />
               </div>
-
               <div className="loginSignup">
                 <i class="far fa-user" />
-
                 <div className="clickLoginSignup">
                   <Link to="/login" className="textLink">
-                    {isToken ? `Hello, ${userInfo.name} ` : 'Log In/Register'}
+                    {token
+                      ? `Hello, ${username.slice(1, username.length - 1)} `
+                      : 'Log In/Register'}
                   </Link>
                 </div>
               </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import InputForm from './InputForm';
 import './Login.scss';
-import { error } from '../../error/error';
+import { ERROR_MESSAGE } from '../../error/ERROR_MESSAGE';
 import { LOGIN_FORM_DATA } from './LOGIN_FORM_DATA';
 import { api } from '../../api/config';
 
@@ -25,12 +25,17 @@ function Login() {
     })
       .then(res => res.json())
       .then(res => {
+        console.log(res);
         if (res.token) {
           sessionStorage.setItem('login', JSON.stringify(res.token));
-          return navigate('/');
+          sessionStorage.setItem(
+            'username',
+            JSON.stringify(res.username.username)
+          );
+          navigate('/');
         }
-        if (res.message === error[res.message].name) {
-          alert(error[res.message].desc);
+        if (res.message !== 'SUCCESS') {
+          alert(ERROR_MESSAGE[res.message]);
         }
         return;
       });

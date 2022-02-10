@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import RegisterForm from './RegisterForm';
 import './Register.scss';
-import { error } from '../../error/error';
+import { ERROR_MESSAGE } from '../../error/ERROR_MESSAGE';
 import { REGISTER_FORM_DATA } from './REGISTER_FORM_DATA';
 import { api } from '../../api/config';
 
@@ -21,30 +21,32 @@ function Register() {
     const allText = firstName && lastName && emailAddress && password;
 
     if (!allText) {
-      alert('Fill the requirements!');
+      return false;
     } else {
-      alert('complete!');
+      return true;
     }
   };
 
   const registerFetch = () => {
-    validationInput();
-    fetch(api.fetchSignup, {
-      method: 'POST',
-      body: JSON.stringify({
-        first_name: emailAddress,
-        last_name: password,
-        email: emailAddress,
-        password: password,
-      }),
-    })
-      .then(res => res.json())
-      .then(res => {
-        if (res.message === error[res.message].name) {
-          alert(error[res.message].desc);
-        }
-        navigate('/login');
-      });
+    if (validationInput()) {
+      fetch(api.fetchSignup, {
+        method: 'POST',
+        body: JSON.stringify({
+          first_name: firstName,
+          last_name: lastName,
+          email: emailAddress,
+          password: password,
+        }),
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res.message !== 'SUCCESS') {
+            alert(ERROR_MESSAGE[res.message]);
+          } else {
+            navigate('/login');
+          }
+        });
+    }
   };
 
   return (

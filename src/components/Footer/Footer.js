@@ -9,7 +9,7 @@ const Footer = () => {
       <div className="footerInnerWrapper">
         <div className="footerInner">
           {FOOTER_LIST.map(ele => (
-            <FooterList key={ele} list={ele} />
+            <FooterList key={ele.id} list={ele} />
           ))}
         </div>
         <div className="footerInnerSecond">
