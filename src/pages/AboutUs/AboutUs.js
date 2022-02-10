@@ -213,7 +213,7 @@ const AboutUs = () => {
               alt="changhyun"
               src="https://ca.slack-edge.com/TH0U6FBTN-U02M9TE01PD-76dbb65c2559-512"
             />
-            <p>창현의 코멘트... 기다립니다</p>
+            <p>마음을 불태워라. 한계를 뛰어넘어!</p>
           </div>
         </section>
         <footer>©JULABO, 2022</footer>
