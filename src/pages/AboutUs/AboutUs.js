@@ -14,7 +14,7 @@ const AboutUs = () => {
     left: '500px',
   });
 
-  const [selectedName, setSelectedName] = useState('');
+  const [selectedName, setSelectedName] = useState('empty');
 
   const handleHamsterClose = () => {
     setIsHamster(false);
@@ -65,42 +65,58 @@ const AboutUs = () => {
             <li
               name="Namju"
               onClick={handleNameClick}
-              className={selectedName === 'Namju' && 'active'}
+              className={
+                selectedName === 'Namju' ? 'memberItem active' : 'memberItem'
+              }
             >
               Namju
             </li>
             <li
               name="Jeongdo"
               onClick={handleNameClick}
-              className={selectedName === 'Jeongdo' && 'active'}
+              className={
+                selectedName === 'Jeongdo' ? 'memberItem active' : 'memberItem'
+              }
             >
               Jeongdo
             </li>
             <li
               name="Chungkyu"
               onClick={handleNameClick}
-              className={selectedName === 'Chungkyu' && 'active'}
+              className={
+                selectedName === 'Chungkyu' ? 'memberItem active' : 'memberItem'
+              }
             >
               Chungkyu
             </li>
             <li
               name="Hyeongtaek"
               onClick={handleNameClick}
-              className={selectedName === 'Hyeongtaek' && 'active'}
+              className={
+                selectedName === 'Hyeongtaek'
+                  ? 'memberItem active'
+                  : 'memberItem'
+              }
             >
               Hyeongtaek
             </li>
             <li
               name="Jiyeon"
               onClick={handleNameClick}
-              className={selectedName === 'Jiyeon' && 'active'}
+              className={
+                selectedName === 'Jiyeon' ? 'memberItem active' : 'memberItem'
+              }
             >
               Jiyeon
             </li>
             <li
               name="Changhyun"
               onClick={handleNameClick}
-              className={selectedName === 'Changhyun' && 'active'}
+              className={
+                selectedName === 'Changhyun'
+                  ? 'memberItem active'
+                  : 'memberItem'
+              }
             >
               Changhyun
             </li>
@@ -108,7 +124,9 @@ const AboutUs = () => {
         </nav>
         <section className="memberStoryWrap">
           <div
-            className={selectedName === '' ? 'emptyStory active' : 'emptyStory'}
+            className={
+              selectedName === 'empty' ? 'emptyStory active' : 'emptyStory'
+            }
           >
             <p className="emptyStoryP">Select a name above!</p>
           </div>
