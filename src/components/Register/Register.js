@@ -57,9 +57,9 @@ function Register() {
 
           <div className="registerInputWrapper">
             <div className="firstNameWrapper">
-              {REGISTER_FORM_DATA.map((data, index) => (
+              {REGISTER_FORM_DATA.map(data => (
                 <RegisterForm
-                  key={index}
+                  key={data.id}
                   list={data}
                   registerInfo={registerInfo}
                   setRegisterInfo={setRegisterInfo}

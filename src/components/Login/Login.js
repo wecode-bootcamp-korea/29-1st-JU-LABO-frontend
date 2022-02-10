@@ -47,9 +47,9 @@ function Login() {
           <h1>Login</h1>
 
           <div className="inputWrapper">
-            {LOGIN_FORM_DATA.map((data, index) => (
+            {LOGIN_FORM_DATA.map(data => (
               <InputForm
-                key={index}
+                key={data.id}
                 list={data}
                 loginInfo={loginInfo}
                 setloginInfo={setloginInfo}

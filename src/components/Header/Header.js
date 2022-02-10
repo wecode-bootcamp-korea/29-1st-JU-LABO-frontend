@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 const Header = ({ setIsOpen, isOpen }) => {
   const token = sessionStorage.getItem('login');
   const username = sessionStorage.getItem('username');
+  const location = useLocation();
 
   const openCartModal = () => {
     if (location.pathname !== '/cart') {
@@ -31,14 +32,14 @@ const Header = ({ setIsOpen, isOpen }) => {
           <div className="headerNav">
             <div className="searchWrapper">
               <div className="searchIcon">
-                <i class="fas fa-search" />
+                <i className="fas fa-search" />
               </div>
               <input type="text" placeholder="search for products" />
               <div className="letter">
                 <i className="far fa-envelope" />
               </div>
               <div className="loginSignup">
-                <i class="far fa-user" />
+                <i className="far fa-user" />
                 <div className="clickLoginSignup">
                   <Link to="/login" className="textLink">
                     {token
