@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import CartModal from '../../pages/Cart/CartModal/CartModal';
 import './Header.scss';
 import Category from './Category';
@@ -10,7 +11,9 @@ const Header = ({ setIsOpen, isOpen }) => {
   const username = sessionStorage.getItem('username');
 
   const openCartModal = () => {
-    setIsOpen(prev => !prev);
+    if (location.pathname !== '/cart') {
+      setIsOpen(prev => !prev);
+    }
   };
 
   return (
