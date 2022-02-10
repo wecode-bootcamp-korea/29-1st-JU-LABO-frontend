@@ -2,7 +2,7 @@ export const REGISTER_FORM_DATA = [
   {
     id: 1,
     label: 'Email Address:',
-    name: 'emailaddress',
+    name: 'emailAddress',
     type: 'email',
   },
   {
@@ -14,13 +14,13 @@ export const REGISTER_FORM_DATA = [
   {
     id: 3,
     label: 'Last Name:',
-    name: 'lastname',
+    name: 'lastName',
     type: 'text',
   },
   {
     id: 4,
     label: 'First Name:',
-    name: 'firstname',
+    name: 'firstName',
     type: 'text',
   },
 ];
