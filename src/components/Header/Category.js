@@ -15,8 +15,8 @@ const Category = ({ name }) => {
         />
         <div className="categoryExpandWrapper">
           <div className="categoryExpandHead">{name}</div>
-          {CATEGORY_LIST_DATA.map((data, index) => (
-            <CategoryList key={index} id={index} drinks={data} />
+          {CATEGORY_LIST_DATA.map(data => (
+            <CategoryList key={data.id} drinks={data} />
           ))}
         </div>
       </div>
