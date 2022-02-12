@@ -5,11 +5,11 @@ const ProductDetailContent = ({ productInfo }) => {
   const [imgArr, setImgArr] = useState([]);
   const [selected, setSelected] = useState('');
   useEffect(() => {
-    setImgArr(productInfo.image_ulrs);
-    if (productInfo.image_ulrs) {
-      setSelected(productInfo.image_ulrs[0]);
+    setImgArr(productInfo.image_urls);
+    if (productInfo.image_urls) {
+      setSelected(productInfo.image_urls[0]);
     }
-  }, [setImgArr, productInfo.image_ulrs]);
+  }, [setImgArr, productInfo.image_urls]);
   const selectImage = img => {
     setSelected(img);
   };

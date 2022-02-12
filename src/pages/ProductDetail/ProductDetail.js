@@ -20,17 +20,19 @@ const ProductDetail = ({ isOpen, setIsOpen }) => {
   }, [params.id]);
 
   return (
-    <section className="productDetail">
-      <ProductDetailContent productInfo={productInfo} />
-      <ProductDetailSide
-        productInfo={productInfo}
-        productSize={productSize}
-        setProductInfo={setProductInfo}
-        params={params}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-      />
-    </section>
+    <div className="projectDetailWrap">
+      <section className="productDetail">
+        <ProductDetailContent productInfo={productInfo} />
+        <ProductDetailSide
+          productInfo={productInfo}
+          productSize={productSize}
+          setProductInfo={setProductInfo}
+          params={params}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
+      </section>
+    </div>
   );
 };
 
