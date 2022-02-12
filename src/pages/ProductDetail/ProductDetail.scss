@@ -1,9 +1,15 @@
-.productDetail {
-  display: flex;
-  position: relative;
-  max-width: 1230px;
-  margin: 0 auto;
-  padding-left: 100px;
-  padding-top: 19px;
+.projectDetailWrap {
+  width: 100vw;
   background-color: #f6f8f6;
+
+  .productDetail {
+    display: flex;
+    position: relative;
+    max-width: 1230px;
+    height: 95vh;
+    margin: 0 auto;
+    padding-left: 100px;
+    padding-top: 19px;
+    background-color: #f6f8f6;
+  }
 }

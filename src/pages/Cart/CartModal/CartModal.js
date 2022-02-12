@@ -18,7 +18,7 @@ const CartModal = ({ isOpen, setIsOpen }) => {
       .then(res => {
         setCartItems(res.results);
       });
-  }, []);
+  }, [setCartItems, setIsOpen, isOpen]);
 
   return (
     <div className={isOpen ? 'cartModal on' : 'cartModal'}>
